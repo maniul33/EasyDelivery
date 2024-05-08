@@ -12,9 +12,27 @@ namespace EasyDelivery
 {
     public partial class merchantDashboard : Form
     {
+        private string toDate;
+        private string fromDate;
+
         public merchantDashboard()
         {
             InitializeComponent();
+
+            DateTime today = DateTime.Today;
+
+            toDate = today.ToString("MMM dd, yyyy");
+
+            DateTime firstDayOfMonth = new DateTime(today.Year, today.Month, 01);
+            fromDate = firstDayOfMonth.ToString("MMM dd, yyyy");
+
+            dateBox.Text = fromDate + " - " + toDate;
+
+            name1Label.Text = "ahajajkskkasjajakaka";
+            phone1label.Text = "01889655894";
+            deliveryid1Label.Text = "DT260424GS35M3";
+            price1Label.Text = "265";
+
         }
 
         private void merchantDashboard_Load(object sender, EventArgs e)
@@ -64,7 +82,22 @@ namespace EasyDelivery
 
         private void newDeliveryButton_Click(object sender, EventArgs e)
         {
-            panel8.Visible = false;
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
