@@ -57,7 +57,31 @@
             calenderIcon = new PictureBox();
             panel6 = new Panel();
             panel7 = new Panel();
-            panel11 = new Panel();
+            oftPanel4 = new Panel();
+            pictureBox11 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            pictureBox13 = new PictureBox();
+            price4Label = new Label();
+            phone4Label = new Label();
+            deliveryid4Label = new Label();
+            name4Label = new Label();
+            oftPanel2 = new Panel();
+            pictureBox8 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            price2Label = new Label();
+            phone2Label = new Label();
+            deliveryid2Label = new Label();
+            name2Label = new Label();
+            oftPanel3 = new Panel();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            price3Label = new Label();
+            phone3Label = new Label();
+            deliveryid3Label = new Label();
+            name3Label = new Label();
+            oftPanel1 = new Panel();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -69,30 +93,6 @@
             panel9 = new Panel();
             button1 = new Button();
             label3 = new Label();
-            panel13 = new Panel();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            price3Label = new Label();
-            phone3Label = new Label();
-            deliveryid3Label = new Label();
-            name3Label = new Label();
-            panel12 = new Panel();
-            pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
-            pictureBox10 = new PictureBox();
-            price2Label = new Label();
-            phone2Label = new Label();
-            deliveryid2Label = new Label();
-            name2Label = new Label();
-            panel14 = new Panel();
-            pictureBox11 = new PictureBox();
-            pictureBox12 = new PictureBox();
-            pictureBox13 = new PictureBox();
-            price4Label = new Label();
-            phone4Label = new Label();
-            deliveryid4Label = new Label();
-            name4Label = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
@@ -105,24 +105,24 @@
             ((System.ComponentModel.ISupportInitialize)calenderIcon).BeginInit();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
-            panel11.SuspendLayout();
+            oftPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            oftPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            oftPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            oftPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
-            panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             SuspendLayout();
             // 
             // sidePanel
@@ -157,7 +157,6 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
-            logoutButton.Click += button1_Click_2;
             // 
             // notesButton
             // 
@@ -226,7 +225,6 @@
             newDeliveryButton.Text = "  New Delivery";
             newDeliveryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             newDeliveryButton.UseVisualStyleBackColor = true;
-            newDeliveryButton.Click += newDeliveryButton_Click;
             // 
             // dashboardButton
             // 
@@ -244,7 +242,6 @@
             dashboardButton.Text = "   Dashboard";
             dashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             dashboardButton.UseVisualStyleBackColor = true;
-            dashboardButton.Click += button1_Click_1;
             // 
             // logoPanel
             // 
@@ -273,7 +270,6 @@
             profileButton.Text = " Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
-            profileButton.Click += button1_Click;
             // 
             // profilePicture
             // 
@@ -310,7 +306,6 @@
             pictureBox1.Size = new Size(250, 250);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel3
             // 
@@ -363,7 +358,6 @@
             label1.Size = new Size(303, 34);
             label1.TabIndex = 9;
             label1.Text = "Pending Delivery";
-            label1.Click += label1_Click_1;
             // 
             // panel4
             // 
@@ -395,7 +389,6 @@
             briefStatsLabel.Size = new Size(237, 39);
             briefStatsLabel.TabIndex = 2;
             briefStatsLabel.Text = "Brief Stats";
-            briefStatsLabel.Click += label1_Click;
             // 
             // contextMenuStrip1
             // 
@@ -416,7 +409,6 @@
             dateBox.Size = new Size(325, 39);
             dateBox.TabIndex = 4;
             dateBox.TextAlign = HorizontalAlignment.Center;
-            dateBox.TextChanged += textBox1_TextChanged;
             // 
             // calenderIcon
             // 
@@ -442,31 +434,297 @@
             // 
             panel7.BackColor = SystemColors.ButtonHighlight;
             panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(panel14);
-            panel7.Controls.Add(panel12);
-            panel7.Controls.Add(panel13);
-            panel7.Controls.Add(panel11);
+            panel7.Controls.Add(oftPanel4);
+            panel7.Controls.Add(oftPanel2);
+            panel7.Controls.Add(oftPanel3);
+            panel7.Controls.Add(oftPanel1);
             panel7.Location = new Point(325, 410);
             panel7.Name = "panel7";
             panel7.Size = new Size(959, 353);
             panel7.TabIndex = 7;
             // 
-            // panel11
+            // oftPanel4
             // 
-            panel11.BorderStyle = BorderStyle.FixedSingle;
-            panel11.Controls.Add(pictureBox4);
-            panel11.Controls.Add(pictureBox3);
-            panel11.Controls.Add(pictureBox2);
-            panel11.Controls.Add(price1Label);
-            panel11.Controls.Add(phone1label);
-            panel11.Controls.Add(deliveryid1Label);
-            panel11.Controls.Add(name1Label);
-            panel11.Cursor = Cursors.Hand;
-            panel11.Location = new Point(11, 19);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(438, 154);
-            panel11.TabIndex = 0;
-            panel11.Paint += panel11_Paint;
+            oftPanel4.BorderStyle = BorderStyle.FixedSingle;
+            oftPanel4.Controls.Add(pictureBox11);
+            oftPanel4.Controls.Add(pictureBox12);
+            oftPanel4.Controls.Add(pictureBox13);
+            oftPanel4.Controls.Add(price4Label);
+            oftPanel4.Controls.Add(phone4Label);
+            oftPanel4.Controls.Add(deliveryid4Label);
+            oftPanel4.Controls.Add(name4Label);
+            oftPanel4.Cursor = Cursors.Hand;
+            oftPanel4.Location = new Point(510, 188);
+            oftPanel4.Name = "oftPanel4";
+            oftPanel4.Size = new Size(438, 154);
+            oftPanel4.TabIndex = 6;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
+            pictureBox11.InitialImage = (Image)resources.GetObject("pictureBox11.InitialImage");
+            pictureBox11.Location = new Point(281, 100);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(20, 20);
+            pictureBox11.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox11.TabIndex = 6;
+            pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
+            pictureBox12.InitialImage = (Image)resources.GetObject("pictureBox12.InitialImage");
+            pictureBox12.Location = new Point(18, 40);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(20, 20);
+            pictureBox12.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox12.TabIndex = 5;
+            pictureBox12.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.InitialImage = (Image)resources.GetObject("pictureBox13.InitialImage");
+            pictureBox13.Location = new Point(281, 40);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(20, 20);
+            pictureBox13.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox13.TabIndex = 4;
+            pictureBox13.TabStop = false;
+            // 
+            // price4Label
+            // 
+            price4Label.AutoSize = true;
+            price4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price4Label.Location = new Point(305, 100);
+            price4Label.Name = "price4Label";
+            price4Label.Size = new Size(69, 19);
+            price4Label.TabIndex = 3;
+            price4Label.Text = "price4";
+            // 
+            // phone4Label
+            // 
+            phone4Label.AutoSize = true;
+            phone4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            phone4Label.Location = new Point(305, 40);
+            phone4Label.Name = "phone4Label";
+            phone4Label.Size = new Size(69, 19);
+            phone4Label.TabIndex = 2;
+            phone4Label.Text = "phone4";
+            // 
+            // deliveryid4Label
+            // 
+            deliveryid4Label.AutoSize = true;
+            deliveryid4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deliveryid4Label.Location = new Point(18, 100);
+            deliveryid4Label.Name = "deliveryid4Label";
+            deliveryid4Label.Size = new Size(119, 19);
+            deliveryid4Label.TabIndex = 1;
+            deliveryid4Label.Text = "deliveryid4";
+            // 
+            // name4Label
+            // 
+            name4Label.AutoSize = true;
+            name4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            name4Label.Location = new Point(41, 41);
+            name4Label.Name = "name4Label";
+            name4Label.Size = new Size(59, 19);
+            name4Label.TabIndex = 0;
+            name4Label.Text = "name4";
+            // 
+            // oftPanel2
+            // 
+            oftPanel2.BorderStyle = BorderStyle.FixedSingle;
+            oftPanel2.Controls.Add(pictureBox8);
+            oftPanel2.Controls.Add(pictureBox9);
+            oftPanel2.Controls.Add(pictureBox10);
+            oftPanel2.Controls.Add(price2Label);
+            oftPanel2.Controls.Add(phone2Label);
+            oftPanel2.Controls.Add(deliveryid2Label);
+            oftPanel2.Controls.Add(name2Label);
+            oftPanel2.Cursor = Cursors.Hand;
+            oftPanel2.Location = new Point(510, 19);
+            oftPanel2.Name = "oftPanel2";
+            oftPanel2.Size = new Size(438, 154);
+            oftPanel2.TabIndex = 5;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.InitialImage = (Image)resources.GetObject("pictureBox8.InitialImage");
+            pictureBox8.Location = new Point(281, 100);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(20, 20);
+            pictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox8.TabIndex = 6;
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.InitialImage = (Image)resources.GetObject("pictureBox9.InitialImage");
+            pictureBox9.Location = new Point(18, 40);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(20, 20);
+            pictureBox9.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox9.TabIndex = 5;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.InitialImage = (Image)resources.GetObject("pictureBox10.InitialImage");
+            pictureBox10.Location = new Point(281, 40);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(20, 20);
+            pictureBox10.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox10.TabIndex = 4;
+            pictureBox10.TabStop = false;
+            // 
+            // price2Label
+            // 
+            price2Label.AutoSize = true;
+            price2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price2Label.Location = new Point(305, 100);
+            price2Label.Name = "price2Label";
+            price2Label.Size = new Size(69, 19);
+            price2Label.TabIndex = 3;
+            price2Label.Text = "price2";
+            // 
+            // phone2Label
+            // 
+            phone2Label.AutoSize = true;
+            phone2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            phone2Label.Location = new Point(305, 40);
+            phone2Label.Name = "phone2Label";
+            phone2Label.Size = new Size(69, 19);
+            phone2Label.TabIndex = 2;
+            phone2Label.Text = "phone2";
+            // 
+            // deliveryid2Label
+            // 
+            deliveryid2Label.AutoSize = true;
+            deliveryid2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deliveryid2Label.Location = new Point(18, 100);
+            deliveryid2Label.Name = "deliveryid2Label";
+            deliveryid2Label.Size = new Size(119, 19);
+            deliveryid2Label.TabIndex = 1;
+            deliveryid2Label.Text = "deliveryid2";
+            // 
+            // name2Label
+            // 
+            name2Label.AutoSize = true;
+            name2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            name2Label.Location = new Point(41, 41);
+            name2Label.Name = "name2Label";
+            name2Label.Size = new Size(59, 19);
+            name2Label.TabIndex = 0;
+            name2Label.Text = "name2";
+            // 
+            // oftPanel3
+            // 
+            oftPanel3.BorderStyle = BorderStyle.FixedSingle;
+            oftPanel3.Controls.Add(pictureBox5);
+            oftPanel3.Controls.Add(pictureBox6);
+            oftPanel3.Controls.Add(pictureBox7);
+            oftPanel3.Controls.Add(price3Label);
+            oftPanel3.Controls.Add(phone3Label);
+            oftPanel3.Controls.Add(deliveryid3Label);
+            oftPanel3.Controls.Add(name3Label);
+            oftPanel3.Cursor = Cursors.Hand;
+            oftPanel3.Location = new Point(11, 188);
+            oftPanel3.Name = "oftPanel3";
+            oftPanel3.Size = new Size(438, 154);
+            oftPanel3.TabIndex = 4;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.InitialImage = (Image)resources.GetObject("pictureBox5.InitialImage");
+            pictureBox5.Location = new Point(281, 100);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(20, 20);
+            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.InitialImage = (Image)resources.GetObject("pictureBox6.InitialImage");
+            pictureBox6.Location = new Point(18, 40);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(20, 20);
+            pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox6.TabIndex = 5;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.InitialImage = (Image)resources.GetObject("pictureBox7.InitialImage");
+            pictureBox7.Location = new Point(281, 40);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(20, 20);
+            pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox7.TabIndex = 4;
+            pictureBox7.TabStop = false;
+            // 
+            // price3Label
+            // 
+            price3Label.AutoSize = true;
+            price3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            price3Label.Location = new Point(305, 100);
+            price3Label.Name = "price3Label";
+            price3Label.Size = new Size(69, 19);
+            price3Label.TabIndex = 3;
+            price3Label.Text = "price3";
+            // 
+            // phone3Label
+            // 
+            phone3Label.AutoSize = true;
+            phone3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            phone3Label.Location = new Point(305, 40);
+            phone3Label.Name = "phone3Label";
+            phone3Label.Size = new Size(69, 19);
+            phone3Label.TabIndex = 2;
+            phone3Label.Text = "phone3";
+            // 
+            // deliveryid3Label
+            // 
+            deliveryid3Label.AutoSize = true;
+            deliveryid3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deliveryid3Label.Location = new Point(18, 100);
+            deliveryid3Label.Name = "deliveryid3Label";
+            deliveryid3Label.Size = new Size(119, 19);
+            deliveryid3Label.TabIndex = 1;
+            deliveryid3Label.Text = "deliveryid3";
+            // 
+            // name3Label
+            // 
+            name3Label.AutoSize = true;
+            name3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            name3Label.Location = new Point(41, 41);
+            name3Label.Name = "name3Label";
+            name3Label.Size = new Size(59, 19);
+            name3Label.TabIndex = 0;
+            name3Label.Text = "name3";
+            // 
+            // oftPanel1
+            // 
+            oftPanel1.BorderStyle = BorderStyle.FixedSingle;
+            oftPanel1.Controls.Add(pictureBox4);
+            oftPanel1.Controls.Add(pictureBox3);
+            oftPanel1.Controls.Add(pictureBox2);
+            oftPanel1.Controls.Add(price1Label);
+            oftPanel1.Controls.Add(phone1label);
+            oftPanel1.Controls.Add(deliveryid1Label);
+            oftPanel1.Controls.Add(name1Label);
+            oftPanel1.Cursor = Cursors.Hand;
+            oftPanel1.Location = new Point(11, 19);
+            oftPanel1.Name = "oftPanel1";
+            oftPanel1.Size = new Size(438, 154);
+            oftPanel1.TabIndex = 0;
             // 
             // pictureBox4
             // 
@@ -590,273 +848,6 @@
             label3.TabIndex = 9;
             label3.Text = "Out for Delivery";
             // 
-            // panel13
-            // 
-            panel13.BorderStyle = BorderStyle.FixedSingle;
-            panel13.Controls.Add(pictureBox5);
-            panel13.Controls.Add(pictureBox6);
-            panel13.Controls.Add(pictureBox7);
-            panel13.Controls.Add(price3Label);
-            panel13.Controls.Add(phone3Label);
-            panel13.Controls.Add(deliveryid3Label);
-            panel13.Controls.Add(name3Label);
-            panel13.Cursor = Cursors.Hand;
-            panel13.Location = new Point(11, 188);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(438, 154);
-            panel13.TabIndex = 4;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.InitialImage = (Image)resources.GetObject("pictureBox5.InitialImage");
-            pictureBox5.Location = new Point(281, 100);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(20, 20);
-            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox5.TabIndex = 6;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.InitialImage = (Image)resources.GetObject("pictureBox6.InitialImage");
-            pictureBox6.Location = new Point(18, 40);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(20, 20);
-            pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox6.TabIndex = 5;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.InitialImage = (Image)resources.GetObject("pictureBox7.InitialImage");
-            pictureBox7.Location = new Point(281, 40);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(20, 20);
-            pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox7.TabIndex = 4;
-            pictureBox7.TabStop = false;
-            // 
-            // price3Label
-            // 
-            price3Label.AutoSize = true;
-            price3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            price3Label.Location = new Point(305, 100);
-            price3Label.Name = "price3Label";
-            price3Label.Size = new Size(69, 19);
-            price3Label.TabIndex = 3;
-            price3Label.Text = "price3";
-            // 
-            // phone3Label
-            // 
-            phone3Label.AutoSize = true;
-            phone3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            phone3Label.Location = new Point(305, 40);
-            phone3Label.Name = "phone3Label";
-            phone3Label.Size = new Size(69, 19);
-            phone3Label.TabIndex = 2;
-            phone3Label.Text = "phone3";
-            // 
-            // deliveryid3Label
-            // 
-            deliveryid3Label.AutoSize = true;
-            deliveryid3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deliveryid3Label.Location = new Point(18, 100);
-            deliveryid3Label.Name = "deliveryid3Label";
-            deliveryid3Label.Size = new Size(119, 19);
-            deliveryid3Label.TabIndex = 1;
-            deliveryid3Label.Text = "deliveryid3";
-            // 
-            // name3Label
-            // 
-            name3Label.AutoSize = true;
-            name3Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            name3Label.Location = new Point(41, 41);
-            name3Label.Name = "name3Label";
-            name3Label.Size = new Size(59, 19);
-            name3Label.TabIndex = 0;
-            name3Label.Text = "name3";
-            // 
-            // panel12
-            // 
-            panel12.BorderStyle = BorderStyle.FixedSingle;
-            panel12.Controls.Add(pictureBox8);
-            panel12.Controls.Add(pictureBox9);
-            panel12.Controls.Add(pictureBox10);
-            panel12.Controls.Add(price2Label);
-            panel12.Controls.Add(phone2Label);
-            panel12.Controls.Add(deliveryid2Label);
-            panel12.Controls.Add(name2Label);
-            panel12.Cursor = Cursors.Hand;
-            panel12.Location = new Point(510, 19);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(438, 154);
-            panel12.TabIndex = 5;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.InitialImage = (Image)resources.GetObject("pictureBox8.InitialImage");
-            pictureBox8.Location = new Point(281, 100);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(20, 20);
-            pictureBox8.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox8.TabIndex = 6;
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.InitialImage = (Image)resources.GetObject("pictureBox9.InitialImage");
-            pictureBox9.Location = new Point(18, 40);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(20, 20);
-            pictureBox9.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox9.TabIndex = 5;
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.InitialImage = (Image)resources.GetObject("pictureBox10.InitialImage");
-            pictureBox10.Location = new Point(281, 40);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(20, 20);
-            pictureBox10.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox10.TabIndex = 4;
-            pictureBox10.TabStop = false;
-            // 
-            // price2Label
-            // 
-            price2Label.AutoSize = true;
-            price2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            price2Label.Location = new Point(305, 100);
-            price2Label.Name = "price2Label";
-            price2Label.Size = new Size(69, 19);
-            price2Label.TabIndex = 3;
-            price2Label.Text = "price2";
-            // 
-            // phone2Label
-            // 
-            phone2Label.AutoSize = true;
-            phone2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            phone2Label.Location = new Point(305, 40);
-            phone2Label.Name = "phone2Label";
-            phone2Label.Size = new Size(69, 19);
-            phone2Label.TabIndex = 2;
-            phone2Label.Text = "phone2";
-            // 
-            // deliveryid2Label
-            // 
-            deliveryid2Label.AutoSize = true;
-            deliveryid2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deliveryid2Label.Location = new Point(18, 100);
-            deliveryid2Label.Name = "deliveryid2Label";
-            deliveryid2Label.Size = new Size(119, 19);
-            deliveryid2Label.TabIndex = 1;
-            deliveryid2Label.Text = "deliveryid2";
-            // 
-            // name2Label
-            // 
-            name2Label.AutoSize = true;
-            name2Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            name2Label.Location = new Point(41, 41);
-            name2Label.Name = "name2Label";
-            name2Label.Size = new Size(59, 19);
-            name2Label.TabIndex = 0;
-            name2Label.Text = "name2";
-            // 
-            // panel14
-            // 
-            panel14.BorderStyle = BorderStyle.FixedSingle;
-            panel14.Controls.Add(pictureBox11);
-            panel14.Controls.Add(pictureBox12);
-            panel14.Controls.Add(pictureBox13);
-            panel14.Controls.Add(price4Label);
-            panel14.Controls.Add(phone4Label);
-            panel14.Controls.Add(deliveryid4Label);
-            panel14.Controls.Add(name4Label);
-            panel14.Cursor = Cursors.Hand;
-            panel14.Location = new Point(510, 188);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(438, 154);
-            panel14.TabIndex = 6;
-            // 
-            // pictureBox11
-            // 
-            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.InitialImage = (Image)resources.GetObject("pictureBox11.InitialImage");
-            pictureBox11.Location = new Point(281, 100);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(20, 20);
-            pictureBox11.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox11.TabIndex = 6;
-            pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
-            pictureBox12.InitialImage = (Image)resources.GetObject("pictureBox12.InitialImage");
-            pictureBox12.Location = new Point(18, 40);
-            pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(20, 20);
-            pictureBox12.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox12.TabIndex = 5;
-            pictureBox12.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
-            pictureBox13.InitialImage = (Image)resources.GetObject("pictureBox13.InitialImage");
-            pictureBox13.Location = new Point(281, 40);
-            pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(20, 20);
-            pictureBox13.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox13.TabIndex = 4;
-            pictureBox13.TabStop = false;
-            // 
-            // price4Label
-            // 
-            price4Label.AutoSize = true;
-            price4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            price4Label.Location = new Point(305, 100);
-            price4Label.Name = "price4Label";
-            price4Label.Size = new Size(69, 19);
-            price4Label.TabIndex = 3;
-            price4Label.Text = "price4";
-            // 
-            // phone4Label
-            // 
-            phone4Label.AutoSize = true;
-            phone4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            phone4Label.Location = new Point(305, 40);
-            phone4Label.Name = "phone4Label";
-            phone4Label.Size = new Size(69, 19);
-            phone4Label.TabIndex = 2;
-            phone4Label.Text = "phone4";
-            // 
-            // deliveryid4Label
-            // 
-            deliveryid4Label.AutoSize = true;
-            deliveryid4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deliveryid4Label.Location = new Point(18, 100);
-            deliveryid4Label.Name = "deliveryid4Label";
-            deliveryid4Label.Size = new Size(119, 19);
-            deliveryid4Label.TabIndex = 1;
-            deliveryid4Label.Text = "deliveryid4";
-            // 
-            // name4Label
-            // 
-            name4Label.AutoSize = true;
-            name4Label.Font = new Font("Lucida Sans Typewriter", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            name4Label.Location = new Point(41, 41);
-            name4Label.Name = "name4Label";
-            name4Label.Size = new Size(59, 19);
-            name4Label.TabIndex = 0;
-            name4Label.Text = "name4";
-            // 
             // merchantDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -873,7 +864,6 @@
             Name = "merchantDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard - Merchant";
-            Load += merchantDashboard_Load;
             sidePanel.ResumeLayout(false);
             logoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
@@ -890,29 +880,29 @@
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel7.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
+            oftPanel4.ResumeLayout(false);
+            oftPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            oftPanel2.ResumeLayout(false);
+            oftPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            oftPanel3.ResumeLayout(false);
+            oftPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            oftPanel1.ResumeLayout(false);
+            oftPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel8.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            panel14.ResumeLayout(false);
-            panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -950,7 +940,7 @@
         private Panel panel10;
         private Label label4;
         private Button button1;
-        private Panel panel11;
+        private Panel oftPanel1;
         private Label name1Label;
         private Label price1Label;
         private Label phone1label;
@@ -958,7 +948,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
-        private Panel panel14;
+        private Panel oftPanel4;
         private PictureBox pictureBox11;
         private PictureBox pictureBox12;
         private PictureBox pictureBox13;
@@ -966,7 +956,7 @@
         private Label phone4Label;
         private Label deliveryid4Label;
         private Label name4Label;
-        private Panel panel12;
+        private Panel oftPanel2;
         private PictureBox pictureBox8;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
@@ -974,7 +964,7 @@
         private Label phone2Label;
         private Label deliveryid2Label;
         private Label name2Label;
-        private Panel panel13;
+        private Panel oftPanel3;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private PictureBox pictureBox7;
