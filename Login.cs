@@ -15,6 +15,7 @@ namespace EasyDelivery
 {
     public partial class Login : Form
     {
+        public string retrievedID;
         public Login()
         {
             InitializeComponent();
@@ -125,7 +126,7 @@ namespace EasyDelivery
                             {
                                 if (readerMerchant.Read())
                                 {
-                                    string retrievedID = readerMerchant["store_id"].ToString();
+                                    retrievedID = readerMerchant["store_id"].ToString();
                                     MessageBox.Show(retrievedID);
                                     // Redirect to Merchant Dashboard
                                     //new merchantDashboard(retrievedID).Show();
