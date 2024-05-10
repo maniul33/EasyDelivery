@@ -35,8 +35,20 @@
             riderDelivery_button = new Button();
             riderProfile_button = new Button();
             riderDashboard_button = new Button();
+            panel2 = new Panel();
+            area_comboBox = new ComboBox();
+            label1 = new Label();
+            panel3 = new Panel();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            deliverylist_panel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -122,18 +134,128 @@
             riderDashboard_button.TextImageRelation = TextImageRelation.ImageBeforeText;
             riderDashboard_button.UseVisualStyleBackColor = false;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(area_comboBox);
+            panel2.Location = new Point(276, 17);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(369, 80);
+            panel2.TabIndex = 1;
+            // 
+            // area_comboBox
+            // 
+            area_comboBox.FormattingEnabled = true;
+            area_comboBox.Location = new Point(18, 40);
+            area_comboBox.Name = "area_comboBox";
+            area_comboBox.Size = new Size(271, 23);
+            area_comboBox.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(19, 39, 71);
+            label1.Location = new Point(18, 11);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 24);
+            label1.TabIndex = 1;
+            label1.Text = "Area";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(label6);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(label2);
+            panel3.Location = new Point(253, 119);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1090, 47);
+            panel3.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(19, 39, 71);
+            label2.Location = new Point(32, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 19);
+            label2.TabIndex = 0;
+            label2.Text = "Delivery ID";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(19, 39, 71);
+            label3.Location = new Point(258, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(54, 19);
+            label3.TabIndex = 1;
+            label3.Text = "Store";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(19, 39, 71);
+            label4.Location = new Point(464, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 19);
+            label4.TabIndex = 2;
+            label4.Text = "Customer Info";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(19, 39, 71);
+            label5.Location = new Point(736, 16);
+            label5.Name = "label5";
+            label5.Size = new Size(63, 19);
+            label5.TabIndex = 3;
+            label5.Text = "Status";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label6.ForeColor = Color.FromArgb(19, 39, 71);
+            label6.Location = new Point(942, 16);
+            label6.Name = "label6";
+            label6.Size = new Size(63, 19);
+            label6.TabIndex = 4;
+            label6.Text = "Amount";
+            label6.Click += label6_Click;
+            // 
+            // deliverylist_panel
+            // 
+            deliverylist_panel.Location = new Point(253, 183);
+            deliverylist_panel.Name = "deliverylist_panel";
+            deliverylist_panel.Size = new Size(1090, 545);
+            deliverylist_panel.TabIndex = 3;
+            // 
             // riderDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1364, 749);
+            Controls.Add(deliverylist_panel);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "riderDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard-Rider";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -145,5 +267,15 @@
         private Button riderProfile_button;
         private PictureBox pictureBox1;
         private Button button1;
+        private Panel panel2;
+        private ComboBox area_comboBox;
+        private Label label1;
+        private Panel panel3;
+        private Label label2;
+        private Label label3;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Panel deliverylist_panel;
     }
 }

@@ -18,13 +18,20 @@ namespace EasyDelivery
             InitializeComponent();
         }
 
-       
-        
+         
+
+
+
 
         private void riderDelivery_button_Click(object sender, EventArgs e)
         {
             new riderDeliveries().Show();
             this.Hide();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

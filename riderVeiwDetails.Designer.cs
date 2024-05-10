@@ -55,6 +55,7 @@
             panel4 = new Panel();
             label4 = new Label();
             panel5 = new Panel();
+            noteSave_button = new Button();
             note_txtbox = new TextBox();
             label6 = new Label();
             panel1.SuspendLayout();
@@ -114,6 +115,7 @@
             riderDelivery_button.Text = "  Deliveries";
             riderDelivery_button.TextImageRelation = TextImageRelation.ImageBeforeText;
             riderDelivery_button.UseVisualStyleBackColor = true;
+            riderDelivery_button.Click += riderDelivery_button_Click;
             // 
             // riderProfile_button
             // 
@@ -155,7 +157,7 @@
             panel3.Font = new Font("Consolas", 12F, FontStyle.Bold);
             panel3.Location = new Point(277, 25);
             panel3.Name = "panel3";
-            panel3.Size = new Size(426, 53);
+            panel3.Size = new Size(499, 53);
             panel3.TabIndex = 7;
             // 
             // label_ID
@@ -167,6 +169,7 @@
             label_ID.Size = new Size(72, 19);
             label_ID.TabIndex = 1;
             label_ID.Text = "labelID";
+            label_ID.Click += label_ID_Click;
             // 
             // label1
             // 
@@ -197,14 +200,14 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(277, 119);
             panel2.Name = "panel2";
-            panel2.Size = new Size(426, 255);
+            panel2.Size = new Size(499, 255);
             panel2.TabIndex = 8;
             // 
             // label_zip
             // 
             label_zip.AutoSize = true;
             label_zip.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_zip.Location = new Point(268, 183);
+            label_zip.Location = new Point(347, 183);
             label_zip.Name = "label_zip";
             label_zip.Size = new Size(29, 20);
             label_zip.TabIndex = 12;
@@ -215,7 +218,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(268, 147);
+            label13.Location = new Point(345, 147);
             label13.Name = "label13";
             label13.Size = new Size(31, 20);
             label13.TabIndex = 11;
@@ -226,7 +229,7 @@
             label_street.AutoSize = true;
             label_street.BackColor = Color.White;
             label_street.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_street.Location = new Point(131, 183);
+            label_street.Location = new Point(165, 183);
             label_street.Name = "label_street";
             label_street.Size = new Size(46, 20);
             label_street.TabIndex = 10;
@@ -237,7 +240,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.ControlDarkDark;
-            label11.Location = new Point(131, 148);
+            label11.Location = new Point(165, 148);
             label11.Name = "label11";
             label11.Size = new Size(48, 20);
             label11.TabIndex = 9;
@@ -268,7 +271,7 @@
             // 
             label_district.AutoSize = true;
             label_district.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_district.Location = new Point(268, 85);
+            label_district.Location = new Point(345, 81);
             label_district.Name = "label_district";
             label_district.Size = new Size(54, 20);
             label_district.TabIndex = 6;
@@ -279,7 +282,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.ControlDarkDark;
-            label7.Location = new Point(268, 47);
+            label7.Location = new Point(345, 47);
             label7.Name = "label7";
             label7.Size = new Size(56, 20);
             label7.TabIndex = 5;
@@ -289,7 +292,7 @@
             // 
             label_phoneNo.AutoSize = true;
             label_phoneNo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_phoneNo.Location = new Point(125, 81);
+            label_phoneNo.Location = new Point(171, 81);
             label_phoneNo.Name = "label_phoneNo";
             label_phoneNo.Size = new Size(71, 20);
             label_phoneNo.TabIndex = 4;
@@ -300,7 +303,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(125, 46);
+            label5.Location = new Point(165, 47);
             label5.Name = "label5";
             label5.Size = new Size(77, 20);
             label5.TabIndex = 3;
@@ -342,9 +345,9 @@
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(738, 119);
+            panel4.Location = new Point(812, 119);
             panel4.Name = "panel4";
-            panel4.Size = new Size(330, 132);
+            panel4.Size = new Size(416, 142);
             panel4.TabIndex = 9;
             // 
             // label4
@@ -361,20 +364,38 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
+            panel5.Controls.Add(noteSave_button);
             panel5.Controls.Add(note_txtbox);
             panel5.Controls.Add(label6);
             panel5.Location = new Point(279, 395);
             panel5.Name = "panel5";
-            panel5.Size = new Size(424, 100);
+            panel5.Size = new Size(497, 188);
             panel5.TabIndex = 10;
+            // 
+            // noteSave_button
+            // 
+            noteSave_button.BackColor = Color.FromArgb(19, 39, 71);
+            noteSave_button.FlatStyle = FlatStyle.Flat;
+            noteSave_button.Font = new Font("Arial Narrow", 12F, FontStyle.Bold);
+            noteSave_button.ForeColor = SystemColors.ButtonHighlight;
+            noteSave_button.Location = new Point(147, 128);
+            noteSave_button.Name = "noteSave_button";
+            noteSave_button.Size = new Size(178, 33);
+            noteSave_button.TabIndex = 3;
+            noteSave_button.Text = "save";
+            noteSave_button.UseVisualStyleBackColor = false;
+            noteSave_button.Click += noteSave_button_Click;
             // 
             // note_txtbox
             // 
+            note_txtbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             note_txtbox.Location = new Point(24, 47);
             note_txtbox.Multiline = true;
             note_txtbox.Name = "note_txtbox";
-            note_txtbox.Size = new Size(379, 39);
+            note_txtbox.PlaceholderText = "    Enter a note.";
+            note_txtbox.Size = new Size(446, 49);
             note_txtbox.TabIndex = 2;
+            note_txtbox.TabStop = false;
             // 
             // label6
             // 
@@ -442,5 +463,6 @@
         private Panel panel5;
         private TextBox note_txtbox;
         private Label label6;
+        private Button noteSave_button;
     }
 }
