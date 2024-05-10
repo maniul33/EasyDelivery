@@ -242,6 +242,7 @@
             dashboardButton.Text = "   Dashboard";
             dashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             dashboardButton.UseVisualStyleBackColor = true;
+            //dashboardButton.Click += dashboardButton_Click;
             // 
             // logoPanel
             // 

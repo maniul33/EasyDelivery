@@ -1,4 +1,6 @@
-﻿using System;
+﻿using com.sun.org.apache.bcel.@internal.generic;
+using javax.xml.crypto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,86 +96,84 @@ namespace EasyDelivery
         {
             try
             {
-                string matchedId = null; // Variable to store matched ID
-
                 if (userCredentialTextBox.Text == "admin" && userPasswordTextBox.Text == "admin")
                 {
-                    // Handle admin login here
+                    //new AdminDashboard().Show();
+                    //this.Hide();
                 }
                 else
                 {
-                    //1. Address of SQL Server and Database.
                     string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
-
-                    //2. Establish Connection.
                     using (SqlConnection conn = new SqlConnection(connection))
                     {
-                        //3. Open Connection.
                         conn.Open();
-
-                        //4. Prepare Query.
-                        string cred = userCredentialTextBox.Text;
+                        string credential = userCredentialTextBox.Text;
                         string password = userPasswordTextBox.Text;
 
-                        // Check if the credentials match any record in the merchant table
-                        string merchantQuery = "SELECT store_id FROM merchant WHERE (email = @Email OR number = @Number) AND password = @Password;";
-                        using (SqlCommand cmd = new SqlCommand(merchantQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Email", cred);
-                            cmd.Parameters.AddWithValue("@Number", cred);
-                            cmd.Parameters.AddWithValue("@Password", password);
 
-                            object merchantId = cmd.ExecuteScalar();
-                            if (merchantId != null)
+                        string queryMerchant = "SELECT TOP 1 store_id FROM merchant WHERE (email = @Email OR number = @Number) AND password = @Password;";
+                        string queryRider = "SELECT TOP 1 rider_id FROM rider WHERE (email = @Email OR number = @Number) AND rider_password = @Password;";
+
+                        using (SqlCommand cmdMerchant = new SqlCommand(queryMerchant, conn))
+                        using (SqlCommand cmdRider = new SqlCommand(queryRider, conn))
+                        {
+                            cmdMerchant.Parameters.AddWithValue("@Email", credential);
+                            cmdMerchant.Parameters.AddWithValue("@Number", credential);
+                            cmdMerchant.Parameters.AddWithValue("@Password", password);
+
+                            using (SqlDataReader readerMerchant = cmdMerchant.ExecuteReader())
                             {
-                                matchedId = merchantId.ToString(); // Store matched ID
+                                if (readerMerchant.Read())
+                                {
+                                    string retrievedID = readerMerchant["store_id"].ToString();
+                                    MessageBox.Show(retrievedID);
+                                    // Redirect to Merchant Dashboard
+                                    //new merchantDashboard(retrievedID).Show();
+                                    // this.Hide();
+                                }
+                                else // If no record found in merchant table, check rider table
+                                {
+                                    readerMerchant.Close(); // Close the reader for merchant table
+
+                                    // Clear parameters from cmdMerchant and reuse them for cmdRider
+                                    cmdMerchant.Parameters.Clear();
+
+                                    cmdRider.Parameters.AddWithValue("@Email", credential);
+                                    cmdRider.Parameters.AddWithValue("@Number", credential);
+                                    cmdRider.Parameters.AddWithValue("@Password", password);
+
+                                    using (SqlDataReader readerRider = cmdRider.ExecuteReader())
+                                    {
+                                        if (readerRider.Read())
+                                        {
+                                            string retrievedID = readerRider["rider_id"].ToString();
+                                            MessageBox.Show(retrievedID);
+                                            // Redirect to Rider Dashboard
+                                            // new RiderDashboard().Show();
+                                            // this.Hide();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Incorrect email or password. Please try again.");
+                                        }
+                                    }
+                                }
                             }
                         }
 
-                        // Check if the credentials match any record in the rider table
-                        string riderQuery = "SELECT rider_id FROM rider WHERE (email = @Email OR number = @Number) AND rider_password = @Password;";
-                        using (SqlCommand cmd = new SqlCommand(riderQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Email", cred);
-                            cmd.Parameters.AddWithValue("@Number", cred);
-                            cmd.Parameters.AddWithValue("@Password", password);
 
-                            object riderId = cmd.ExecuteScalar();
-                            if (riderId != null)
-                            {
-                                matchedId = riderId.ToString(); // Store matched ID
-                            }
-                        }
 
-                        if (!string.IsNullOrEmpty(matchedId))
-                        {
-                            // If matched ID starts with STR, redirect to Merchant Dashboard
-                            if (matchedId.StartsWith("STR"))
-                            {
-                                //new merchantDashboard(matchedId).Show();
-                                this.Hide();
-                                return;
-                            }
-                            // If matched ID starts with RDR, redirect to Rider Dashboard
-                            else if (matchedId.StartsWith("RDR"))
-                            {
-                                //new RiderDashboard().Show();
-                                //this.Hide();
-                                //return;
-                            }
-                        }
-
-                        // If credentials do not match any record in either table
-                        MessageBox.Show("Incorrect email or password. Please try again.");
+                        conn.Close();
                     }
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
-        }
 
+        }
 
     }
 }

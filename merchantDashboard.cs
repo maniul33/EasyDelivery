@@ -106,5 +106,10 @@ namespace EasyDelivery
 
             setOfts(deliveries);
         }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
