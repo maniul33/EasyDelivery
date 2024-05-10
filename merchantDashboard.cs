@@ -90,25 +90,10 @@ namespace EasyDelivery
             }
             else
             {
-                name1Label.Text = "";
-                phone1label.Text = "";
-                deliveryid1Label.Text = "";
-                price1Label.Text = "";
-
-                name2Label.Text = "";
-                phone2Label.Text = "";
-                deliveryid2Label.Text = "";
-                price2Label.Text = "";
-
-                name3Label.Text = "";
-                phone3Label.Text = "";
-                deliveryid3Label.Text = "";
-                price3Label.Text = "";
-
-                name4Label.Text = "";
-                phone4Label.Text = "";
-                deliveryid4Label.Text = "";
-                price4Label.Text = "";
+                Label label = new Label();
+                label.Text = "No deliveries to show!";
+                label.TextAlign = ContentAlignment.MiddleCenter; // Center horizontally and vertically
+                label.AutoSize = false;
             }
         }
 
@@ -142,6 +127,11 @@ namespace EasyDelivery
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void merchantDashboard_Load(object sender, EventArgs e)
         {
 
         }

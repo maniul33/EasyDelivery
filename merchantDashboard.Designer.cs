@@ -866,6 +866,7 @@
             Name = "merchantDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard - Merchant";
+            Load += merchantDashboard_Load;
             sidePanel.ResumeLayout(false);
             logoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
