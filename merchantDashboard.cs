@@ -99,5 +99,15 @@ namespace EasyDelivery
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name1Label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

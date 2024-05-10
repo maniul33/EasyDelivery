@@ -59,5 +59,55 @@ namespace EasyDelivery.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _435178119_795721862618047_8546822541438855553_n {
+            get {
+                object obj = ResourceManager.GetObject("435178119_795721862618047_8546822541438855553_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _437316590_412614248190655_6311576414775504443_n {
+            get {
+                object obj = ResourceManager.GetObject("437316590_412614248190655_6311576414775504443_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_image_2 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_image_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_user_2102647 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_user_2102647", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_web_analytics_9660288 {
+            get {
+                object obj = ResourceManager.GetObject("rsz_web-analytics_9660288", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
