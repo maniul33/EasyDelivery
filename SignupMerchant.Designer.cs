@@ -224,7 +224,6 @@
             passwordTextBox.Size = new Size(383, 37);
             passwordTextBox.TabIndex = 26;
             passwordTextBox.Text = "Password";
-            //passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             passwordTextBox.Enter += passwordTextBox_Enter;
             passwordTextBox.Leave += passwordTextBox_Leave;
             // 
@@ -251,7 +250,6 @@
             emailTextBox.Size = new Size(383, 37);
             emailTextBox.TabIndex = 24;
             emailTextBox.Text = "Email address";
-            //emailTextBox.TextChanged += emailTextBox_TextChanged;
             emailTextBox.Enter += emailTextBox_Enter;
             emailTextBox.Leave += emailTextBox_Leave;
             // 
@@ -265,7 +263,7 @@
             storeNameTextBox.Size = new Size(383, 37);
             storeNameTextBox.TabIndex = 23;
             storeNameTextBox.Text = "Store name";
-            //storeNameTextBox.TextChanged += storeNameTextBox_TextChanged;
+            storeNameTextBox.TextChanged += storeNameTextBox_TextChanged;
             storeNameTextBox.Enter += storeNameTextBox_Enter;
             storeNameTextBox.Leave += storeNameTextBox_Leave;
             // 

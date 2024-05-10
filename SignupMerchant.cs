@@ -477,5 +477,10 @@ namespace EasyDelivery
             textBox.Text = placeholder;
             textBox.ForeColor = color;
         }
+
+        private void storeNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

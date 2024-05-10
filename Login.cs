@@ -99,8 +99,8 @@ namespace EasyDelivery
             {
                 if (userCredentialTextBox.Text == "admin" && userPasswordTextBox.Text == "admin")
                 {
-                    //new AdminDashboard().Show();
-                    //this.Hide();
+                    new adminDashboard().Show();
+                    this.Hide();
                 }
                 else
                 {
