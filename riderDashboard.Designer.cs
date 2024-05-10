@@ -36,14 +36,14 @@
             riderProfile_button = new Button();
             riderDashboard_button = new Button();
             panel2 = new Panel();
-            area_comboBox = new ComboBox();
             label1 = new Label();
+            area_comboBox = new ComboBox();
             panel3 = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             deliverylist_panel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -138,18 +138,10 @@
             // 
             panel2.Controls.Add(label1);
             panel2.Controls.Add(area_comboBox);
-            panel2.Location = new Point(276, 17);
+            panel2.Location = new Point(253, 17);
             panel2.Name = "panel2";
-            panel2.Size = new Size(369, 80);
+            panel2.Size = new Size(392, 80);
             panel2.TabIndex = 1;
-            // 
-            // area_comboBox
-            // 
-            area_comboBox.FormattingEnabled = true;
-            area_comboBox.Location = new Point(18, 40);
-            area_comboBox.Name = "area_comboBox";
-            area_comboBox.Size = new Size(271, 23);
-            area_comboBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -161,6 +153,14 @@
             label1.Size = new Size(58, 24);
             label1.TabIndex = 1;
             label1.Text = "Area";
+            // 
+            // area_comboBox
+            // 
+            area_comboBox.FormattingEnabled = true;
+            area_comboBox.Location = new Point(18, 40);
+            area_comboBox.Name = "area_comboBox";
+            area_comboBox.Size = new Size(271, 23);
+            area_comboBox.TabIndex = 0;
             // 
             // panel3
             // 
@@ -174,38 +174,17 @@
             panel3.Size = new Size(1090, 47);
             panel3.TabIndex = 2;
             // 
-            // label2
+            // label6
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(19, 39, 71);
-            label2.Location = new Point(32, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(108, 19);
-            label2.TabIndex = 0;
-            label2.Text = "Delivery ID";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label3.ForeColor = Color.FromArgb(19, 39, 71);
-            label3.Location = new Point(258, 16);
-            label3.Name = "label3";
-            label3.Size = new Size(54, 19);
-            label3.TabIndex = 1;
-            label3.Text = "Store";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label4.ForeColor = Color.FromArgb(19, 39, 71);
-            label4.Location = new Point(464, 16);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 19);
-            label4.TabIndex = 2;
-            label4.Text = "Customer Info";
+            label6.AutoSize = true;
+            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label6.ForeColor = Color.FromArgb(19, 39, 71);
+            label6.Location = new Point(942, 16);
+            label6.Name = "label6";
+            label6.Size = new Size(63, 19);
+            label6.TabIndex = 4;
+            label6.Text = "Amount";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
@@ -218,17 +197,38 @@
             label5.TabIndex = 3;
             label5.Text = "Status";
             // 
-            // label6
+            // label4
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Consolas", 12F, FontStyle.Bold);
-            label6.ForeColor = Color.FromArgb(19, 39, 71);
-            label6.Location = new Point(942, 16);
-            label6.Name = "label6";
-            label6.Size = new Size(63, 19);
-            label6.TabIndex = 4;
-            label6.Text = "Amount";
-            label6.Click += label6_Click;
+            label4.AutoSize = true;
+            label4.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label4.ForeColor = Color.FromArgb(19, 39, 71);
+            label4.Location = new Point(464, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 19);
+            label4.TabIndex = 2;
+            label4.Text = "Customer Info";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Consolas", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(19, 39, 71);
+            label3.Location = new Point(258, 16);
+            label3.Name = "label3";
+            label3.Size = new Size(54, 19);
+            label3.TabIndex = 1;
+            label3.Text = "Store";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(19, 39, 71);
+            label2.Location = new Point(32, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 19);
+            label2.TabIndex = 0;
+            label2.Text = "Delivery ID";
             // 
             // deliverylist_panel
             // 

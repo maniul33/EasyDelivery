@@ -26,7 +26,7 @@ namespace EasyDelivery
         {
             try
             {
-                string connection = "Data Source=DESKTOP-N9N0BK6\\SQLEXPRESS01;Integrated Security=True;";
+                string connection = "Data Source=DESKTOP-N9N0BK6\\SQLEXPRESS01;Initial Catalog=EasyDelivery;Integrated Security=True;";
 
                 //Establish Connection.
                 SqlConnection conn = new SqlConnection(connection);
