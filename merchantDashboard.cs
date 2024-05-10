@@ -42,8 +42,8 @@ namespace EasyDelivery
                         Delivery delivery = new Delivery(
                             reader["DeliveryID"].ToString(),
                             reader["CustomerName"].ToString(),
-                            Convert.ToInt64(reader["CustomerPhone"]),
-                            Convert.ToSingle(reader["AmountToCollect"]),
+                            reader["CustomerPhone"].ToString(),
+                            reader["AmountToCollect"].ToString(),
                             reader["DeliveryStatus"].ToString(),
                             reader["RiderID"].ToString(),
                             reader["RiderName"].ToString()
@@ -62,29 +62,54 @@ namespace EasyDelivery
 
         public void setOfts(List<Delivery> deliveries)
         {
-            Delivery d1 = deliveries[0];
-            name1Label.Text = d1.cus_name;
-            phone1label.Text = d1.cus_phone.ToString();
-            deliveryid1Label.Text = d1.d_id;
-            price1Label.Text = d1.AmountToCollect.ToString();
+            if (deliveries.Count >= 1)
+            {
+                Delivery d1 = deliveries[0];
+                name1Label.Text = d1.cus_name;
+                phone1label.Text = d1.cus_phone;
+                deliveryid1Label.Text = d1.d_id;
+                price1Label.Text = d1.AmountToCollect;
 
-            Delivery d2 = deliveries[1];
-            name2Label.Text = d2.cus_name;
-            phone2Label.Text = d2.cus_phone.ToString();
-            deliveryid2Label.Text = d2.d_id;
-            price2Label.Text = d2.AmountToCollect.ToString();
+                Delivery d2 = deliveries[1];
+                name2Label.Text = d2.cus_name;
+                phone2Label.Text = d2.cus_phone;
+                deliveryid2Label.Text = d2.d_id;
+                price2Label.Text = d2.AmountToCollect;
 
-            Delivery d3 = deliveries[2];
-            name3Label.Text = d3.cus_name;
-            phone3Label.Text = d3.cus_phone.ToString();
-            deliveryid3Label.Text = d3.d_id;
-            price3Label.Text = d3.AmountToCollect.ToString();
+                Delivery d3 = deliveries[2];
+                name3Label.Text = d3.cus_name;
+                phone3Label.Text = d3.cus_phone;
+                deliveryid3Label.Text = d3.d_id;
+                price3Label.Text = d3.AmountToCollect;
 
-            Delivery d4 = deliveries[3];
-            name4Label.Text = d4.cus_name;
-            phone4Label.Text = d4.cus_phone.ToString();
-            deliveryid4Label.Text = d4.d_id;
-            price4Label.Text = d4.AmountToCollect.ToString();
+                Delivery d4 = deliveries[3];
+                name4Label.Text = d4.cus_name;
+                phone4Label.Text = d4.cus_phone;
+                deliveryid4Label.Text = d4.d_id;
+                price4Label.Text = d4.AmountToCollect;
+            }
+            else
+            {
+                name1Label.Text = "";
+                phone1label.Text = "";
+                deliveryid1Label.Text = "";
+                price1Label.Text = "";
+
+                name2Label.Text = "";
+                phone2Label.Text = "";
+                deliveryid2Label.Text = "";
+                price2Label.Text = "";
+
+                name3Label.Text = "";
+                phone3Label.Text = "";
+                deliveryid3Label.Text = "";
+                price3Label.Text = "";
+
+                name4Label.Text = "";
+                phone4Label.Text = "";
+                deliveryid4Label.Text = "";
+                price4Label.Text = "";
+            }
         }
 
         public merchantDashboard(string store_id)
@@ -105,6 +130,20 @@ namespace EasyDelivery
             deliveries = getOutForDeliveryList(store_id);
 
             setOfts(deliveries);
+        }
+
+        private void deliveriesButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001");
+
+            form.Show();
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

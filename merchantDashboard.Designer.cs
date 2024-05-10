@@ -208,6 +208,7 @@
             deliveriesButton.Text = "  All Deliveries";
             deliveriesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             deliveriesButton.UseVisualStyleBackColor = true;
+            deliveriesButton.Click += deliveriesButton_Click;
             // 
             // newDeliveryButton
             // 
@@ -808,6 +809,7 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(1114, 803);
             panel8.TabIndex = 8;
+            panel8.Paint += panel8_Paint;
             // 
             // panel9
             // 
