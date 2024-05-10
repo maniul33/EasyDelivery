@@ -5,9 +5,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDelivery", "EasyDelivery.csproj", "{BF058C56-32BB-452E-87DE-E0F44CCDB606}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{87449106-FBA6-4D47-BC0D-F9A995EDDA39}"
-	ProjectSection(SolutionItems) = preProject
-		deliveries.cs = deliveries.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +22,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		       SolutionGuid = {E1FC80A8-63F9-4269-A21F-7E124C03CE9A}
-		SolutionGuid = {9B050E53-CD9E-4016-888A-118483777310}
 	EndGlobalSection
 EndGlobal

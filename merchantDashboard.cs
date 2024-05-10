@@ -1,122 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EasyDelivery
 {
-
     public partial class merchantDashboard : Form
     {
         private string toDate;
         private string fromDate;
-        private string store_id;
 
-        public List<Delivery> deliveries;
-
-
-        private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
-
-        // Define a method to fetch deliveries with status "OutForDelivery"
-        public List<Delivery> getOutForDeliveryList(string store_id)
-        {
-            List<Delivery> outForDeliveryList = new List<Delivery>();
-
-            // SQL query to fetch deliveries with status "OutForDelivery" for the specified store
-            string query = @"SELECT CustomerName, CustomerPhone, DeliveryID, AmountToCollect, DeliveryStatus, RiderID, RiderName
-                             FROM CustomerDeliveryView
-                             WHERE DeliveryStatus = 'OutForDelivery' AND store_id = @store_id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@store_id", store_id);
-
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        // Create a Delivery object from the retrieved data
-                        Delivery delivery = new Delivery(
-                            reader["DeliveryID"].ToString(),
-                            reader["CustomerName"].ToString(),
-                            reader["CustomerPhone"].ToString(),
-                            reader["AmountToCollect"].ToString(),
-                            reader["DeliveryStatus"].ToString(),
-                            reader["RiderID"].ToString(),
-                            reader["RiderName"].ToString()
-                        );
-
-                        // Add the Delivery object to the list
-                        outForDeliveryList.Add(delivery);
-                    }
-
-                    reader.Close();
-                }
-            }
-
-            return outForDeliveryList;
-        }
-
-        public void setOfts(List<Delivery> deliveries)
-        {
-            if (deliveries.Count >= 1)
-            {
-                Delivery d1 = deliveries[0];
-                name1Label.Text = d1.cus_name;
-                phone1label.Text = d1.cus_phone;
-                deliveryid1Label.Text = d1.d_id;
-                price1Label.Text = d1.AmountToCollect;
-
-                Delivery d2 = deliveries[1];
-                name2Label.Text = d2.cus_name;
-                phone2Label.Text = d2.cus_phone;
-                deliveryid2Label.Text = d2.d_id;
-                price2Label.Text = d2.AmountToCollect;
-
-                Delivery d3 = deliveries[2];
-                name3Label.Text = d3.cus_name;
-                phone3Label.Text = d3.cus_phone;
-                deliveryid3Label.Text = d3.d_id;
-                price3Label.Text = d3.AmountToCollect;
-
-                Delivery d4 = deliveries[3];
-                name4Label.Text = d4.cus_name;
-                phone4Label.Text = d4.cus_phone;
-                deliveryid4Label.Text = d4.d_id;
-                price4Label.Text = d4.AmountToCollect;
-            }
-            else
-            {
-                name1Label.Text = "";
-                phone1label.Text = "";
-                deliveryid1Label.Text = "";
-                price1Label.Text = "";
-
-                name2Label.Text = "";
-                phone2Label.Text = "";
-                deliveryid2Label.Text = "";
-                price2Label.Text = "";
-
-                name3Label.Text = "";
-                phone3Label.Text = "";
-                deliveryid3Label.Text = "";
-                price3Label.Text = "";
-
-                name4Label.Text = "";
-                phone4Label.Text = "";
-                deliveryid4Label.Text = "";
-                price4Label.Text = "";
-            }
-        }
-
-        public merchantDashboard(string store_id)
+        public merchantDashboard()
         {
             InitializeComponent();
-
-            this.store_id = store_id;
 
             DateTime today = DateTime.Today;
 
@@ -127,21 +28,84 @@ namespace EasyDelivery
 
             dateBox.Text = fromDate + " - " + toDate;
 
-            deliveries = getOutForDeliveryList(store_id);
+            name1Label.Text = "ahajajkskkasjajakaka";
+            phone1label.Text = "01889655894";
+            deliveryid1Label.Text = "DT260424GS35M3";
+            price1Label.Text = "265";
 
-            setOfts(deliveries);
         }
 
-        private void deliveriesButton_Click(object sender, EventArgs e)
+        private void merchantDashboard_Load(object sender, EventArgs e)
         {
-            this.Hide();
 
-            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001");
+        }
 
-            form.Show();
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newDeliveryButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name1Label_Click(object sender, EventArgs e)
         {
 
         }
