@@ -13,12 +13,13 @@ namespace EasyDelivery
 {
     public partial class merchantDashboardPanel : Form
     {
+        private string selectedStoreId = "";
         public merchantDashboardPanel()
         {
             InitializeComponent();
             loadAllMerchantAvailable();
         }
-        private void loadAllMerchantAvailable()
+        public void loadAllMerchantAvailable()
         {
             try
             {
@@ -58,6 +59,76 @@ namespace EasyDelivery
         private void merchantDashboardPanel_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void allMerchantDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (allMerchantDataGridView.SelectedRows.Count > 0) // Check if any row is selected
+            {
+                // Retrieve the store_id of the selected row
+                selectedStoreId = allMerchantDataGridView.SelectedRows[0].Cells["StoreID"].Value.ToString();
+            }
+            else
+            {
+                selectedStoreId = ""; // Reset the variable if no row is selected
+            }
+        }
+        public string GetSelectedStoreId()
+        {
+            return selectedStoreId;
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            string strID = GetSelectedStoreId();
+            new adminMerchantUpdatePanel(strID).Show();
+            
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Address of SQL Server and Database.
+                string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+
+                // Establish Connection.
+                using (SqlConnection conn = new SqlConnection(connection))
+                {
+                    // Open Connection.
+                    conn.Open();
+                    string storeIdToDelete = GetSelectedStoreId();
+
+                    // Prepare Query.
+                    string deleteQuery = "DELETE FROM merchant WHERE store_id = @StoreID;";
+
+                    // Create SqlCommand
+                    using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
+                    {
+                        // Add parameters
+                        cmd.Parameters.AddWithValue("@StoreID", storeIdToDelete);
+
+                        // Execute the DELETE query
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Record deleted successfully.");
+                            loadAllMerchantAvailable(); // Reload data after deletion
+                        }
+                        else
+                        {
+                            MessageBox.Show("No record deleted. Please verify the store ID.");
+                        }
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

@@ -41,8 +41,10 @@
             allMerchantDataGridView.Location = new Point(0, 0);
             allMerchantDataGridView.Name = "allMerchantDataGridView";
             allMerchantDataGridView.RowHeadersWidth = 51;
+            allMerchantDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             allMerchantDataGridView.Size = new Size(1362, 675);
             allMerchantDataGridView.TabIndex = 0;
+            allMerchantDataGridView.SelectionChanged += allMerchantDataGridView_SelectionChanged;
             // 
             // updateButton
             // 
@@ -58,6 +60,7 @@
             updateButton.TabIndex = 2;
             updateButton.Text = "UPDATE";
             updateButton.UseVisualStyleBackColor = false;
+            updateButton.Click += updateButton_Click;
             // 
             // deleteButton
             // 
@@ -73,6 +76,7 @@
             deleteButton.TabIndex = 3;
             deleteButton.Text = "DELETE";
             deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
             // 
             // merchantDashboardPanel
             // 

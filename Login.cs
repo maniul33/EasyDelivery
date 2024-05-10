@@ -176,5 +176,9 @@ namespace EasyDelivery
 
         }
 
+        private void FrontRightPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
