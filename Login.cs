@@ -85,7 +85,8 @@ namespace EasyDelivery
 
         private void label2_Click_1(object sender, EventArgs e)
         {
-
+            new LoginCustomer().Show();
+            this.Hide();
         }
 
         private void userCredentialTextBox_TextChanged(object sender, EventArgs e)
