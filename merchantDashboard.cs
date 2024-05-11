@@ -12,17 +12,74 @@ namespace EasyDelivery
         private string fromDate;
         private string store_id;
 
-        public List<Delivery> deliveries;
-
 
         private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
 
-        // Define a method to fetch deliveries with status "OutForDelivery"
-        public List<Delivery> getOutForDeliveryList(string store_id)
+        private void noOFDelivery()
+        {
+            oftPanel1.Visible = false;
+            oftPanel2.Visible = false;
+            oftPanel3.Visible = false;
+            oftPanel4.Visible = false;
+
+            Label l = new Label();
+            oftPanel.Controls.Add(l);
+            l.Text = "No deliveries to show!";
+            l.TextAlign = ContentAlignment.MiddleCenter; 
+            l.AutoSize = false;
+            l.Dock = DockStyle.Fill; 
+
+            l.Font = new Font("Bahnschrift", 18, FontStyle.Bold);
+            l.ForeColor = Color.FromArgb(19, 40, 71);
+        }
+
+        private int[] getBriefStatsNumbers(DateTime fromDate, DateTime toDate, string store_id)
+        {
+            int[] statsNumbers = new int[3]; 
+
+            string deliveredQuery = $"SELECT COUNT(*) FROM [create] WHERE store_id = @store_id AND status = 'Delivered' AND orderDate BETWEEN @fromDate AND @toDate";
+            string pendingQuery = $"SELECT COUNT(*) FROM [create] WHERE store_id = @store_id AND status = 'Pending' AND orderDate BETWEEN @fromDate AND @toDate";
+            string cancelledQuery = $"SELECT COUNT(*) FROM [create] WHERE store_id = @store_id AND status = 'Cancelled' AND orderDate BETWEEN @fromDate AND @toDate";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(deliveredQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@fromDate", fromDate);
+                    command.Parameters.AddWithValue("@toDate", toDate);
+                    command.Parameters.AddWithValue("@store_id", store_id);
+
+                    statsNumbers[0] = (int)command.ExecuteScalar(); 
+                }
+
+                using (SqlCommand command = new SqlCommand(pendingQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@fromDate", fromDate);
+                    command.Parameters.AddWithValue("@toDate", toDate);
+                    command.Parameters.AddWithValue("@store_id", store_id);
+                    statsNumbers[1] = (int)command.ExecuteScalar(); 
+                }
+
+                using (SqlCommand command = new SqlCommand(cancelledQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@fromDate", fromDate);
+                    command.Parameters.AddWithValue("@toDate", toDate);
+                    command.Parameters.AddWithValue("@store_id", store_id);
+                    statsNumbers[2] = (int)command.ExecuteScalar();
+                }
+            }
+
+            return statsNumbers;
+        }
+
+
+
+        internal List<Delivery> getOutForDeliveryList(string store_id)
         {
             List<Delivery> outForDeliveryList = new List<Delivery>();
 
-            // SQL query to fetch deliveries with status "OutForDelivery" for the specified store
             string query = @"SELECT CustomerName, CustomerPhone, DeliveryID, AmountToCollect, DeliveryStatus, RiderID, RiderName
                              FROM CustomerDeliveryView
                              WHERE DeliveryStatus = 'OutForDelivery' AND store_id = @store_id";
@@ -38,7 +95,6 @@ namespace EasyDelivery
 
                     while (reader.Read())
                     {
-                        // Create a Delivery object from the retrieved data
                         Delivery delivery = new Delivery(
                             reader["DeliveryID"].ToString(),
                             reader["CustomerName"].ToString(),
@@ -49,7 +105,6 @@ namespace EasyDelivery
                             reader["RiderName"].ToString()
                         );
 
-                        // Add the Delivery object to the list
                         outForDeliveryList.Add(delivery);
                     }
 
@@ -60,7 +115,7 @@ namespace EasyDelivery
             return outForDeliveryList;
         }
 
-        public void setOfts(List<Delivery> deliveries)
+        internal void setOfts(List<Delivery> deliveries)
         {
             if (deliveries.Count >= 1)
             {
@@ -90,10 +145,7 @@ namespace EasyDelivery
             }
             else
             {
-                Label label = new Label();
-                label.Text = "No deliveries to show!";
-                label.TextAlign = ContentAlignment.MiddleCenter; // Center horizontally and vertically
-                label.AutoSize = false;
+                noOFDelivery();
             }
         }
 
@@ -112,16 +164,21 @@ namespace EasyDelivery
 
             dateBox.Text = fromDate + " - " + toDate;
 
-            deliveries = getOutForDeliveryList(store_id);
+            List<Delivery> oftdeliveries = getOutForDeliveryList(store_id);
 
-            setOfts(deliveries);
+            int[] briefStatsValues = getBriefStatsNumbers(firstDayOfMonth, today, store_id);
+            deliveredCount.Text = briefStatsValues[0].ToString();
+            pendingCount.Text = briefStatsValues[1].ToString();
+            cancelledCount.Text = briefStatsValues[2].ToString();
+
+            setOfts(oftdeliveries);
         }
         
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001");
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001", "STR001");
 
             form.Show();
         }

@@ -1,4 +1,5 @@
 ﻿// panelCreation.cs
+using com.sun.tools.javac.util;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,25 +13,40 @@ namespace EasyDelivery
     {
         private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
         private string query = "";
-        public List<Panel> LoadDeliveryDetails(string store_id)
+
+        
+        public List<Panel> LoadDeliveryDetails(string id)
         {
             List<Delivery> deliveryDetails = new List<Delivery>();
             List<Panel> panels = new List<Panel>();
 
-            if (store_id.Substring(0, 3) == "STR")
+            string idType = "";
+            if (id.Substring(0, 3) == "STR")
             {
+                idType = "@StoreId";
                 query = "SELECT * FROM CustomerDeliveryView WHERE store_id = @StoreId"; // Modified query to use the view and filter by store_id
+            }
+            else if(id.Substring(0,3) == "DLV")
+            {
+                idType = "@d_id";
+                query = "SELECT * FROM CustomerDeliveryView WHERE d_id = @d_id"; // Modified query to use the view and filter by store_i
+            }
+            else if(id.Substring(0,3) == "RDR")
+            {
+                query = "SELECT * FROM CustomerDeliveryView WHERE DeliveryStatus = 'Pending'"; // Modified query to use the view and filter by store_i
             }
             else
             {
-                query = "SELECT * FROM CustomerDeliveryView WHERE DeliveryStatus = 'Pending'"; // Modified query to use the view and filter by store_i
+                idType = "@customerPhone";
+                query = "SELECT * FROM CustomerDeliveryView WHERE CustomerPhone = @customerPhone";
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@StoreId", store_id);
+                    command.Parameters.AddWithValue(idType, id);
+
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
