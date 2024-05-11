@@ -3,9 +3,9 @@ using System.Net.Sockets;
 
 namespace EasyDelivery
 {
-    public class Delivery
+    internal class Delivery
     {
-        internal string d_id { get; set; }
+        internal string d_id;
         internal string cus_name { get; set; }
         internal string cus_phone { get; set; }
         internal string cus_district { get; set; }
@@ -16,13 +16,13 @@ namespace EasyDelivery
         internal string DeliveryStatus { get; set; }
         internal string rider_id { get; set; }
         internal string rider_name { get; set; }
-        internal string store_name {  get; set; }
+        internal string store_name { get; set; }
         internal string store_id { get; set; }
 
-        public Delivery(string d_id, string cus_name, string cus_phone, string AmountToCollect, string DeliveryStatus, string rider_id, string rider_name)
+        public Delivery(string d_id, string cname, string cus_phone, string AmountToCollect, string DeliveryStatus, string rider_id, string rider_name)
         {
             this.d_id = d_id;
-            this.cus_name = cus_name;
+            this.cus_name = cname;
             this.cus_phone = cus_phone;
             this.AmountToCollect = AmountToCollect;
             this.DeliveryStatus = DeliveryStatus;
@@ -49,4 +49,3 @@ namespace EasyDelivery
         }
     }
 }
-

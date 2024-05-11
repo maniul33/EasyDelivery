@@ -46,17 +46,20 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel3 = new Panel();
             panel10 = new Panel();
+            deliveredCount = new Label();
             label4 = new Label();
             panel5 = new Panel();
+            pendingCount = new Label();
             label1 = new Label();
             panel4 = new Panel();
+            cancelledCount = new Label();
             label2 = new Label();
             briefStatsLabel = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             dateBox = new TextBox();
             calenderIcon = new PictureBox();
             panel6 = new Panel();
-            panel7 = new Panel();
+            oftPanel = new Panel();
             oftPanel4 = new Panel();
             pictureBox11 = new PictureBox();
             pictureBox12 = new PictureBox();
@@ -90,9 +93,10 @@
             deliveryid1Label = new Label();
             name1Label = new Label();
             panel8 = new Panel();
-            panel9 = new Panel();
+            oftLabelPanel = new Panel();
             button1 = new Button();
             label3 = new Label();
+            label5 = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
@@ -104,7 +108,7 @@
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)calenderIcon).BeginInit();
             panel6.SuspendLayout();
-            panel7.SuspendLayout();
+            oftPanel.SuspendLayout();
             oftPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -122,7 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel8.SuspendLayout();
-            panel9.SuspendLayout();
+            oftLabelPanel.SuspendLayout();
             SuspendLayout();
             // 
             // sidePanel
@@ -315,7 +319,7 @@
             panel3.Controls.Add(panel10);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
-            panel3.Location = new Point(325, 117);
+            panel3.Location = new Point(325, 112);
             panel3.Name = "panel3";
             panel3.Size = new Size(959, 185);
             panel3.TabIndex = 1;
@@ -323,11 +327,23 @@
             // panel10
             // 
             panel10.BackColor = SystemColors.ButtonHighlight;
+            panel10.Controls.Add(deliveredCount);
             panel10.Controls.Add(label4);
             panel10.Location = new Point(3, 9);
             panel10.Name = "panel10";
             panel10.Size = new Size(951, 49);
             panel10.TabIndex = 4;
+            // 
+            // deliveredCount
+            // 
+            deliveredCount.AutoSize = true;
+            deliveredCount.Font = new Font("Lucida Sans Typewriter", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deliveredCount.ForeColor = Color.FromArgb(19, 40, 71);
+            deliveredCount.Location = new Point(865, 6);
+            deliveredCount.Name = "deliveredCount";
+            deliveredCount.Size = new Size(69, 34);
+            deliveredCount.TabIndex = 10;
+            deliveredCount.Text = "CCC";
             // 
             // label4
             // 
@@ -343,11 +359,23 @@
             // panel5
             // 
             panel5.BackColor = SystemColors.ButtonHighlight;
+            panel5.Controls.Add(pendingCount);
             panel5.Controls.Add(label1);
             panel5.Location = new Point(3, 69);
             panel5.Name = "panel5";
             panel5.Size = new Size(951, 49);
             panel5.TabIndex = 2;
+            // 
+            // pendingCount
+            // 
+            pendingCount.AutoSize = true;
+            pendingCount.Font = new Font("Lucida Sans Typewriter", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            pendingCount.ForeColor = Color.FromArgb(19, 40, 71);
+            pendingCount.Location = new Point(865, 6);
+            pendingCount.Name = "pendingCount";
+            pendingCount.Size = new Size(69, 34);
+            pendingCount.TabIndex = 11;
+            pendingCount.Text = "CCC";
             // 
             // label1
             // 
@@ -362,11 +390,23 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(cancelledCount);
             panel4.Controls.Add(label2);
             panel4.Location = new Point(3, 124);
             panel4.Name = "panel4";
             panel4.Size = new Size(951, 56);
             panel4.TabIndex = 8;
+            // 
+            // cancelledCount
+            // 
+            cancelledCount.AutoSize = true;
+            cancelledCount.Font = new Font("Lucida Sans Typewriter", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cancelledCount.ForeColor = Color.FromArgb(19, 40, 71);
+            cancelledCount.Location = new Point(865, 10);
+            cancelledCount.Name = "cancelledCount";
+            cancelledCount.Size = new Size(69, 34);
+            cancelledCount.TabIndex = 11;
+            cancelledCount.Text = "CCC";
             // 
             // label2
             // 
@@ -431,18 +471,18 @@
             panel6.Size = new Size(374, 39);
             panel6.TabIndex = 6;
             // 
-            // panel7
+            // oftPanel
             // 
-            panel7.BackColor = SystemColors.ButtonHighlight;
-            panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(oftPanel4);
-            panel7.Controls.Add(oftPanel2);
-            panel7.Controls.Add(oftPanel3);
-            panel7.Controls.Add(oftPanel1);
-            panel7.Location = new Point(325, 410);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(959, 353);
-            panel7.TabIndex = 7;
+            oftPanel.BackColor = SystemColors.ButtonHighlight;
+            oftPanel.BorderStyle = BorderStyle.FixedSingle;
+            oftPanel.Controls.Add(oftPanel4);
+            oftPanel.Controls.Add(oftPanel2);
+            oftPanel.Controls.Add(oftPanel3);
+            oftPanel.Controls.Add(oftPanel1);
+            oftPanel.Location = new Point(325, 410);
+            oftPanel.Name = "oftPanel";
+            oftPanel.Size = new Size(959, 353);
+            oftPanel.TabIndex = 7;
             // 
             // oftPanel4
             // 
@@ -803,7 +843,8 @@
             // panel8
             // 
             panel8.BackColor = SystemColors.ButtonHighlight;
-            panel8.Controls.Add(panel9);
+            panel8.Controls.Add(label5);
+            panel8.Controls.Add(oftLabelPanel);
             panel8.Dock = DockStyle.Right;
             panel8.Location = new Point(248, 0);
             panel8.Name = "panel8";
@@ -811,15 +852,15 @@
             panel8.TabIndex = 8;
             panel8.Paint += panel8_Paint;
             // 
-            // panel9
+            // oftLabelPanel
             // 
-            panel9.BackColor = SystemColors.ButtonHighlight;
-            panel9.Controls.Add(button1);
-            panel9.Controls.Add(label3);
-            panel9.Location = new Point(77, 355);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(951, 49);
-            panel9.TabIndex = 3;
+            oftLabelPanel.BackColor = SystemColors.ButtonHighlight;
+            oftLabelPanel.Controls.Add(button1);
+            oftLabelPanel.Controls.Add(label3);
+            oftLabelPanel.Location = new Point(77, 355);
+            oftLabelPanel.Name = "oftLabelPanel";
+            oftLabelPanel.Size = new Size(951, 49);
+            oftLabelPanel.TabIndex = 3;
             // 
             // button1
             // 
@@ -850,13 +891,25 @@
             label3.TabIndex = 9;
             label3.Text = "Out for Delivery";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.ButtonHighlight;
+            label5.Font = new Font("Lucida Sans Typewriter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(19, 40, 71);
+            label5.Location = new Point(311, 55);
+            label5.Name = "label5";
+            label5.Size = new Size(166, 23);
+            label5.TabIndex = 4;
+            label5.Text = "of this month";
+            // 
             // merchantDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1362, 803);
-            Controls.Add(panel7);
+            Controls.Add(oftPanel);
             Controls.Add(panel6);
             Controls.Add(briefStatsLabel);
             Controls.Add(panel3);
@@ -882,7 +935,7 @@
             ((System.ComponentModel.ISupportInitialize)calenderIcon).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            panel7.ResumeLayout(false);
+            oftPanel.ResumeLayout(false);
             oftPanel4.ResumeLayout(false);
             oftPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
@@ -904,8 +957,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel8.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
+            panel8.PerformLayout();
+            oftLabelPanel.ResumeLayout(false);
+            oftLabelPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -934,11 +988,11 @@
         private PictureBox calenderIcon;
         private Panel panel6;
         private Panel panel4;
-        private Panel panel7;
+        private Panel oftPanel;
         private Label label1;
         private Label label2;
         private Panel panel8;
-        private Panel panel9;
+        private Panel oftLabelPanel;
         private Label label3;
         private Panel panel10;
         private Label label4;
@@ -975,5 +1029,9 @@
         private Label phone3Label;
         private Label deliveryid3Label;
         private Label name3Label;
+        private Label deliveredCount;
+        private Label pendingCount;
+        private Label cancelledCount;
+        private Label label5;
     }
 }
