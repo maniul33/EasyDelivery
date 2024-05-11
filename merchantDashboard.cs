@@ -116,7 +116,7 @@ namespace EasyDelivery
 
             setOfts(deliveries);
         }
-
+        
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
             this.Hide();
