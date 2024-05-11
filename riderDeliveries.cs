@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace EasyDelivery
 {
-    public partial class allDeliveriesForMerchant : Form
+    public partial class riderDeliveries : Form
     {
-        public allDeliveriesForMerchant()
+        public riderDeliveries()
         {
             InitializeComponent();
         }
 
-        private void allDeliveriesForMerchant_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
+        private void riderDeliveries_Load(object sender, EventArgs e)
         {
 
         }
