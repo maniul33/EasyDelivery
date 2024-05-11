@@ -15,6 +15,7 @@ namespace EasyDelivery
         public adminDashboard()
         {
             InitializeComponent();
+            loadForm(new adminDashboardBriefStats());
         }
         public void loadForm(object Form)
         {
@@ -37,7 +38,7 @@ namespace EasyDelivery
 
         private void dashboardButton_Click(object sender, EventArgs e)
         {
-            loadForm(new adminDashboardPanel());
+            loadForm(new adminDashboardBriefStats());
         }
 
         private void merchantButton_Click(object sender, EventArgs e)
