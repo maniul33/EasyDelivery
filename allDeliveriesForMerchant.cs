@@ -31,7 +31,7 @@ namespace EasyDelivery
 
         private void allDeliveriesForMerchant_Load(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void label9_Click(object sender, EventArgs e)
