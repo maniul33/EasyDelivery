@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="Bunifu.UI.WinForms" Version="7.0.0" />
-    <PackageReference Include="IKVM" Version="8.8.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
@@ -20,21 +19,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="images.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>images.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="images.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

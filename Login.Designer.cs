@@ -2,6 +2,8 @@
 {
     partial class Login
     {
+
+        //
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -152,6 +154,7 @@
             FrontRightPanel.Name = "FrontRightPanel";
             FrontRightPanel.Size = new Size(881, 678);
             FrontRightPanel.TabIndex = 0;
+
             FrontRightPanel.Paint += FrontRightPanel_Paint;
             // 
             // SignupLabel
@@ -232,6 +235,7 @@
             userPasswordTextBox.TabIndex = 14;
             userPasswordTextBox.Text = "Password";
             userPasswordTextBox.UseSystemPasswordChar = true;
+
             userPasswordTextBox.TextChanged += textBox2_TextChanged;
             userPasswordTextBox.Enter += userPassword_Enter;
             userPasswordTextBox.Leave += userPassword_Leave;

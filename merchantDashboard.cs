@@ -42,8 +42,8 @@ namespace EasyDelivery
                         Delivery delivery = new Delivery(
                             reader["DeliveryID"].ToString(),
                             reader["CustomerName"].ToString(),
-                            Convert.ToInt64(reader["CustomerPhone"]),
-                            Convert.ToSingle(reader["AmountToCollect"]),
+                            reader["CustomerPhone"].ToString(),
+                            reader["AmountToCollect"].ToString(),
                             reader["DeliveryStatus"].ToString(),
                             reader["RiderID"].ToString(),
                             reader["RiderName"].ToString()
@@ -62,29 +62,39 @@ namespace EasyDelivery
 
         public void setOfts(List<Delivery> deliveries)
         {
-            Delivery d1 = deliveries[0];
-            name1Label.Text = d1.cus_name;
-            phone1label.Text = d1.cus_phone.ToString();
-            deliveryid1Label.Text = d1.d_id;
-            price1Label.Text = d1.AmountToCollect.ToString();
+            if (deliveries.Count >= 1)
+            {
+                Delivery d1 = deliveries[0];
+                name1Label.Text = d1.cus_name;
+                phone1label.Text = d1.cus_phone;
+                deliveryid1Label.Text = d1.d_id;
+                price1Label.Text = d1.AmountToCollect;
 
-            Delivery d2 = deliveries[1];
-            name2Label.Text = d2.cus_name;
-            phone2Label.Text = d2.cus_phone.ToString();
-            deliveryid2Label.Text = d2.d_id;
-            price2Label.Text = d2.AmountToCollect.ToString();
+                Delivery d2 = deliveries[1];
+                name2Label.Text = d2.cus_name;
+                phone2Label.Text = d2.cus_phone;
+                deliveryid2Label.Text = d2.d_id;
+                price2Label.Text = d2.AmountToCollect;
 
-            Delivery d3 = deliveries[2];
-            name3Label.Text = d3.cus_name;
-            phone3Label.Text = d3.cus_phone.ToString();
-            deliveryid3Label.Text = d3.d_id;
-            price3Label.Text = d3.AmountToCollect.ToString();
+                Delivery d3 = deliveries[2];
+                name3Label.Text = d3.cus_name;
+                phone3Label.Text = d3.cus_phone;
+                deliveryid3Label.Text = d3.d_id;
+                price3Label.Text = d3.AmountToCollect;
 
-            Delivery d4 = deliveries[3];
-            name4Label.Text = d4.cus_name;
-            phone4Label.Text = d4.cus_phone.ToString();
-            deliveryid4Label.Text = d4.d_id;
-            price4Label.Text = d4.AmountToCollect.ToString();
+                Delivery d4 = deliveries[3];
+                name4Label.Text = d4.cus_name;
+                phone4Label.Text = d4.cus_phone;
+                deliveryid4Label.Text = d4.d_id;
+                price4Label.Text = d4.AmountToCollect;
+            }
+            else
+            {
+                Label label = new Label();
+                label.Text = "No deliveries to show!";
+                label.TextAlign = ContentAlignment.MiddleCenter; // Center horizontally and vertically
+                label.AutoSize = false;
+            }
         }
 
         public merchantDashboard(string store_id)
@@ -106,8 +116,22 @@ namespace EasyDelivery
 
             setOfts(deliveries);
         }
+        
+        private void deliveriesButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
 
-        private void dashboardButton_Click(object sender, EventArgs e)
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001");
+
+            form.Show();
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void merchantDashboard_Load(object sender, EventArgs e)
         {
 
         }
