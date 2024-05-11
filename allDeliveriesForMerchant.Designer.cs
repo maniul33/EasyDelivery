@@ -58,8 +58,7 @@
             label12 = new Label();
             label13 = new Label();
             searchByCustomerPhoneBox = new TextBox();
-            label6 = new Label();
-            areaComboBox = new ComboBox();
+            searchButton = new Button();
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
@@ -354,7 +353,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Bahnschrift Condensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label13.ForeColor = Color.Black;
-            label13.Location = new Point(620, 17);
+            label13.Location = new Point(603, 17);
             label13.Name = "label13";
             label13.Size = new Size(247, 28);
             label13.TabIndex = 23;
@@ -365,30 +364,25 @@
             searchByCustomerPhoneBox.BorderStyle = BorderStyle.FixedSingle;
             searchByCustomerPhoneBox.Font = new Font("Bahnschrift Condensed", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             searchByCustomerPhoneBox.ForeColor = Color.Black;
-            searchByCustomerPhoneBox.Location = new Point(620, 48);
+            searchByCustomerPhoneBox.Location = new Point(603, 48);
             searchByCustomerPhoneBox.Multiline = true;
             searchByCustomerPhoneBox.Name = "searchByCustomerPhoneBox";
             searchByCustomerPhoneBox.Size = new Size(252, 38);
             searchByCustomerPhoneBox.TabIndex = 22;
             // 
-            // label6
+            // searchButton
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Bahnschrift Condensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Black;
-            label6.Location = new Point(952, 17);
-            label6.Name = "label6";
-            label6.Size = new Size(206, 28);
-            label6.TabIndex = 25;
-            label6.Text = "Search by Customer Area";
-            // 
-            // areaComboBox
-            // 
-            areaComboBox.FormattingEnabled = true;
-            areaComboBox.Location = new Point(952, 55);
-            areaComboBox.Name = "areaComboBox";
-            areaComboBox.Size = new Size(206, 28);
-            areaComboBox.TabIndex = 26;
+            searchButton.BackColor = Color.FromArgb(19, 40, 71);
+            searchButton.Cursor = Cursors.Hand;
+            searchButton.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            searchButton.ForeColor = SystemColors.ButtonHighlight;
+            searchButton.Location = new Point(912, 42);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(126, 46);
+            searchButton.TabIndex = 24;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = false;
+            searchButton.Click += searchButton_Click;
             // 
             // allDeliveriesForMerchant
             // 
@@ -396,8 +390,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1362, 803);
-            Controls.Add(areaComboBox);
-            Controls.Add(label6);
+            Controls.Add(searchButton);
             Controls.Add(label13);
             Controls.Add(searchByCustomerPhoneBox);
             Controls.Add(label12);
@@ -488,7 +481,6 @@
         private PictureBox pictureBox14;
         private Label label8;
         private Label label7;
-        private Label label6;
         private Label label5;
         private Label label9;
         private PictureBox pictureBox16;
@@ -506,6 +498,6 @@
         private Label label12;
         private Label label13;
         private TextBox searchByCustomerPhoneBox;
-        private ComboBox areaComboBox;
+        private Button searchButton;
     }
 }

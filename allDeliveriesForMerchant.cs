@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EasyDelivery
 {
     public partial class allDeliveriesForMerchant : Form
     {
-        public allDeliveriesForMerchant(string store_id)
+        private string store_id;
+        public allDeliveriesForMerchant(string store_id, string id)
         {
             InitializeComponent();
 
-            // Create an instance of the panelCreation class
             panelCreation p = new panelCreation();
 
-            // Load delivery details into panels
-            List<Panel> panels = p.LoadDeliveryDetails(store_id);
+            List<Panel> panels = p.LoadDeliveryDetails(id);
 
-            // Add each panel created by panelCreation to the form's Controls collection
             foreach (Panel panel in panels)
             {
                 rightPanel.Controls.Add(panel);
             }
         }
 
+
         private void allDeliveriesForMerchant_Load(object sender, EventArgs e)
         {
-            //
+            
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -57,6 +57,36 @@ namespace EasyDelivery
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchByCustomerPhoneBox.Text) && string.IsNullOrWhiteSpace(searchbyIDBox.Text))
+            {
+                MessageBox.Show("Please provide customer contact number or delivery id to search!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (!string.IsNullOrWhiteSpace(searchByCustomerPhoneBox.Text) && !string.IsNullOrWhiteSpace(searchbyIDBox.Text))
+            {
+                MessageBox.Show("Please provide only one information!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string info = "";
+                
+                if (string.IsNullOrEmpty(searchByCustomerPhoneBox.Text))
+                {
+                    info = searchbyIDBox.Text;                   
+                }
+                else
+                {
+                    info = searchByCustomerPhoneBox.Text;
+                }
+                this.Close();
+
+                allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id,info);
+
+                form.Show();
+            }
         }
     }
 }

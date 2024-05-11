@@ -178,7 +178,7 @@ namespace EasyDelivery
         {
             this.Hide();
 
-            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001");
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001", "STR001");
 
             form.Show();
         }
