@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace EasyDelivery
 {
+    //
     internal class panelCreation
     {
         private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";

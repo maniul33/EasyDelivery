@@ -32,6 +32,7 @@ namespace EasyDelivery
 
         public Delivery(string d_id, string cus_name, string cus_phone, string cus_district, string cus_area, string cus_street, string cus_zip, string AmountToCollect, string DeliveryStatus, string rider_id, string rider_name, string store_name, string store_id)
         {
+
             this.d_id = d_id;
             this.cus_name = cus_name;
             this.cus_phone = cus_phone;
