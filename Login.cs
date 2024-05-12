@@ -1,5 +1,4 @@
-﻿using com.sun.org.apache.bcel.@internal.generic;
-using javax.xml.crypto;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,7 +104,7 @@ namespace EasyDelivery
                 }
                 else
                 {
-                    string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+                    string connection = DatabaseSettings.ConnectionString;
                     using (SqlConnection conn = new SqlConnection(connection))
                     {
                         conn.Open();

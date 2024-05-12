@@ -13,7 +13,7 @@ namespace EasyDelivery
         private string store_id;
 
 
-        private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
+        private string connectionString = DatabaseSettings.ConnectionString;
 
         private void noOFDelivery()
         {

@@ -14,7 +14,7 @@ namespace EasyDelivery
     public partial class adminRiderUpdatePanel : Form
     {
         private string riderId;
-        string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+        string connection = DatabaseSettings.ConnectionString;
 
         public adminRiderUpdatePanel(string riderId)
         {
