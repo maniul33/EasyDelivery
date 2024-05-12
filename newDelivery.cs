@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -313,7 +312,9 @@ namespace EasyDelivery
                 }
 
                 MessageBox.Show("Delivery created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                this.Close();
+                newDelivery form = new newDelivery(store_id);
+                form.Show();
             }
             catch (Exception ex)
             {
@@ -322,6 +323,13 @@ namespace EasyDelivery
                 newDelivery form = new newDelivery(store_id);
                 form.Show();
             }
+        }
+
+        private void backtoDashboardButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            merchantDashboard form = new merchantDashboard(store_id);
+            form.Show();
         }
     }
 }

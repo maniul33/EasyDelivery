@@ -1,4 +1,3 @@
-﻿// panelCreation.cs
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,8 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace EasyDelivery
-{
-    //
+{    
     internal class panelCreation
     {
         private string connectionString = DatabaseSettings.ConnectionString;

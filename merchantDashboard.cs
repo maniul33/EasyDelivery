@@ -25,9 +25,9 @@ namespace EasyDelivery
             Label l = new Label();
             oftPanel.Controls.Add(l);
             l.Text = "No deliveries to show!";
-            l.TextAlign = ContentAlignment.MiddleCenter; 
+            l.TextAlign = ContentAlignment.MiddleCenter;
             l.AutoSize = false;
-            l.Dock = DockStyle.Fill; 
+            l.Dock = DockStyle.Fill;
 
             l.Font = new Font("Bahnschrift", 18, FontStyle.Bold);
             l.ForeColor = Color.FromArgb(19, 40, 71);
@@ -35,7 +35,7 @@ namespace EasyDelivery
 
         private int[] getBriefStatsNumbers(DateTime fromDate, DateTime toDate, string store_id)
         {
-            int[] statsNumbers = new int[3]; 
+            int[] statsNumbers = new int[3];
 
             string deliveredQuery = $"SELECT COUNT(*) FROM [create] WHERE store_id = @store_id AND status = 'Delivered' AND orderDate BETWEEN @fromDate AND @toDate";
             string pendingQuery = $"SELECT COUNT(*) FROM [create] WHERE store_id = @store_id AND status = 'Pending' AND orderDate BETWEEN @fromDate AND @toDate";
@@ -51,7 +51,7 @@ namespace EasyDelivery
                     command.Parameters.AddWithValue("@toDate", toDate);
                     command.Parameters.AddWithValue("@store_id", store_id);
 
-                    statsNumbers[0] = (int)command.ExecuteScalar(); 
+                    statsNumbers[0] = (int)command.ExecuteScalar();
                 }
 
                 using (SqlCommand command = new SqlCommand(pendingQuery, connection))
@@ -59,7 +59,7 @@ namespace EasyDelivery
                     command.Parameters.AddWithValue("@fromDate", fromDate);
                     command.Parameters.AddWithValue("@toDate", toDate);
                     command.Parameters.AddWithValue("@store_id", store_id);
-                    statsNumbers[1] = (int)command.ExecuteScalar(); 
+                    statsNumbers[1] = (int)command.ExecuteScalar();
                 }
 
                 using (SqlCommand command = new SqlCommand(cancelledQuery, connection))
@@ -173,7 +173,7 @@ namespace EasyDelivery
 
             setOfts(oftdeliveries);
         }
-        
+
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -191,6 +191,24 @@ namespace EasyDelivery
         private void merchantDashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void newDeliveryButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            newDelivery form = new newDelivery("STR001");
+
+            form.Show();
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Login form = new Login();
+
+            form.Show();
         }
     }
 }
