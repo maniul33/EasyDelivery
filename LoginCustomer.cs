@@ -44,7 +44,7 @@ namespace EasyDelivery
             try
             {
                 // Connection string
-                string connectionString = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+                string connectionString = DatabaseSettings.ConnectionString;
 
                 // SQL query to check if phoneNumber exists in the collect table
                 string query = "SELECT COUNT(*) FROM collect WHERE cusPhone = @PhoneNumber";

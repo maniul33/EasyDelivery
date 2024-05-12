@@ -14,7 +14,7 @@ namespace EasyDelivery
     public partial class adminMerchantUpdatePanel : Form
     {
         private string storeId;
-        string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+        string connection = DatabaseSettings.ConnectionString;
 
         public adminMerchantUpdatePanel(string storeId)
         {

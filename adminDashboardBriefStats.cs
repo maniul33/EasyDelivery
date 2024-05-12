@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +25,7 @@ namespace EasyDelivery
             string totalMerchant = "0";
             string totalRider = "0";
             string totalDelivery = "0";
-            string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+            string connection = DatabaseSettings.ConnectionString;
 
             try
             {
@@ -71,7 +71,7 @@ namespace EasyDelivery
                 MessageBox.Show("Please enter a valid delivery id.");
                 return;
             }
-            string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+            string connection = DatabaseSettings.ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connection))
             {
