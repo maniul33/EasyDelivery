@@ -100,7 +100,6 @@
             profileButton.FlatStyle = FlatStyle.Flat;
             profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileButton.ForeColor = Color.FromArgb(19, 40, 71);
-            profileButton.Image = (Image)resources.GetObject("profileButton.Image");
             profileButton.Location = new Point(85, 246);
             profileButton.Name = "profileButton";
             profileButton.Size = new Size(165, 85);
@@ -112,12 +111,12 @@
             // profilePicture
             // 
             profilePicture.BackColor = Color.White;
-            profilePicture.Image = (Image)resources.GetObject("profilePicture.Image");
             profilePicture.Location = new Point(0, 244);
             profilePicture.Name = "profilePicture";
             profilePicture.Size = new Size(87, 87);
             profilePicture.TabIndex = 1;
             profilePicture.TabStop = false;
+            profilePicture.Click += profilePicture_Click;
             // 
             // panel1
             // 
@@ -142,6 +141,7 @@
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(250, 250);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 

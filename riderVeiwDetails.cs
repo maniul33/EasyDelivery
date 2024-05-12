@@ -26,7 +26,7 @@ namespace EasyDelivery
         {
             try
             {
-                string connection = "Data Source=DESKTOP-N9N0BK6\\SQLEXPRESS01;Integrated Security=True;";
+                string connection = DatabaseSettings.ConnectionString;
 
                 //Establish Connection.
                 SqlConnection conn = new SqlConnection(connection);
@@ -85,7 +85,7 @@ namespace EasyDelivery
         {
             try
             {
-                string connection = "Data Source=DESKTOP-N9N0BK6\\SQLEXPRESS01;Integrated Security=True;";
+                string connection = DatabaseSettings.ConnectionString;
 
                 using (SqlConnection conn = new SqlConnection(connection))
                 {

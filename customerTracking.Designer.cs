@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customerTracking));
             FrontLeftPanel = new Panel();
             FrontRightPanel = new Panel();
+            panel1 = new Panel();
+            riderPhoneLabel = new Label();
+            riderNameLabel = new Label();
+            label13 = new Label();
+            label9 = new Label();
+            label12 = new Label();
             bottomRightPanel = new Panel();
             statusLabel = new Label();
             label5 = new Label();
@@ -80,6 +86,7 @@
             backLabel = new Label();
             FrontLeftPanel.SuspendLayout();
             FrontRightPanel.SuspendLayout();
+            panel1.SuspendLayout();
             bottomRightPanel.SuspendLayout();
             bottomLeftPanel.SuspendLayout();
             middlePanel.SuspendLayout();
@@ -98,6 +105,7 @@
             // FrontRightPanel
             // 
             FrontRightPanel.BackColor = Color.FromArgb(254, 254, 255);
+            FrontRightPanel.Controls.Add(panel1);
             FrontRightPanel.Controls.Add(bottomRightPanel);
             FrontRightPanel.Controls.Add(bottomLeftPanel);
             FrontRightPanel.Controls.Add(middlePanel);
@@ -107,6 +115,80 @@
             FrontRightPanel.Name = "FrontRightPanel";
             FrontRightPanel.Size = new Size(1235, 678);
             FrontRightPanel.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(riderPhoneLabel);
+            panel1.Controls.Add(riderNameLabel);
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(label12);
+            panel1.Location = new Point(635, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(549, 125);
+            panel1.TabIndex = 63;
+            // 
+            // riderPhoneLabel
+            // 
+            riderPhoneLabel.AutoSize = true;
+            riderPhoneLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            riderPhoneLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            riderPhoneLabel.Location = new Point(339, 82);
+            riderPhoneLabel.Name = "riderPhoneLabel";
+            riderPhoneLabel.Size = new Size(129, 22);
+            riderPhoneLabel.TabIndex = 83;
+            riderPhoneLabel.Text = "Phone number";
+            // 
+            // riderNameLabel
+            // 
+            riderNameLabel.AutoSize = true;
+            riderNameLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            riderNameLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            riderNameLabel.Location = new Point(339, 48);
+            riderNameLabel.Name = "riderNameLabel";
+            riderNameLabel.Size = new Size(58, 22);
+            riderNameLabel.TabIndex = 82;
+            riderNameLabel.Text = "Name";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Cursor = Cursors.Hand;
+            label13.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.FromArgb(19, 39, 71);
+            label13.ImageAlign = ContentAlignment.MiddleLeft;
+            label13.Location = new Point(4, 13);
+            label13.Name = "label13";
+            label13.Size = new Size(162, 24);
+            label13.TabIndex = 81;
+            label13.Text = "Recipient Details";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(19, 39, 71);
+            label9.Image = (Image)resources.GetObject("label9.Image");
+            label9.ImageAlign = ContentAlignment.MiddleLeft;
+            label9.Location = new Point(7, 81);
+            label9.Name = "label9";
+            label9.Size = new Size(154, 22);
+            label9.TabIndex = 61;
+            label9.Text = "     Phone number";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.FromArgb(19, 39, 71);
+            label12.Image = (Image)resources.GetObject("label12.Image");
+            label12.ImageAlign = ContentAlignment.MiddleLeft;
+            label12.Location = new Point(7, 48);
+            label12.Name = "label12";
+            label12.Size = new Size(83, 22);
+            label12.TabIndex = 60;
+            label12.Text = "     Name";
             // 
             // bottomRightPanel
             // 
@@ -156,6 +238,7 @@
             label20.AutoSize = true;
             label20.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label20.ForeColor = Color.FromArgb(19, 39, 71);
+            label20.ImageAlign = ContentAlignment.MiddleLeft;
             label20.Location = new Point(308, 116);
             label20.Name = "label20";
             label20.Size = new Size(62, 22);
@@ -167,11 +250,13 @@
             label30.AutoSize = true;
             label30.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label30.ForeColor = Color.FromArgb(19, 39, 71);
+            label30.Image = (Image)resources.GetObject("label30.Image");
+            label30.ImageAlign = ContentAlignment.MiddleLeft;
             label30.Location = new Point(14, 54);
             label30.Name = "label30";
-            label30.Size = new Size(116, 22);
+            label30.Size = new Size(141, 22);
             label30.TabIndex = 81;
-            label30.Text = "Product Type";
+            label30.Text = "     Product Type";
             // 
             // deliveryIdLabel
             // 
@@ -189,11 +274,13 @@
             label29.AutoSize = true;
             label29.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label29.ForeColor = Color.FromArgb(19, 39, 71);
+            label29.Image = (Image)resources.GetObject("label29.Image");
+            label29.ImageAlign = ContentAlignment.MiddleLeft;
             label29.Location = new Point(15, 117);
             label29.Name = "label29";
-            label29.Size = new Size(65, 22);
+            label29.Size = new Size(90, 22);
             label29.TabIndex = 82;
-            label29.Text = "Weight";
+            label29.Text = "     Weight";
             // 
             // productTypeLabel
             // 
@@ -211,11 +298,13 @@
             label23.AutoSize = true;
             label23.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label23.ForeColor = Color.FromArgb(19, 39, 71);
+            label23.Image = (Image)resources.GetObject("label23.Image");
+            label23.ImageAlign = ContentAlignment.MiddleLeft;
             label23.Location = new Point(308, 54);
             label23.Name = "label23";
-            label23.Size = new Size(98, 22);
+            label23.Size = new Size(123, 22);
             label23.TabIndex = 88;
-            label23.Text = "Delivery Id";
+            label23.Text = "     Delivery Id";
             // 
             // weightLabel
             // 
@@ -233,11 +322,13 @@
             label26.AutoSize = true;
             label26.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label26.ForeColor = Color.FromArgb(19, 39, 71);
+            label26.Image = (Image)resources.GetObject("label26.Image");
+            label26.ImageAlign = ContentAlignment.MiddleLeft;
             label26.Location = new Point(15, 179);
             label26.Name = "label26";
-            label26.Size = new Size(134, 22);
+            label26.Size = new Size(159, 22);
             label26.TabIndex = 85;
-            label26.Text = "Collect Amount";
+            label26.Text = "     Collect Amount";
             // 
             // collectAmountLabel
             // 
@@ -287,22 +378,26 @@
             label14.AutoSize = true;
             label14.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label14.ForeColor = Color.FromArgb(19, 39, 71);
+            label14.Image = (Image)resources.GetObject("label14.Image");
+            label14.ImageAlign = ContentAlignment.MiddleLeft;
             label14.Location = new Point(296, 179);
             label14.Name = "label14";
-            label14.Size = new Size(35, 22);
+            label14.Size = new Size(60, 22);
             label14.TabIndex = 79;
-            label14.Text = "Zip";
+            label14.Text = "     Zip";
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(19, 39, 71);
+            label15.Image = (Image)resources.GetObject("label15.Image");
+            label15.ImageAlign = ContentAlignment.MiddleLeft;
             label15.Location = new Point(296, 116);
             label15.Name = "label15";
-            label15.Size = new Size(61, 22);
+            label15.Size = new Size(86, 22);
             label15.TabIndex = 78;
-            label15.Text = "Street";
+            label15.Text = "     Street";
             // 
             // cusAreaLabel
             // 
@@ -331,11 +426,13 @@
             label18.AutoSize = true;
             label18.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(19, 39, 71);
+            label18.Image = (Image)resources.GetObject("label18.Image");
+            label18.ImageAlign = ContentAlignment.MiddleLeft;
             label18.Location = new Point(295, 54);
             label18.Name = "label18";
-            label18.Size = new Size(50, 22);
+            label18.Size = new Size(75, 22);
             label18.TabIndex = 75;
-            label18.Text = "Area";
+            label18.Text = "     Area";
             // 
             // cusDistrictLabel
             // 
@@ -353,11 +450,13 @@
             label10.AutoSize = true;
             label10.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(19, 39, 71);
+            label10.Image = (Image)resources.GetObject("label10.Image");
+            label10.ImageAlign = ContentAlignment.MiddleLeft;
             label10.Location = new Point(13, 179);
             label10.Name = "label10";
-            label10.Size = new Size(70, 22);
+            label10.Size = new Size(95, 22);
             label10.TabIndex = 73;
-            label10.Text = "District";
+            label10.Text = "     District";
             // 
             // cusPhoneLabel
             // 
@@ -386,22 +485,26 @@
             label7.AutoSize = true;
             label7.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(19, 39, 71);
+            label7.Image = (Image)resources.GetObject("label7.Image");
+            label7.ImageAlign = ContentAlignment.MiddleLeft;
             label7.Location = new Point(13, 117);
             label7.Name = "label7";
-            label7.Size = new Size(61, 22);
+            label7.Size = new Size(86, 22);
             label7.TabIndex = 70;
-            label7.Text = "Phone";
+            label7.Text = "     Phone";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(19, 39, 71);
+            label6.Image = (Image)resources.GetObject("label6.Image");
+            label6.ImageAlign = ContentAlignment.MiddleLeft;
             label6.Location = new Point(12, 54);
             label6.Name = "label6";
-            label6.Size = new Size(58, 22);
+            label6.Size = new Size(83, 22);
             label6.TabIndex = 60;
-            label6.Text = "Name";
+            label6.Text = "     Name";
             // 
             // label4
             // 
@@ -699,6 +802,8 @@
             FrontLeftPanel.ResumeLayout(false);
             FrontRightPanel.ResumeLayout(false);
             FrontRightPanel.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             bottomRightPanel.ResumeLayout(false);
             bottomRightPanel.PerformLayout();
             bottomLeftPanel.ResumeLayout(false);
@@ -761,5 +866,11 @@
         private Label topStatusLabel;
         private Label NotDeliveredCancelledIconLabel;
         private Label outForDeliveryGreenTickLabel;
+        private Panel panel1;
+        private Label label13;
+        private Label label9;
+        private Label label12;
+        private Label riderPhoneLabel;
+        private Label riderNameLabel;
     }
 }

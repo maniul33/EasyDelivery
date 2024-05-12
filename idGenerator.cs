@@ -10,7 +10,7 @@ namespace EasyDelivery
         {
             List<string> ids = new List<string>();
 
-            string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+            string connectionString = DatabaseSettings.ConnectionString;
 
             string query = "";
             string clm = "";

@@ -382,7 +382,7 @@ namespace EasyDelivery
                 }
 
                 //1. Address of SQL Server and Database.
-                string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+                string connection = DatabaseSettings.ConnectionString;
 
                 //2. Establish Connection.
                 SqlConnection conn = new SqlConnection(connection);

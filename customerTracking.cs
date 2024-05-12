@@ -52,7 +52,7 @@ namespace EasyDelivery
         }
         private void populateInformation()
         {
-            string connection = "Data Source=LAPTOP-0F2M46LC\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True;";
+            string connection = DatabaseSettings.ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connection))
             {
@@ -61,22 +61,27 @@ namespace EasyDelivery
                     conn.Open();
 
                     string query = @"
-                       SELECT m.store_name, 
-                       col.weight, 
-                       col.productType, 
-                       col.collectAmount, 
-                       col.status, 
-                       cust.cusName, 
-                       col.d_id, 
-                       cust.cusPhone, 
-                       cust.cusDistrict, 
-                       cust.cusArea, 
-                       cust.cusStreet, 
-                       cust.cusZip
-                       FROM collect col
-                       INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
-                       INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
-                       WHERE cust.cusPhone = @PhoneNumber";
+                                    SELECT m.store_name, 
+                                    col.weight, 
+                                    col.productType, 
+                                    col.collectAmount, 
+                                    col.status, 
+                                    cust.cusName, 
+                                    col.d_id, 
+                                    cust.cusPhone, 
+                                    cust.cusDistrict, 
+                                    cust.cusArea, 
+                                    cust.cusStreet, 
+                                    cust.cusZip,
+                                    r.rider_name,
+                                    r.number
+                                    FROM collect col
+                                    INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
+                                    INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
+                                    INNER JOIN delivery d ON col.d_id = d.d_id
+                                    INNER JOIN rider r ON d.rider_id = r.rider_id
+                                    WHERE cust.cusPhone = @PhoneNumber";
+
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
@@ -103,6 +108,10 @@ namespace EasyDelivery
                         statusLabel.Text = reader["status"].ToString();
                         deliveryIdLabel.Text = reader["d_id"].ToString();
 
+                        riderNameLabel.Text = reader["rider_name"].ToString();
+                        riderPhoneLabel.Text = reader["number"].ToString();
+
+
                         Font boldFont = new Font(this.Font, FontStyle.Bold);
 
                         // Set font to bold for specific labels
@@ -120,6 +129,8 @@ namespace EasyDelivery
                         collectAmountLabel.Font = boldFont;
                         statusLabel.Font = boldFont;
                         deliveryIdLabel.Font = boldFont;
+                        riderNameLabel.Font = boldFont;
+                        riderPhoneLabel.Font = boldFont;
 
                         string deliveryStatus = reader["status"].ToString();
 

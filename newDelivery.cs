@@ -1,4 +1,4 @@
-﻿using java.beans;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -237,7 +237,7 @@ namespace EasyDelivery
                 idGenerator idGen = new idGenerator();
                 string dlvId = idGen.createNewID("DLV");
 
-                string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
+                string connectionString = DatabaseSettings.ConnectionString;
 
                 bool customerExists = false;
 
