@@ -93,10 +93,10 @@
             deliveryid1Label = new Label();
             name1Label = new Label();
             panel8 = new Panel();
+            label5 = new Label();
             oftLabelPanel = new Panel();
             button1 = new Button();
             label3 = new Label();
-            label5 = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
@@ -161,6 +161,7 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // notesButton
             // 
@@ -230,6 +231,7 @@
             newDeliveryButton.Text = "  New Delivery";
             newDeliveryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             newDeliveryButton.UseVisualStyleBackColor = true;
+            newDeliveryButton.Click += newDeliveryButton_Click;
             // 
             // dashboardButton
             // 
@@ -852,6 +854,18 @@
             panel8.TabIndex = 8;
             panel8.Paint += panel8_Paint;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.ButtonHighlight;
+            label5.Font = new Font("Lucida Sans Typewriter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(19, 40, 71);
+            label5.Location = new Point(311, 55);
+            label5.Name = "label5";
+            label5.Size = new Size(166, 23);
+            label5.TabIndex = 4;
+            label5.Text = "of this month";
+            // 
             // oftLabelPanel
             // 
             oftLabelPanel.BackColor = SystemColors.ButtonHighlight;
@@ -890,18 +904,6 @@
             label3.Size = new Size(303, 34);
             label3.TabIndex = 9;
             label3.Text = "Out for Delivery";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = SystemColors.ButtonHighlight;
-            label5.Font = new Font("Lucida Sans Typewriter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(19, 40, 71);
-            label5.Location = new Point(311, 55);
-            label5.Name = "label5";
-            label5.Size = new Size(166, 23);
-            label5.TabIndex = 4;
-            label5.Text = "of this month";
             // 
             // merchantDashboard
             // 

@@ -291,6 +291,7 @@
             backtoDashboardButton.Text = "Back to Dashboard";
             backtoDashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             backtoDashboardButton.UseVisualStyleBackColor = false;
+            backtoDashboardButton.Click += backtoDashboardButton_Click;
             // 
             // codTextBox
             // 

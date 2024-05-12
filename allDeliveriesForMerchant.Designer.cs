@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(allDeliveriesForMerchant));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             contextMenuStrip1 = new ContextMenuStrip(components);
             rightPanel = new Panel();
@@ -38,7 +37,7 @@
             profilePicture = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
-            pictureBox1 = new PictureBox();
+            logoBox = new PictureBox();
             dashboardButton = new Button();
             newDeliveryButton = new Button();
             deliveriesButton = new Button();
@@ -62,7 +61,7 @@
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             sidePanel.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,7 +99,6 @@
             profileButton.FlatStyle = FlatStyle.Flat;
             profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileButton.ForeColor = Color.FromArgb(19, 40, 71);
-            profileButton.Image = (Image)resources.GetObject("profileButton.Image");
             profileButton.Location = new Point(85, 246);
             profileButton.Name = "profileButton";
             profileButton.Size = new Size(165, 85);
@@ -112,7 +110,6 @@
             // profilePicture
             // 
             profilePicture.BackColor = Color.White;
-            profilePicture.Image = (Image)resources.GetObject("profilePicture.Image");
             profilePicture.Location = new Point(0, 244);
             profilePicture.Name = "profilePicture";
             profilePicture.Size = new Size(87, 87);
@@ -122,7 +119,7 @@
             // panel1
             // 
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(logoBox);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 250);
@@ -135,15 +132,14 @@
             panel2.Size = new Size(250, 85);
             panel2.TabIndex = 1;
             // 
-            // pictureBox1
+            // logoBox
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(250, 250);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            logoBox.BackColor = Color.White;
+            logoBox.Location = new Point(0, 0);
+            logoBox.Name = "logoBox";
+            logoBox.Size = new Size(250, 250);
+            logoBox.TabIndex = 1;
+            logoBox.TabStop = false;
             // 
             // dashboardButton
             // 
@@ -152,7 +148,6 @@
             dashboardButton.FlatStyle = FlatStyle.Flat;
             dashboardButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dashboardButton.ForeColor = Color.White;
-            dashboardButton.Image = (Image)resources.GetObject("dashboardButton.Image");
             dashboardButton.Location = new Point(0, 328);
             dashboardButton.Margin = new Padding(0);
             dashboardButton.Name = "dashboardButton";
@@ -169,7 +164,6 @@
             newDeliveryButton.FlatStyle = FlatStyle.Flat;
             newDeliveryButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             newDeliveryButton.ForeColor = Color.White;
-            newDeliveryButton.Image = (Image)resources.GetObject("newDeliveryButton.Image");
             newDeliveryButton.Location = new Point(0, 408);
             newDeliveryButton.Margin = new Padding(0);
             newDeliveryButton.Name = "newDeliveryButton";
@@ -186,7 +180,6 @@
             deliveriesButton.FlatStyle = FlatStyle.Flat;
             deliveriesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deliveriesButton.ForeColor = Color.White;
-            deliveriesButton.Image = (Image)resources.GetObject("deliveriesButton.Image");
             deliveriesButton.Location = new Point(0, 488);
             deliveriesButton.Margin = new Padding(0);
             deliveriesButton.Name = "deliveriesButton";
@@ -203,7 +196,6 @@
             invoicesButton.FlatStyle = FlatStyle.Flat;
             invoicesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             invoicesButton.ForeColor = Color.White;
-            invoicesButton.Image = (Image)resources.GetObject("invoicesButton.Image");
             invoicesButton.Location = new Point(0, 568);
             invoicesButton.Margin = new Padding(0);
             invoicesButton.Name = "invoicesButton";
@@ -220,7 +212,6 @@
             notesButton.FlatStyle = FlatStyle.Flat;
             notesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             notesButton.ForeColor = Color.White;
-            notesButton.Image = (Image)resources.GetObject("notesButton.Image");
             notesButton.Location = new Point(0, 648);
             notesButton.Margin = new Padding(0);
             notesButton.Name = "notesButton";
@@ -237,7 +228,6 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
-            logoutButton.Image = (Image)resources.GetObject("logoutButton.Image");
             logoutButton.Location = new Point(0, 728);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
@@ -409,7 +399,7 @@
             logoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)logoBox).EndInit();
             sidePanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -424,7 +414,7 @@
         private PictureBox profilePicture;
         private Panel panel1;
         private Panel panel2;
-        private PictureBox pictureBox1;
+        private PictureBox logoBox;
         private Button dashboardButton;
         private Button newDeliveryButton;
         private Button deliveriesButton;

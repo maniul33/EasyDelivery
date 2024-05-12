@@ -1,14 +1,11 @@
-﻿// panelCreation.cs
-using com.sun.tools.javac.util;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace EasyDelivery
-{
-    //
+{    
     internal class panelCreation
     {
         private string connectionString = "Data Source=MANIUL\\SQLEXPRESS;Initial Catalog=EasyDelivery;Integrated Security=True";
