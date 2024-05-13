@@ -182,7 +182,7 @@ namespace EasyDelivery
 
         private void backLabel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

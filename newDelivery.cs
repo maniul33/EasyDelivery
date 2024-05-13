@@ -327,7 +327,7 @@ namespace EasyDelivery
 
         private void backtoDashboardButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             merchantDashboard form = new merchantDashboard(store_id);
             form.Show();
         }

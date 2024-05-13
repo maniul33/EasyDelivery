@@ -14,10 +14,12 @@ namespace EasyDelivery
     public partial class showDeliveryDetails : Form
     {
         string deliveryId { get; }
-        public showDeliveryDetails(string deliveryId)
+        string store_id { get; }
+        public showDeliveryDetails(string deliveryId, string store_id)
         {
             InitializeComponent();
             this.deliveryId = deliveryId;
+            this.store_id = store_id;
             populateInformation();
         }
         private void bottomLeftPanel_Paint(object sender, PaintEventArgs e)
@@ -25,7 +27,7 @@ namespace EasyDelivery
             Panel panel = sender as Panel;
             if (panel != null)
             {
-                int padding = 130; // Adjust the padding as needed
+                int padding = 130;
                 int y = panel.Height / 2;
                 int startX = padding;
                 int endX = panel.Width - padding;
@@ -51,7 +53,6 @@ namespace EasyDelivery
 
                     string query = @"
                                     SELECT m.store_name, 
-                                    m.number, 
                                     col.weight, 
                                     col.productType, 
                                     col.collectAmount, 
@@ -62,10 +63,14 @@ namespace EasyDelivery
                                     cust.cusDistrict, 
                                     cust.cusArea, 
                                     cust.cusStreet, 
-                                    cust.cusZip
+                                    cust.cusZip,
+                                    r.rider_name,
+                                    r.number
                                     FROM collect col
                                     INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
                                     INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
+                                    INNER JOIN delivery d ON col.d_id = d.d_id
+                                    INNER JOIN rider r ON d.rider_id = r.rider_id
                                     WHERE col.d_id = @DeliveryId";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -75,15 +80,26 @@ namespace EasyDelivery
 
                     if (reader.Read())
                     {
-                        // Populate textboxes with retrieved data
-                        topStatusLabel.Text = reader["status"].ToString();
-                        topDeliveryLabel.Text = reader["d_id"].ToString();
-                        topStoreNameLabel.Text = reader["store_name"].ToString();
+
                         cusNameLabel.Text = reader["cusName"].ToString();
                         cusPhoneLabel.Text = reader["cusPhone"].ToString();
                         cusDistrictLabel.Text = reader["cusDistrict"].ToString();
-                        topStorePhoneLabel.Text = reader["number"].ToString();
 
+                        string rdrName = reader["rider_name"].ToString();
+                        string rdrPhone = reader["number"].ToString();
+
+                        if (string.IsNullOrEmpty(rdrName))
+                        {
+                            riderNameLabel.Text = "Unassigned";
+                            riderNameLabel.ForeColor = System.Drawing.Color.Red;
+                            riderPhoneLabel.Text = "Unassigned";
+                            riderPhoneLabel.ForeColor = System.Drawing.Color.Red;
+                        }
+                        else
+                        {
+                            riderNameLabel.Text = rdrName;
+                            riderPhoneLabel.Text = rdrPhone;
+                        }
 
                         cusAreaLabel.Text = reader["cusArea"].ToString();
                         cusStreetLabel.Text = reader["cusStreet"].ToString();
@@ -97,10 +113,7 @@ namespace EasyDelivery
 
                         Font boldFont = new Font(this.Font, FontStyle.Bold);
 
-                        // Set font to bold for specific labels
-                        topStatusLabel.Font = boldFont;
-                        topDeliveryLabel.Font = boldFont;
-                        topStoreNameLabel.Font = boldFont;
+
                         cusNameLabel.Font = boldFont;
                         cusPhoneLabel.Font = boldFont;
                         cusDistrictLabel.Font = boldFont;
@@ -112,9 +125,6 @@ namespace EasyDelivery
                         collectAmountLabel.Font = boldFont;
                         statusLabel.Font = boldFont;
                         deliveryIdLabel.Font = boldFont;
-                        topStorePhoneLabel.Font = boldFont;
-
-                        //The below code is for the timeline panel(bottomLeftPanel).
 
                         string deliveryStatus = reader["status"].ToString();
                         if (deliveryStatus == "Pending")
@@ -159,10 +169,9 @@ namespace EasyDelivery
                             outForDeliveryIconLabel.Visible = false;
                             cancelledIconLabel.Visible = true;
                             NotDeliveredCancelledIconLabel.Visible = false;
-                            outForDeliveryGreenTickLabel.Visible = false;
+                            outForDeliveryGreenTickLabel.Visible = true;
                             cancelledLabel.Visible = true;
                             deliveredLabel.Visible = false;
-
                         }
                     }
                     else
@@ -213,7 +222,7 @@ namespace EasyDelivery
                 MessageBox.Show("Delivery with ID " + deliveryID + " has been successfully cancelled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
-                showDeliveryDetails form = new showDeliveryDetails(deliveryID);
+                showDeliveryDetails form = new showDeliveryDetails(deliveryID, store_id);
                 form.Show();
             }
             catch (Exception ex)
@@ -224,6 +233,13 @@ namespace EasyDelivery
             {
                 connection.Close();
             }
+        }
+
+        private void backtoDashboardButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, store_id);
+            form.Show();
         }
     }
 }

@@ -160,9 +160,9 @@
             label13.ImageAlign = ContentAlignment.MiddleLeft;
             label13.Location = new Point(4, 13);
             label13.Name = "label13";
-            label13.Size = new Size(162, 24);
+            label13.Size = new Size(127, 24);
             label13.TabIndex = 81;
-            label13.Text = "Recipient Details";
+            label13.Text = "Rider Details";
             // 
             // label9
             // 
