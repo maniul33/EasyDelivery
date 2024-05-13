@@ -48,7 +48,7 @@ namespace EasyDelivery
 
         private void riderButton_Click(object sender, EventArgs e)
         {
-            loadForm(new riderDashboardPanel());
+            loadForm(new riderDashboardPanel(mainPanel));
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace EasyDelivery
     public partial class riderDashboardPanel : Form
     {
         private string selectedRiderId = "";
-        public riderDashboardPanel()
+        public riderDashboardPanel(Panel mainPanel)
         {
             InitializeComponent();
             loadAllRiderAvailable();
@@ -33,7 +33,7 @@ namespace EasyDelivery
                 conn.Open();
 
                 //4. Prepare Query.
-                string query = "select rider_id AS RiderID, rider_name AS RiderName, email AS RiderEmail, number AS RiderNumber, rider_password AS RiderPassword, r_bankName AS RiderBankName, r_branchName as RiderBranchName, r_accNo AS RiderAccountNumber from rider;";
+                string query = "select rider_id AS RiderID, rider_name AS Name, email AS Email, number AS Number, rider_password AS Password, r_bankName AS BankName, r_branchName as BranchName, r_accNo AS AccountNumber from rider;";
 
                 //5. Execute Query.
                 SqlCommand cmd = new SqlCommand(query, conn);

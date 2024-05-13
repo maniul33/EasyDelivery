@@ -76,43 +76,43 @@ namespace EasyDelivery
                     if (reader.Read())
                     {
                         // Populate textboxes with retrieved data
-                        topStatusLabel.Text = reader["status"].ToString();
-                        topDeliveryLabel.Text = reader["d_id"].ToString();
-                        topStoreNameLabel.Text = reader["store_name"].ToString();
-                        cusNameLabel.Text = reader["cusName"].ToString();
-                        cusPhoneLabel.Text = reader["cusPhone"].ToString();
-                        cusDistrictLabel.Text = reader["cusDistrict"].ToString();
-                        topStorePhoneLabel.Text = reader["number"].ToString();
+                        //topStatusLabel.Text = reader["status"].ToString();
+                        //topDeliveryLabel.Text = reader["d_id"].ToString();
+                        //topStoreNameLabel.Text = reader["store_name"].ToString();
+                        //cusNameLabel.Text = reader["cusName"].ToString();
+                        //cusPhoneLabel.Text = reader["cusPhone"].ToString();
+                        //cusDistrictLabel.Text = reader["cusDistrict"].ToString();
+                        //topStorePhoneLabel.Text = reader["number"].ToString();
 
 
-                        cusAreaLabel.Text = reader["cusArea"].ToString();
-                        cusStreetLabel.Text = reader["cusStreet"].ToString();
-                        cusZipLabel.Text = reader["cusZip"].ToString();
-                        productTypeLabel.Text = reader["productType"].ToString();
+                        //cusAreaLabel.Text = reader["cusArea"].ToString();
+                        //cusStreetLabel.Text = reader["cusStreet"].ToString();
+                        //cusZipLabel.Text = reader["cusZip"].ToString();
+                        //productTypeLabel.Text = reader["productType"].ToString();
 
-                        weightLabel.Text = reader["weight"].ToString();
-                        collectAmountLabel.Text = reader["collectAmount"].ToString();
-                        statusLabel.Text = reader["status"].ToString();
-                        deliveryIdLabel.Text = reader["d_id"].ToString();
+                        //weightLabel.Text = reader["weight"].ToString();
+                        //collectAmountLabel.Text = reader["collectAmount"].ToString();
+                        //statusLabel.Text = reader["status"].ToString();
+                        //deliveryIdLabel.Text = reader["d_id"].ToString();
 
-                        Font boldFont = new Font(this.Font, FontStyle.Bold);
+                        //Font boldFont = new Font(this.Font, FontStyle.Bold);
 
-                        // Set font to bold for specific labels
-                        topStatusLabel.Font = boldFont;
-                        topDeliveryLabel.Font = boldFont;
-                        topStoreNameLabel.Font = boldFont;
-                        cusNameLabel.Font = boldFont;
-                        cusPhoneLabel.Font = boldFont;
-                        cusDistrictLabel.Font = boldFont;
-                        cusAreaLabel.Font = boldFont;
-                        cusStreetLabel.Font = boldFont;
-                        cusZipLabel.Font = boldFont;
-                        productTypeLabel.Font = boldFont;
-                        weightLabel.Font = boldFont;
-                        collectAmountLabel.Font = boldFont;
-                        statusLabel.Font = boldFont;
-                        deliveryIdLabel.Font = boldFont;
-                        topStorePhoneLabel.Font = boldFont;
+                        //// Set font to bold for specific labels
+                        //topStatusLabel.Font = boldFont;
+                        //topDeliveryLabel.Font = boldFont;
+                        //topStoreNameLabel.Font = boldFont;
+                        //cusNameLabel.Font = boldFont;
+                        //cusPhoneLabel.Font = boldFont;
+                        //cusDistrictLabel.Font = boldFont;
+                        //cusAreaLabel.Font = boldFont;
+                        //cusStreetLabel.Font = boldFont;
+                        //cusZipLabel.Font = boldFont;
+                        //productTypeLabel.Font = boldFont;
+                        //weightLabel.Font = boldFont;
+                        //collectAmountLabel.Font = boldFont;
+                        //statusLabel.Font = boldFont;
+                        //deliveryIdLabel.Font = boldFont;
+                        //topStorePhoneLabel.Font = boldFont;
 
                         //The below code is for the timeline panel(bottomLeftPanel).
 

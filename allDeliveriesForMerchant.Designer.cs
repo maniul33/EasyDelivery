@@ -142,14 +142,14 @@
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(250, 250);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            //pictureBox1.BackColor = Color.White;
+            //pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            //pictureBox1.Location = new Point(0, 0);
+            //pictureBox1.Name = "pictureBox1";
+            //pictureBox1.Size = new Size(250, 250);
+            //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            //pictureBox1.TabIndex = 1;
+            //pictureBox1.TabStop = false;
             // 
             // dashboardButton
             // 
