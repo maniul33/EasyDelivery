@@ -196,7 +196,7 @@ namespace EasyDelivery
 
         private void backLabel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

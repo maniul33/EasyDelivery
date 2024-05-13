@@ -15,7 +15,7 @@ namespace EasyDelivery
     public partial class allDeliveriesForMerchant : Form
     {
         private string store_id;
-        public allDeliveriesForMerchant(string store_id, string id)
+        public allDeliveriesForMerchant(string store_id, string searchingInfo)
         {
             InitializeComponent();
             PictureBox logo = new PictureBox();
@@ -24,7 +24,7 @@ namespace EasyDelivery
 
             panelCreation p = new panelCreation();
 
-            List<Panel> panels = p.LoadDeliveryDetails(id);
+            List<Panel> panels = p.LoadDeliveryDetails(searchingInfo, false);
 
             foreach (Panel panel in panels)
             {
@@ -113,23 +113,56 @@ namespace EasyDelivery
             }
             else
             {
-                string info = "";
+                string searchingInfo = "";
 
-                if (string.IsNullOrEmpty(searchByCustomerPhoneBox.Text))
+                if (!string.IsNullOrEmpty(searchByCustomerPhoneBox.Text))
                 {
-                    info = searchbyIDBox.Text;
+                    searchingInfo = searchByCustomerPhoneBox.Text;
                 }
                 else
                 {
-                    info = searchByCustomerPhoneBox.Text;
+                    searchingInfo = searchbyIDBox.Text;
                 }
-                this.Close();
 
-                allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, info);
+                this.Hide();
 
-                form.Show();
+                string connectionString = DatabaseSettings.ConnectionString;
+                string query = "SELECT * FROM CustomerDeliveryView WHERE CustomerPhone = @searchingInfo OR DeliveryID = @searchingInfo";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@searchingInfo", searchingInfo);
+
+                        try
+                        {
+                            connection.Open();
+                            SqlDataReader reader = command.ExecuteReader();
+
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    string deliveryId = reader.GetString(0); 
+                                    showDeliveryDetails form = new showDeliveryDetails(deliveryId, store_id);
+                                    form.Show();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No matching data found!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
         }
+
 
         private void profilePicture_Click(object sender, EventArgs e)
         {

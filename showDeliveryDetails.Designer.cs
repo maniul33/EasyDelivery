@@ -36,10 +36,14 @@
             cusStreetLabel = new Label();
             label18 = new Label();
             TopPanel = new Panel();
+            riderPhoneLabel = new Label();
+            riderNameLabel = new Label();
+            label3 = new Label();
+            label11 = new Label();
+            label9 = new Label();
             cancelButton = new Button();
             cusDistrictLabel = new Label();
             label10 = new Label();
-            backLabel = new Label();
             FrontLeftPanel = new Panel();
             FrontRightPanel = new Panel();
             middlePanel = new Panel();
@@ -73,11 +77,7 @@
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
-            label9 = new Label();
-            riderPhoneLabel = new Label();
-            riderNameLabel = new Label();
-            label3 = new Label();
-            label11 = new Label();
+            backtoDashboardButton = new Button();
             TopPanel.SuspendLayout();
             FrontLeftPanel.SuspendLayout();
             FrontRightPanel.SuspendLayout();
@@ -171,6 +171,67 @@
             TopPanel.Size = new Size(796, 162);
             TopPanel.TabIndex = 43;
             // 
+            // riderPhoneLabel
+            // 
+            riderPhoneLabel.AutoSize = true;
+            riderPhoneLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            riderPhoneLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            riderPhoneLabel.Location = new Point(354, 111);
+            riderPhoneLabel.Name = "riderPhoneLabel";
+            riderPhoneLabel.Size = new Size(61, 22);
+            riderPhoneLabel.TabIndex = 76;
+            riderPhoneLabel.Text = "Phone";
+            // 
+            // riderNameLabel
+            // 
+            riderNameLabel.AutoSize = true;
+            riderNameLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            riderNameLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            riderNameLabel.Location = new Point(354, 65);
+            riderNameLabel.Name = "riderNameLabel";
+            riderNameLabel.Size = new Size(58, 22);
+            riderNameLabel.TabIndex = 75;
+            riderNameLabel.Text = "Name";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.FromArgb(19, 39, 71);
+            label3.Image = (Image)resources.GetObject("label3.Image");
+            label3.ImageAlign = ContentAlignment.MiddleLeft;
+            label3.Location = new Point(16, 111);
+            label3.Name = "label3";
+            label3.Size = new Size(168, 22);
+            label3.TabIndex = 74;
+            label3.Text = "     Rider Phone No.";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.FromArgb(19, 39, 71);
+            label11.Image = (Image)resources.GetObject("label11.Image");
+            label11.ImageAlign = ContentAlignment.MiddleLeft;
+            label11.Location = new Point(16, 65);
+            label11.Name = "label11";
+            label11.Size = new Size(133, 22);
+            label11.TabIndex = 73;
+            label11.Text = "     Rider Name";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Cursor = Cursors.Hand;
+            label9.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(19, 39, 71);
+            label9.ImageAlign = ContentAlignment.MiddleLeft;
+            label9.Location = new Point(13, 12);
+            label9.Name = "label9";
+            label9.Size = new Size(127, 24);
+            label9.TabIndex = 70;
+            label9.Text = "Rider Details";
+            // 
             // cancelButton
             // 
             cancelButton.BackColor = Color.Firebrick;
@@ -211,20 +272,6 @@
             label10.TabIndex = 73;
             label10.Text = "     District";
             // 
-            // backLabel
-            // 
-            backLabel.AutoSize = true;
-            backLabel.Cursor = Cursors.Hand;
-            backLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            backLabel.ForeColor = Color.FromArgb(19, 39, 71);
-            backLabel.Image = (Image)resources.GetObject("backLabel.Image");
-            backLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            backLabel.Location = new Point(27, 11);
-            backLabel.Name = "backLabel";
-            backLabel.Size = new Size(76, 22);
-            backLabel.TabIndex = 41;
-            backLabel.Text = "     Back";
-            // 
             // FrontLeftPanel
             // 
             FrontLeftPanel.BackColor = Color.White;
@@ -237,11 +284,11 @@
             // FrontRightPanel
             // 
             FrontRightPanel.BackColor = Color.FromArgb(254, 254, 255);
+            FrontRightPanel.Controls.Add(backtoDashboardButton);
             FrontRightPanel.Controls.Add(middlePanel);
             FrontRightPanel.Controls.Add(bottomRightPanel);
             FrontRightPanel.Controls.Add(panel1);
             FrontRightPanel.Controls.Add(TopPanel);
-            FrontRightPanel.Controls.Add(backLabel);
             FrontRightPanel.Location = new Point(0, 0);
             FrontRightPanel.Name = "FrontRightPanel";
             FrontRightPanel.Size = new Size(1235, 678);
@@ -650,66 +697,23 @@
             label5.TabIndex = 69;
             label5.Text = "Recipient Details";
             // 
-            // label9
+            // backtoDashboardButton
             // 
-            label9.AutoSize = true;
-            label9.Cursor = Cursors.Hand;
-            label9.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(19, 39, 71);
-            label9.ImageAlign = ContentAlignment.MiddleLeft;
-            label9.Location = new Point(13, 12);
-            label9.Name = "label9";
-            label9.Size = new Size(127, 24);
-            label9.TabIndex = 70;
-            label9.Text = "Rider Details";
-            // 
-            // riderPhoneLabel
-            // 
-            riderPhoneLabel.AutoSize = true;
-            riderPhoneLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            riderPhoneLabel.ForeColor = Color.FromArgb(19, 39, 71);
-            riderPhoneLabel.Location = new Point(354, 111);
-            riderPhoneLabel.Name = "riderPhoneLabel";
-            riderPhoneLabel.Size = new Size(61, 22);
-            riderPhoneLabel.TabIndex = 76;
-            riderPhoneLabel.Text = "Phone";
-            // 
-            // riderNameLabel
-            // 
-            riderNameLabel.AutoSize = true;
-            riderNameLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            riderNameLabel.ForeColor = Color.FromArgb(19, 39, 71);
-            riderNameLabel.Location = new Point(354, 65);
-            riderNameLabel.Name = "riderNameLabel";
-            riderNameLabel.Size = new Size(58, 22);
-            riderNameLabel.TabIndex = 75;
-            riderNameLabel.Text = "Name";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(19, 39, 71);
-            label3.Image = (Image)resources.GetObject("label3.Image");
-            label3.ImageAlign = ContentAlignment.MiddleLeft;
-            label3.Location = new Point(16, 111);
-            label3.Name = "label3";
-            label3.Size = new Size(86, 22);
-            label3.TabIndex = 74;
-            label3.Text = "     Phone";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(19, 39, 71);
-            label11.Image = (Image)resources.GetObject("label11.Image");
-            label11.ImageAlign = ContentAlignment.MiddleLeft;
-            label11.Location = new Point(16, 65);
-            label11.Name = "label11";
-            label11.Size = new Size(83, 22);
-            label11.TabIndex = 73;
-            label11.Text = "     Name";
+            backtoDashboardButton.BackColor = SystemColors.ButtonHighlight;
+            backtoDashboardButton.Cursor = Cursors.Hand;
+            backtoDashboardButton.FlatAppearance.BorderSize = 0;
+            backtoDashboardButton.FlatStyle = FlatStyle.Flat;
+            backtoDashboardButton.Font = new Font("Bahnschrift", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            backtoDashboardButton.ForeColor = Color.FromArgb(19, 40, 71);
+            backtoDashboardButton.Image = (Image)resources.GetObject("backtoDashboardButton.Image");
+            backtoDashboardButton.Location = new Point(27, 15);
+            backtoDashboardButton.Name = "backtoDashboardButton";
+            backtoDashboardButton.Size = new Size(101, 27);
+            backtoDashboardButton.TabIndex = 39;
+            backtoDashboardButton.Text = "Back";
+            backtoDashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            backtoDashboardButton.UseVisualStyleBackColor = false;
+            backtoDashboardButton.Click += backtoDashboardButton_Click;
             // 
             // showDeliveryDetails
             // 
@@ -719,12 +723,12 @@
             ClientSize = new Size(1362, 803);
             Controls.Add(FrontLeftPanel);
             Name = "showDeliveryDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "showDeliveryDetails";
             TopPanel.ResumeLayout(false);
             TopPanel.PerformLayout();
             FrontLeftPanel.ResumeLayout(false);
             FrontRightPanel.ResumeLayout(false);
-            FrontRightPanel.PerformLayout();
             middlePanel.ResumeLayout(false);
             middlePanel.PerformLayout();
             bottomRightPanel.ResumeLayout(false);
@@ -745,7 +749,6 @@
         private Button cancelButton;
         private Label cusDistrictLabel;
         private Label label10;
-        private Label backLabel;
         private Panel FrontLeftPanel;
         private Panel FrontRightPanel;
         private Panel bottomRightPanel;
@@ -784,5 +787,6 @@
         private Label label3;
         private Label label11;
         private Label label9;
+        private Button backtoDashboardButton;
     }
 }
