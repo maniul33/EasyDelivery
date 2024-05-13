@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(merchantDashboard));
             sidePanel = new Panel();
             logoutButton = new Button();
-            notesButton = new Button();
             invoicesButton = new Button();
             deliveriesButton = new Button();
             newDeliveryButton = new Button();
@@ -95,7 +94,7 @@
             panel8 = new Panel();
             label5 = new Label();
             oftLabelPanel = new Panel();
-            button1 = new Button();
+            seeallButton = new Button();
             label3 = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
@@ -133,7 +132,6 @@
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(notesButton);
             sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
             sidePanel.Controls.Add(newDeliveryButton);
@@ -153,7 +151,7 @@
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
             logoutButton.Image = (Image)resources.GetObject("logoutButton.Image");
-            logoutButton.Location = new Point(0, 728);
+            logoutButton.Location = new Point(0, 641);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -162,23 +160,6 @@
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
             logoutButton.Click += logoutButton_Click;
-            // 
-            // notesButton
-            // 
-            notesButton.Cursor = Cursors.Hand;
-            notesButton.FlatAppearance.BorderSize = 0;
-            notesButton.FlatStyle = FlatStyle.Flat;
-            notesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            notesButton.ForeColor = Color.White;
-            notesButton.Image = (Image)resources.GetObject("notesButton.Image");
-            notesButton.Location = new Point(0, 648);
-            notesButton.Margin = new Padding(0);
-            notesButton.Name = "notesButton";
-            notesButton.Size = new Size(250, 80);
-            notesButton.TabIndex = 5;
-            notesButton.Text = "    Notes";
-            notesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            notesButton.UseVisualStyleBackColor = true;
             // 
             // invoicesButton
             // 
@@ -869,30 +850,31 @@
             // oftLabelPanel
             // 
             oftLabelPanel.BackColor = SystemColors.ButtonHighlight;
-            oftLabelPanel.Controls.Add(button1);
+            oftLabelPanel.Controls.Add(seeallButton);
             oftLabelPanel.Controls.Add(label3);
             oftLabelPanel.Location = new Point(77, 355);
             oftLabelPanel.Name = "oftLabelPanel";
             oftLabelPanel.Size = new Size(951, 49);
             oftLabelPanel.TabIndex = 3;
             // 
-            // button1
+            // seeallButton
             // 
-            button1.Cursor = Cursors.Hand;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.FromArgb(19, 40, 71);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(819, 6);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(119, 37);
-            button1.TabIndex = 4;
-            button1.Text = "See All";
-            button1.TextAlign = ContentAlignment.MiddleRight;
-            button1.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button1.UseVisualStyleBackColor = true;
+            seeallButton.Cursor = Cursors.Hand;
+            seeallButton.FlatAppearance.BorderSize = 0;
+            seeallButton.FlatStyle = FlatStyle.Flat;
+            seeallButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            seeallButton.ForeColor = Color.FromArgb(19, 40, 71);
+            seeallButton.Image = (Image)resources.GetObject("seeallButton.Image");
+            seeallButton.Location = new Point(819, 6);
+            seeallButton.Margin = new Padding(0);
+            seeallButton.Name = "seeallButton";
+            seeallButton.Size = new Size(119, 37);
+            seeallButton.TabIndex = 4;
+            seeallButton.Text = "See All";
+            seeallButton.TextAlign = ContentAlignment.MiddleRight;
+            seeallButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            seeallButton.UseVisualStyleBackColor = true;
+            seeallButton.Click += seeallButton_Click;
             // 
             // label3
             // 
@@ -977,7 +959,6 @@
         private PictureBox pictureBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button dashboardButton;
-        private Button notesButton;
         private Button invoicesButton;
         private Button deliveriesButton;
         private Button newDeliveryButton;
@@ -1035,5 +1016,6 @@
         private Label pendingCount;
         private Label cancelledCount;
         private Label label5;
+        private Button seeallButton;
     }
 }

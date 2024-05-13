@@ -23,7 +23,7 @@ namespace EasyDelivery
 
             panelCreation p = new panelCreation();
 
-            List<Panel> panels = p.LoadDeliveryDetails(riderID, true, "");
+            List<Panel> panels = p.LoadDeliveryDetails(riderID, true);
 
             foreach (Panel panel in panels)
             {

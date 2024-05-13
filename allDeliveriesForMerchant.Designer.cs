@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(allDeliveriesForMerchant));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             contextMenuStrip1 = new ContextMenuStrip(components);
             rightPanel = new Panel();
@@ -42,7 +43,6 @@
             newDeliveryButton = new Button();
             deliveriesButton = new Button();
             invoicesButton = new Button();
-            notesButton = new Button();
             logoutButton = new Button();
             sidePanel = new Panel();
             contextMenuStrip2 = new ContextMenuStrip(components);
@@ -58,6 +58,7 @@
             label13 = new Label();
             searchByCustomerPhoneBox = new TextBox();
             searchButton = new Button();
+            button1 = new Button();
             logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
@@ -141,15 +142,6 @@
             logoBox.Size = new Size(250, 250);
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
-
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(250, 250);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
             // 
             // dashboardButton
             // 
@@ -215,22 +207,6 @@
             invoicesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             invoicesButton.UseVisualStyleBackColor = true;
             // 
-            // notesButton
-            // 
-            notesButton.Cursor = Cursors.Hand;
-            notesButton.FlatAppearance.BorderSize = 0;
-            notesButton.FlatStyle = FlatStyle.Flat;
-            notesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            notesButton.ForeColor = Color.White;
-            notesButton.Location = new Point(0, 648);
-            notesButton.Margin = new Padding(0);
-            notesButton.Name = "notesButton";
-            notesButton.Size = new Size(250, 80);
-            notesButton.TabIndex = 5;
-            notesButton.Text = "    Notes";
-            notesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            notesButton.UseVisualStyleBackColor = true;
-            // 
             // logoutButton
             // 
             logoutButton.Cursor = Cursors.Hand;
@@ -238,7 +214,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
-            logoutButton.Location = new Point(0, 728);
+            logoutButton.Location = new Point(0, 657);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -251,7 +227,6 @@
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(notesButton);
             sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
             sidePanel.Controls.Add(newDeliveryButton);
@@ -372,17 +347,29 @@
             // 
             // searchButton
             // 
-            searchButton.BackColor = Color.FromArgb(19, 40, 71);
+            searchButton.BackColor = SystemColors.ButtonHighlight;
             searchButton.Cursor = Cursors.Hand;
+            searchButton.FlatStyle = FlatStyle.Flat;
             searchButton.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchButton.ForeColor = SystemColors.ButtonHighlight;
-            searchButton.Location = new Point(912, 42);
+            searchButton.ForeColor = SystemColors.Desktop;
+            searchButton.Image = (Image)resources.GetObject("searchButton.Image");
+            searchButton.Location = new Point(905, 48);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(126, 46);
+            searchButton.Size = new Size(120, 38);
             searchButton.TabIndex = 24;
             searchButton.Text = "Search";
+            searchButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             searchButton.UseVisualStyleBackColor = false;
             searchButton.Click += searchButton_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1094, 66);
+            button1.Name = "button1";
+            button1.Size = new Size(8, 8);
+            button1.TabIndex = 25;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // allDeliveriesForMerchant
             // 
@@ -390,6 +377,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1362, 803);
+            Controls.Add(button1);
             Controls.Add(searchButton);
             Controls.Add(label13);
             Controls.Add(searchByCustomerPhoneBox);
@@ -429,7 +417,6 @@
         private Button newDeliveryButton;
         private Button deliveriesButton;
         private Button invoicesButton;
-        private Button notesButton;
         private Button logoutButton;
         private Panel sidePanel;
         private Label briefStatsLabel;
@@ -499,5 +486,6 @@
         private Label label13;
         private TextBox searchByCustomerPhoneBox;
         private Button searchButton;
+        private Button button1;
     }
 }

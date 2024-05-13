@@ -5,70 +5,85 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace EasyDelivery
-{    
+{
     internal class panelCreation
     {
         private string connectionString = DatabaseSettings.ConnectionString;
         private string query = "";
 
-        
-        public List<Panel> LoadDeliveryDetails(string id)
+
+        public List<Panel> LoadDeliveryDetails(string searchingValue, bool isAllDeliveryForRider)
         {
             List<Delivery> deliveryDetails = new List<Delivery>();
             List<Panel> panels = new List<Panel>();
+            bool isRiderID = false;
+            bool isInvoiceID = false;
+            bool isStoreID = false;
 
             string idType = "";
-            if (id.Substring(0, 3) == "STR")
+            if (searchingValue.Substring(0, 3) == "STR")
             {
+                isStoreID = true;
                 idType = "@StoreId";
-                query = "SELECT * FROM CustomerDeliveryView WHERE store_id = @StoreId"; // Modified query to use the view and filter by store_id
-            }
-            else if(id.Substring(0,3) == "DLV")
+                query = "SELECT * FROM CustomerDeliveryView WHERE store_id = @StoreId";
+            }    
+            else if (searchingValue.Substring(0, 3) == "RDR")
             {
-                idType = "@d_id";
-                query = "SELECT * FROM CustomerDeliveryView WHERE d_id = @d_id"; // Modified query to use the view and filter by store_i
-            }
-            else if(id.Substring(0,3) == "RDR")
-            {
-                query = "SELECT * FROM CustomerDeliveryView WHERE DeliveryStatus = 'Pending'"; // Modified query to use the view and filter by store_i
-            }
-            else
-            {
-                idType = "@customerPhone";
-                query = "SELECT * FROM CustomerDeliveryView WHERE CustomerPhone = @customerPhone";
-            }
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                isRiderID = true;
+                if (isAllDeliveryForRider)
                 {
-                    command.Parameters.AddWithValue(idType, id);
+                    idType = "@RiderId";
+                    query = "SELECT * FROM CustomerDeliveryView WHERE RiderID = @RiderId ORDER BY " +
+                                   "CASE WHEN DeliveryStatus = 'OutForDelivery' THEN 1 " +
+                                   "WHEN DeliveryStatus = 'Delivered' THEN 2 " +
+                                   "ELSE 3 END";
+                }
+                else
+                {
+                    query = "SELECT * FROM CustomerDeliveryView WHERE DeliveryStatus = 'Pending'";
+                }
+            }
 
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
-                        {
-                            Delivery detail = new Delivery(
-                                reader.GetString(0), // d_id
-                                reader.GetString(1), // cus_name
-                                reader.GetString(2), // cus_phone
-                                reader.GetString(3), // cus_district
-                                reader.GetString(4), // cus_area
-                                reader.GetString(5), // cus_street
-                                reader.GetString(6), // cus_zip
-                                reader.GetString(7), // AmountToCollect
-                                reader.GetString(8), // DeliveryStatus
-                                reader.GetString(11), // rider_id
-                                reader.GetString(12), // rider_name
-                                reader.GetString(10), // store_name
-                                reader.GetString(9) // store_id
-                            );
+                        command.Connection = connection;
+                        command.CommandText = query;
+                        command.Parameters.AddWithValue(idType, searchingValue);
 
-                            deliveryDetails.Add(detail);
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Delivery detail = new Delivery(
+                                    reader.GetString(0), // d_id
+                                    reader.GetString(1), // cus_name
+                                    reader.GetString(2), // cus_phone
+                                    reader.GetString(3), // cus_district
+                                    reader.GetString(4), // cus_area
+                                    reader.GetString(5), // cus_street
+                                    reader.GetString(6), // cus_zip
+                                    reader.GetString(7), // AmountToCollect
+                                    reader.GetString(8), // DeliveryStatus
+                                    reader.GetString(11), // rider_id
+                                    reader.GetString(12), // rider_name
+                                    reader.GetString(10), // store_name
+                                    reader.GetString(9) // store_id
+                                );
+
+                                deliveryDetails.Add(detail);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading delivery details: " + ex.Message);
             }
 
             int initialX = 31;
@@ -83,11 +98,22 @@ namespace EasyDelivery
                 panel.Size = new System.Drawing.Size(panelWidth, panelHeight);
                 panel.Location = new System.Drawing.Point(initialX, initialY);
                 panel.Margin = new Padding(0, 0, 15, 0);
-                panel.Click += (sender, e) =>
+                if (isStoreID)
                 {
-                    showDeliveryDetails destinationForm = new showDeliveryDetails(dlv.d_id);
-                    destinationForm.Show();
-                };
+                    panel.Click += (sender, e) =>
+                    {
+                        showDeliveryDetails destinationForm = new showDeliveryDetails(dlv.d_id, dlv.store_id);
+                        destinationForm.Show();
+                    };
+                }
+                else if (isRiderID)
+                {
+                    panel.Click += (sender, e) =>
+                    {
+                        acceptDelivery destinationForm = new acceptDelivery(dlv.d_id);
+                        destinationForm.Show();
+                    };
+                }
                 panel.Cursor = Cursors.Hand;
 
                 PictureBox phoneIcon = new PictureBox();
@@ -170,7 +196,6 @@ namespace EasyDelivery
 
                 initialY += panelHeight + 15;
 
-                // Add the panel to the list of panels
                 panels.Add(panel);
             }
             return panels;
