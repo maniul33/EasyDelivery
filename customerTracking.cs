@@ -160,7 +160,7 @@ namespace EasyDelivery
                         else if (deliveryStatus == "Delivered")
                         {
                             deliveredIconLabel.Visible = true;
-                            outForDeliveryDoneIconLabel.Visible = true;
+                            outForDeliveryDoneIconLabel.Visible = false;
                             outForDeliveryIconLabel.Visible = false;
                             cancelledIconLabel.Visible = false;
                             NotDeliveredCancelledIconLabel.Visible = false;

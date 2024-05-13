@@ -14,10 +14,13 @@ namespace EasyDelivery
     public partial class adminDashboardBriefStats : Form
     {
         string deliveryId = "";
+        string totalIncome = "0";
         public adminDashboardBriefStats()
         {
             InitializeComponent();
             briefStats();
+            deliveryChargeTKIcon.Visible = false;
+            riderChargeTKIcon.Visible = false;
         }
 
         private void briefStats()
@@ -26,6 +29,8 @@ namespace EasyDelivery
             string totalRider = "0";
             string totalDelivery = "0";
             string connection = DatabaseSettings.ConnectionString;
+            double totalDeliveryCharge = 0;
+            double totalRiderCharge = 0;
 
             try
             {
@@ -33,37 +38,87 @@ namespace EasyDelivery
                 {
                     conn.Open();
 
-                    // Query for total number of merchants
                     string merchantQuery = "SELECT COUNT(*) FROM merchant;";
                     SqlCommand merchantCmd = new SqlCommand(merchantQuery, conn);
-                    totalMerchant = merchantCmd.ExecuteScalar().ToString(); // Convert int to string
+                    totalMerchant = merchantCmd.ExecuteScalar().ToString();
 
-                    // Query for total number of riders
                     string riderQuery = "SELECT COUNT(*) FROM rider;";
                     SqlCommand riderCmd = new SqlCommand(riderQuery, conn);
-                    totalRider = riderCmd.ExecuteScalar().ToString(); // Convert int to string
+                    totalRider = riderCmd.ExecuteScalar().ToString();
 
-                    // Query for total number of deliveries
                     string deliveryQuery = "SELECT COUNT(*) FROM [create];";
                     SqlCommand deliveryCmd = new SqlCommand(deliveryQuery, conn);
-                    totalDelivery = deliveryCmd.ExecuteScalar().ToString(); // Convert int to string
+                    totalDelivery = deliveryCmd.ExecuteScalar().ToString();
 
                     totalMerchantLabel.Text = totalMerchant;
                     totalDeliveryLabel.Text = totalDelivery;
                     totalRiderLabel.Text = totalRider;
-                }
 
+                    string deliveryChargeQuery = "SELECT deliveryCharge FROM Charge;";
+                    SqlCommand deliveryChargeCmd = new SqlCommand(deliveryChargeQuery, conn);
+                    SqlDataReader deliveryChargeReader = deliveryChargeCmd.ExecuteReader();
+
+                    List<double> deliveryChargeList = new List<double>();
+
+                    while (deliveryChargeReader.Read())
+                    {
+                        if (deliveryChargeReader["deliveryCharge"] != DBNull.Value)
+                        {
+                            double deliveryCharge = Convert.ToDouble(deliveryChargeReader["deliveryCharge"]);
+                            deliveryChargeList.Add(deliveryCharge);
+                        }
+                    }
+
+                    deliveryChargeReader.Close();
+
+                    double[] deliveryChargeArray = deliveryChargeList.ToArray();
+
+                    foreach (var charge in deliveryChargeArray)
+                    {
+                        totalDeliveryCharge += charge;
+                    }
+
+                    string riderChargeQuery = "SELECT riderCharge FROM Charge;";
+                    SqlCommand riderChargeCmd = new SqlCommand(riderChargeQuery, conn);
+                    SqlDataReader riderChargeReader = riderChargeCmd.ExecuteReader();
+
+                    List<double> riderChargeList = new List<double>();
+
+                    while (riderChargeReader.Read())
+                    {
+                        if (riderChargeReader["riderCharge"] != DBNull.Value)
+                        {
+                            double riderCharge = Convert.ToDouble(riderChargeReader["riderCharge"]);
+                            riderChargeList.Add(riderCharge);
+                        }
+                    }
+
+                    riderChargeReader.Close();
+                    double[] riderChargeArray = riderChargeList.ToArray();
+
+                    foreach (var charge in riderChargeArray)
+                    {
+                        totalRiderCharge += charge;
+                    }
+
+                    double totalPlatformFee = totalDeliveryCharge - totalRiderCharge;
+
+                    totalChargeLabel.Text = totalDeliveryCharge.ToString("F2"); 
+                    totalPlatformFeeLabel.Text = totalPlatformFee.ToString("F2"); 
+
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
         private void searchButton_Click(object sender, EventArgs e)
         {
+            deliveryChargeLabel.Text = ".";
+            riderChargeLabel.Text = ".";
+            deliveryChargeTKIcon.Visible = false;
+            riderChargeTKIcon.Visible = false;
             deliveryId = searchTextBox.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(deliveryId))
@@ -99,7 +154,6 @@ namespace EasyDelivery
 
                     if (reader.Read())
                     {
-                        // Populate textboxes with retrieved data
                         storeIdTextBox.Text = reader["store_id"].ToString();
                         storeNameTextBox.Text = reader["store_name"].ToString();
                         storeEmailTextBox.Text = reader["store_email"].ToString();
@@ -110,7 +164,9 @@ namespace EasyDelivery
                         weightTextBox.Text = reader["weight"].ToString();
                         productTypeTextBox.Text = reader["productType"].ToString();
                         collectTextBox.Text = reader["collectAmount"].ToString();
+                        double deliveryCharge = Convert.ToDouble(reader["collectAmount"]);
                         statusTextBox.Text = reader["status"].ToString();
+                        string status = reader["status"].ToString();
 
                         riderNameTextBox.Text = reader["rider_name"].ToString();
                         riderIdTextBox.Text = reader["rider_id"].ToString();
@@ -175,6 +231,23 @@ namespace EasyDelivery
 
                         cusAreaTextBox.ForeColor = Color.Black;
                         cusAreaTextBox.ReadOnly = true;
+
+                        double delCharge = 0;
+                        double riderCharge = 0;
+                        if (deliveryCharge > 0 && status == "Delivered")
+                        {
+                            deliveryChargeTKIcon.Visible = true;
+                            riderChargeTKIcon.Visible = true;
+                            delCharge += deliveryCharge * 0.1;
+                            deliveryChargeLabel.Text = delCharge.ToString();
+                            riderCharge += delCharge * 0.7;
+                            riderChargeLabel.Text = riderCharge.ToString();
+                        }
+                        else
+                        {
+                            deliveryChargeTKIcon.Visible = false;
+                            riderChargeTKIcon.Visible = false;
+                        }
                     }
                     else
                     {

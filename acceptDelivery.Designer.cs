@@ -59,6 +59,11 @@
             label6 = new Label();
             label5 = new Label();
             bottomLeftPanel = new Panel();
+            cancelledLabel = new Label();
+            cancelledIconLabel = new Label();
+            deliveredIconLabel = new Label();
+            outForDeliveryDoneIconLabel = new Label();
+            outForDeliveryGreenTickLabel = new Label();
             outForDeliveryLabel = new Label();
             NotDeliveredCancelledIconLabel = new Label();
             outForDeliveryIconLabel = new Label();
@@ -67,6 +72,7 @@
             pendingCheckedIconLabel = new Label();
             label4 = new Label();
             TopPanel = new Panel();
+            cancelButton = new Button();
             acceptButton = new Button();
             topStorePhoneLabel = new Label();
             label3 = new Label();
@@ -453,6 +459,11 @@
             // bottomLeftPanel
             // 
             bottomLeftPanel.BorderStyle = BorderStyle.Fixed3D;
+            bottomLeftPanel.Controls.Add(cancelledLabel);
+            bottomLeftPanel.Controls.Add(cancelledIconLabel);
+            bottomLeftPanel.Controls.Add(deliveredIconLabel);
+            bottomLeftPanel.Controls.Add(outForDeliveryDoneIconLabel);
+            bottomLeftPanel.Controls.Add(outForDeliveryGreenTickLabel);
             bottomLeftPanel.Controls.Add(outForDeliveryLabel);
             bottomLeftPanel.Controls.Add(NotDeliveredCancelledIconLabel);
             bottomLeftPanel.Controls.Add(outForDeliveryIconLabel);
@@ -465,6 +476,67 @@
             bottomLeftPanel.Size = new Size(796, 155);
             bottomLeftPanel.TabIndex = 44;
             bottomLeftPanel.Paint += bottomLeftPanel_Paint;
+            // 
+            // cancelledLabel
+            // 
+            cancelledLabel.AutoSize = true;
+            cancelledLabel.Cursor = Cursors.Hand;
+            cancelledLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelledLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            cancelledLabel.ImageAlign = ContentAlignment.MiddleLeft;
+            cancelledLabel.Location = new Point(580, 97);
+            cancelledLabel.Name = "cancelledLabel";
+            cancelledLabel.Size = new Size(99, 24);
+            cancelledLabel.TabIndex = 75;
+            cancelledLabel.Text = "Cancelled";
+            // 
+            // cancelledIconLabel
+            // 
+            cancelledIconLabel.AutoSize = true;
+            cancelledIconLabel.Font = new Font("Californian FB", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelledIconLabel.ForeColor = Color.White;
+            cancelledIconLabel.Image = (Image)resources.GetObject("cancelledIconLabel.Image");
+            cancelledIconLabel.Location = new Point(611, 43);
+            cancelledIconLabel.Name = "cancelledIconLabel";
+            cancelledIconLabel.Size = new Size(38, 63);
+            cancelledIconLabel.TabIndex = 74;
+            cancelledIconLabel.Text = ".";
+            // 
+            // deliveredIconLabel
+            // 
+            deliveredIconLabel.AutoSize = true;
+            deliveredIconLabel.Font = new Font("Californian FB", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deliveredIconLabel.ForeColor = Color.White;
+            deliveredIconLabel.Image = (Image)resources.GetObject("deliveredIconLabel.Image");
+            deliveredIconLabel.Location = new Point(611, 43);
+            deliveredIconLabel.Name = "deliveredIconLabel";
+            deliveredIconLabel.Size = new Size(38, 63);
+            deliveredIconLabel.TabIndex = 73;
+            deliveredIconLabel.Text = ".";
+            // 
+            // outForDeliveryDoneIconLabel
+            // 
+            outForDeliveryDoneIconLabel.AutoSize = true;
+            outForDeliveryDoneIconLabel.Font = new Font("Californian FB", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            outForDeliveryDoneIconLabel.ForeColor = Color.White;
+            outForDeliveryDoneIconLabel.Image = (Image)resources.GetObject("outForDeliveryDoneIconLabel.Image");
+            outForDeliveryDoneIconLabel.Location = new Point(370, 43);
+            outForDeliveryDoneIconLabel.Name = "outForDeliveryDoneIconLabel";
+            outForDeliveryDoneIconLabel.Size = new Size(38, 63);
+            outForDeliveryDoneIconLabel.TabIndex = 72;
+            outForDeliveryDoneIconLabel.Text = ".";
+            // 
+            // outForDeliveryGreenTickLabel
+            // 
+            outForDeliveryGreenTickLabel.AutoSize = true;
+            outForDeliveryGreenTickLabel.Font = new Font("Californian FB", 31.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            outForDeliveryGreenTickLabel.ForeColor = Color.White;
+            outForDeliveryGreenTickLabel.Image = (Image)resources.GetObject("outForDeliveryGreenTickLabel.Image");
+            outForDeliveryGreenTickLabel.Location = new Point(370, 43);
+            outForDeliveryGreenTickLabel.Name = "outForDeliveryGreenTickLabel";
+            outForDeliveryGreenTickLabel.Size = new Size(38, 63);
+            outForDeliveryGreenTickLabel.TabIndex = 71;
+            outForDeliveryGreenTickLabel.Text = ".";
             // 
             // outForDeliveryLabel
             // 
@@ -557,6 +629,7 @@
             // TopPanel
             // 
             TopPanel.BorderStyle = BorderStyle.Fixed3D;
+            TopPanel.Controls.Add(cancelButton);
             TopPanel.Controls.Add(acceptButton);
             TopPanel.Controls.Add(topStorePhoneLabel);
             TopPanel.Controls.Add(label3);
@@ -570,6 +643,22 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(796, 162);
             TopPanel.TabIndex = 43;
+            // 
+            // cancelButton
+            // 
+            cancelButton.BackColor = Color.FromArgb(19, 39, 71);
+            cancelButton.FlatAppearance.BorderSize = 0;
+            cancelButton.FlatStyle = FlatStyle.Flat;
+            cancelButton.Font = new Font("Bahnschrift", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cancelButton.ForeColor = Color.White;
+            cancelButton.ImageAlign = ContentAlignment.MiddleLeft;
+            cancelButton.Location = new Point(637, 92);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(131, 48);
+            cancelButton.TabIndex = 65;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // acceptButton
             // 
@@ -585,6 +674,7 @@
             acceptButton.TabIndex = 44;
             acceptButton.Text = "Accept";
             acceptButton.UseVisualStyleBackColor = false;
+            acceptButton.Click += acceptButton_Click;
             // 
             // topStorePhoneLabel
             // 
@@ -752,5 +842,11 @@
         private Label weightLabel;
         private Label label26;
         private Label collectAmountLabel;
+        private Button cancelButton;
+        private Label outForDeliveryGreenTickLabel;
+        private Label outForDeliveryDoneIconLabel;
+        private Label deliveredIconLabel;
+        private Label cancelledIconLabel;
+        private Label cancelledLabel;
     }
 }

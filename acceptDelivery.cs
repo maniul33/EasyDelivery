@@ -78,6 +78,7 @@ namespace EasyDelivery
                     {
                         // Populate textboxes with retrieved data
                         topStatusLabel.Text = reader["status"].ToString();
+                        string status = reader["status"].ToString();
                         topDeliveryLabel.Text = reader["d_id"].ToString();
                         topStoreNameLabel.Text = reader["store_name"].ToString();
                         cusNameLabel.Text = reader["cusName"].ToString();
@@ -115,56 +116,69 @@ namespace EasyDelivery
                         deliveryIdLabel.Font = boldFont;
                         topStorePhoneLabel.Font = boldFont;
 
+                        if(status == "OutForDelivery")
+                        {
+                            acceptButton.Visible = false;
+                            cancelButton.Visible = true;
+                        }
+                        else if(status == "Pending")
+                        {
+                            acceptButton.Visible = true;
+                            cancelButton.Visible = false;
+                        }
+                        else if(status == "Delivered")
+                        {
+                            acceptButton.Visible = false;
+                            cancelButton.Visible = false;
+                        }
                         //The below code is for the timeline panel(bottomLeftPanel).
+                        if (status == "Pending")
+                        {
+                            outForDeliveryDoneIconLabel.Visible = false;
+                            outForDeliveryIconLabel.Visible = true;
+                            deliveredIconLabel.Visible = false;
+                            cancelledIconLabel.Visible = false;
+                            NotDeliveredCancelledIconLabel.Visible = true;
+                            outForDeliveryGreenTickLabel.Visible = false;
+                            cancelledLabel.Visible = false;
+                            deliveredLabel.Visible = true;
+                        }
+                        else if (status == "OutForDelivery")
+                        {
+                            outForDeliveryDoneIconLabel.Visible = true;
+                            outForDeliveryIconLabel.Visible = false;
+                            deliveredIconLabel.Visible = false;
+                            cancelledIconLabel.Visible = false;
+                            NotDeliveredCancelledIconLabel.Visible = true;
+                            outForDeliveryGreenTickLabel.Visible = false;
+                            cancelledLabel.Visible = false;
+                            deliveredLabel.Visible = true;
 
-                        //string deliveryStatus = reader["status"].ToString();
-                        //if (deliveryStatus == "Pending")
-                        //{
-                        //    outForDeliveryDoneIconLabel.Visible = false;
-                        //    outForDeliveryIconLabel.Visible = true;
-                        //    deliveredIconLabel.Visible = false;
-                        //    cancelledIconLabel.Visible = false;
-                        //    NotDeliveredCancelledIconLabel.Visible = true;
-                        //    outForDeliveryGreenTickLabel.Visible = false;
-                        //    cancelledLabel.Visible = false;
-                        //    deliveredLabel.Visible = true;
-                        //}
-                        //else if (deliveryStatus == "OutForDelivery")
-                        //{
-                        //    outForDeliveryDoneIconLabel.Visible = true;
-                        //    outForDeliveryIconLabel.Visible = false;
-                        //    deliveredIconLabel.Visible = false;
-                        //    cancelledIconLabel.Visible = false;
-                        //    NotDeliveredCancelledIconLabel.Visible = true;
-                        //    outForDeliveryGreenTickLabel.Visible = false;
-                        //    cancelledLabel.Visible = false;
-                        //    deliveredLabel.Visible = true;
+                        }
+                        else if (status == "Delivered")
+                        {
+                            deliveredIconLabel.Visible = true;
+                            outForDeliveryDoneIconLabel.Visible = false;
+                            outForDeliveryIconLabel.Visible = false;
+                            cancelledIconLabel.Visible = false;
+                            NotDeliveredCancelledIconLabel.Visible = false;
+                            outForDeliveryGreenTickLabel.Visible = true;
+                            cancelledLabel.Visible = false;
+                            deliveredLabel.Visible = true;
 
-                        //}
-                        //else if (deliveryStatus == "Delivered")
-                        //{
-                        //    deliveredIconLabel.Visible = true;
-                        //    outForDeliveryDoneIconLabel.Visible = true;
-                        //    outForDeliveryIconLabel.Visible = false;
-                        //    cancelledIconLabel.Visible = false;
-                        //    NotDeliveredCancelledIconLabel.Visible = false;
-                        //    outForDeliveryGreenTickLabel.Visible = true;
-                        //    cancelledLabel.Visible = false;
-                        //    deliveredLabel.Visible = true;
+                        }
+                        else if (status == "Cancelled")
+                        {
+                            deliveredIconLabel.Visible = false;
+                            outForDeliveryDoneIconLabel.Visible = true;
+                            outForDeliveryIconLabel.Visible = false;
+                            cancelledIconLabel.Visible = true;
+                            NotDeliveredCancelledIconLabel.Visible = false;
+                            outForDeliveryGreenTickLabel.Visible = false;
+                            cancelledLabel.Visible = true;
+                            deliveredLabel.Visible = false;
 
-                        //}
-                        //else if (deliveryStatus == "Cancelled")
-                        //{
-                        //    deliveredIconLabel.Visible = false;
-                        //    outForDeliveryDoneIconLabel.Visible = true;
-                        //    outForDeliveryIconLabel.Visible = false;
-                        //    cancelledIconLabel.Visible = true;
-                        //    NotDeliveredCancelledIconLabel.Visible = false;
-                        //    outForDeliveryGreenTickLabel.Visible = false;
-                        //    cancelledLabel.Visible = true;
-                        //    deliveredLabel.Visible = false;
-
-                        //}
+                        }
                     }
                     else
                     {
@@ -183,6 +197,16 @@ namespace EasyDelivery
         private void backLabel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

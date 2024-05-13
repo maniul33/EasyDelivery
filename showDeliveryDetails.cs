@@ -80,7 +80,6 @@ namespace EasyDelivery
 
                     if (reader.Read())
                     {
-
                         cusNameLabel.Text = reader["cusName"].ToString();
                         cusPhoneLabel.Text = reader["cusPhone"].ToString();
                         cusDistrictLabel.Text = reader["cusDistrict"].ToString();
