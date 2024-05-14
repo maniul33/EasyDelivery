@@ -51,6 +51,7 @@
             AlreadyHaveAccountLabel = new Label();
             signupButton = new Button();
             imageList1 = new ImageList(components);
+            passToolTip = new ToolTip(components);
             FrontLeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EasyDeliveryLogo).BeginInit();
             FrontRightPanel.SuspendLayout();
@@ -138,6 +139,7 @@
             passwordTextBox.Size = new Size(437, 37);
             passwordTextBox.TabIndex = 26;
             passwordTextBox.Text = "Password";
+            passToolTip.SetToolTip(passwordTextBox, "Enter password");
             passwordTextBox.Enter += passwordTextBox_Enter;
             passwordTextBox.Leave += passwordTextBox_Leave;
             // 
@@ -357,5 +359,6 @@
         private Label AlreadyHaveAccountLabel;
         private Button signupButton;
         private ImageList imageList1;
+        private ToolTip passToolTip;
     }
 }

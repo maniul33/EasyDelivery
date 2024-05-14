@@ -268,7 +268,6 @@ namespace EasyDelivery
             string updatedBranchName = branchNameTextBox.Text.Trim();
             string updatedAccountNo = accountNoTextBox.Text.Trim();
 
-            // Update the record in the database
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 try

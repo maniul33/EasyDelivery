@@ -16,6 +16,7 @@ namespace EasyDelivery
         public SignupMerchant()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '*';
         }
 
         private void label1_Click(object sender, EventArgs e)

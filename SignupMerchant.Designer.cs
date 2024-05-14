@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignupMerchant));
             FrontRightPanel = new Panel();
             imageButton = new Button();
@@ -55,6 +56,8 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            uploadLogoToolTip = new ToolTip(components);
+            PasswordToolTip = new ToolTip(components);
             FrontRightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EasyDeliveryLogo).BeginInit();
             FrontLeftPanel.SuspendLayout();
@@ -98,6 +101,7 @@
             imageButton.Size = new Size(383, 37);
             imageButton.TabIndex = 36;
             imageButton.Text = "Upload Store Logo";
+            uploadLogoToolTip.SetToolTip(imageButton, "Logo cannot be changed later.");
             imageButton.UseVisualStyleBackColor = false;
             imageButton.Click += imageButton_Click;
             // 
@@ -224,6 +228,7 @@
             passwordTextBox.Size = new Size(383, 37);
             passwordTextBox.TabIndex = 26;
             passwordTextBox.Text = "Password";
+            PasswordToolTip.SetToolTip(passwordTextBox, "Enter password");
             passwordTextBox.Enter += passwordTextBox_Enter;
             passwordTextBox.Leave += passwordTextBox_Leave;
             // 
@@ -399,6 +404,11 @@
             label1.Text = "account.";
             label1.Click += label1_Click;
             // 
+            // uploadLogoToolTip
+            // 
+            uploadLogoToolTip.IsBalloon = true;
+            uploadLogoToolTip.ToolTipTitle = "Size must be 90x90.";
+            // 
             // SignupMerchant
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -444,5 +454,7 @@
         private TextBox zipTextBox;
         private TextBox streetTextBox;
         private Button imageButton;
+        private ToolTip uploadLogoToolTip;
+        private ToolTip PasswordToolTip;
     }
 }
