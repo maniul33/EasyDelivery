@@ -112,8 +112,8 @@ namespace EasyDelivery
                         string password = userPasswordTextBox.Text;
 
 
-                        string queryMerchant = "SELECT TOP 1 store_id FROM merchant WHERE (email = @Email OR number = @Number) AND password = @Password;";
-                        string queryRider = "SELECT TOP 1 rider_id FROM rider WHERE (email = @Email OR number = @Number) AND rider_password = @Password;";
+                        string queryMerchant = "SELECT store_id FROM merchant WHERE (email = @Email OR number = @Number) AND password = @Password;";
+                        string queryRider = "SELECT rider_id FROM rider WHERE (email = @Email OR number = @Number) AND rider_password = @Password;";
 
                         using (SqlCommand cmdMerchant = new SqlCommand(queryMerchant, conn))
                         using (SqlCommand cmdRider = new SqlCommand(queryRider, conn))
@@ -127,7 +127,6 @@ namespace EasyDelivery
                                 if (readerMerchant.Read())
                                 {
                                     retrievedID = readerMerchant["store_id"].ToString();
-                                    MessageBox.Show(retrievedID);
                                     new merchantDashboard(retrievedID).Show();
                                     this.Hide();
                                 }
@@ -147,7 +146,6 @@ namespace EasyDelivery
                                         if (readerRider.Read())
                                         {
                                             string retrievedID = readerRider["rider_id"].ToString();
-                                            MessageBox.Show(retrievedID);
                                             new riderDashboard(retrievedID).Show();
                                             this.Hide();
                                         }

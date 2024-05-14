@@ -157,5 +157,17 @@ namespace EasyDelivery
         {
             new adminMerchantUpdatePanel(store_id, false).Show();
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
+            this.Hide();
+        }
+
+        private void newDeliveryButton_Click(object sender, EventArgs e)
+        {
+            new newDelivery(store_id).Show();
+            this.Hide();
+        }
     }
 }

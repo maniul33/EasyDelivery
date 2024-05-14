@@ -24,8 +24,8 @@ namespace EasyDelivery
         {
             InitializeComponent();
             this.deliveryId = deliveryId;
-            populateInformation();
             this.rider_id = rider_id;
+            populateInformation();
         }
         private void bottomLeftPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -262,12 +262,21 @@ namespace EasyDelivery
                     command.ExecuteNonQuery();
                 }
 
-                string deliveryQuery = "UPDATE delivery set status = 'OutForDelivery' where d_id = @d_id";
+                string deliveryQuery = "UPDATE delivery set status = 'OutForDelivery' where d_id = @d_id;";
                 using (SqlCommand command = new SqlCommand(deliveryQuery, connection))
                 {
                     command.Parameters.AddWithValue("@d_id", deliveryId);
                     command.ExecuteNonQuery();
                 }
+
+                string rideridquery = "UPDATE delivery set rider_id = @riderID where d_id = @d_id AND ((rider_id IS NULL) OR rider_id = 'Unassigned')";
+                using (SqlCommand command = new SqlCommand(rideridquery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.Parameters.AddWithValue("@riderID", rider_id);
+                    command.ExecuteNonQuery();
+                }
+
                 MessageBox.Show("Delivery Accepted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

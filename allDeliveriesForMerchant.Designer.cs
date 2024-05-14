@@ -175,6 +175,7 @@
             newDeliveryButton.Text = "  New Delivery";
             newDeliveryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             newDeliveryButton.UseVisualStyleBackColor = true;
+            newDeliveryButton.Click += newDeliveryButton_Click;
             // 
             // deliveriesButton
             // 
@@ -207,6 +208,7 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // sidePanel
             // 

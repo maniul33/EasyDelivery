@@ -176,7 +176,6 @@ namespace EasyDelivery
 
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(store_id);
             new allDeliveriesForMerchant(store_id, store_id).Show();
             this.Hide();
         }

@@ -231,9 +231,10 @@
             userPasswordTextBox.Location = new Point(236, 330);
             userPasswordTextBox.Multiline = true;
             userPasswordTextBox.Name = "userPasswordTextBox";
+            userPasswordTextBox.PasswordChar = '*';
             userPasswordTextBox.Size = new Size(437, 43);
             userPasswordTextBox.TabIndex = 14;
-            userPasswordTextBox.Text = "Password";
+            userPasswordTextBox.Text = "Enter Password";
             passToolTip.SetToolTip(userPasswordTextBox, "Enter password");
             userPasswordTextBox.TextChanged += textBox2_TextChanged;
             userPasswordTextBox.Enter += userPassword_Enter;

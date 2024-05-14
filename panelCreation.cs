@@ -17,7 +17,6 @@ namespace EasyDelivery
             List<Delivery> deliveryDetails = new List<Delivery>();
             List<Panel> panels = new List<Panel>();
             bool isRiderID = false;
-            bool isInvoiceID = false;
             bool isStoreID = false;
 
             string idType = "";
@@ -102,7 +101,6 @@ namespace EasyDelivery
                 {
                     panel.Click += (sender, e) =>
                     {
-                        MessageBox.Show(dlv.d_id);
                         showDeliveryDetails destinationForm = new showDeliveryDetails(dlv.d_id, dlv.store_id);
                         destinationForm.Show();
                     };
@@ -111,7 +109,7 @@ namespace EasyDelivery
                 {
                     panel.Click += (sender, e) =>
                     {
-                        acceptDelivery destinationForm = new acceptDelivery(dlv.d_id, dlv.rider_id);
+                        acceptDelivery destinationForm = new acceptDelivery(dlv.d_id, searchingValue);
                         destinationForm.Show();
                     };
                 }
