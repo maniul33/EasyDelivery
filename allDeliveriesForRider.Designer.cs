@@ -40,14 +40,9 @@
             contextMenuStrip2 = new ContextMenuStrip(components);
             sidePanel = new Panel();
             logoutButton = new Button();
-            notesButton = new Button();
-            invoicesButton = new Button();
             deliveriesButton = new Button();
-            newDeliveryButton = new Button();
             dashboardButton = new Button();
             logoPanel = new Panel();
-            profileButton = new Button();
-            profilePicture = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
             logoBox = new PictureBox();
@@ -57,7 +52,6 @@
             label6 = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             SuspendLayout();
@@ -137,10 +131,7 @@
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(notesButton);
-            sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
-            sidePanel.Controls.Add(newDeliveryButton);
             sidePanel.Controls.Add(dashboardButton);
             sidePanel.Controls.Add(logoPanel);
             sidePanel.Dock = DockStyle.Left;
@@ -156,7 +147,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
-            logoutButton.Location = new Point(0, 728);
+            logoutButton.Location = new Point(0, 414);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -164,38 +155,7 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
-            // 
-            // notesButton
-            // 
-            notesButton.Cursor = Cursors.Hand;
-            notesButton.FlatAppearance.BorderSize = 0;
-            notesButton.FlatStyle = FlatStyle.Flat;
-            notesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            notesButton.ForeColor = Color.White;
-            notesButton.Location = new Point(0, 648);
-            notesButton.Margin = new Padding(0);
-            notesButton.Name = "notesButton";
-            notesButton.Size = new Size(250, 80);
-            notesButton.TabIndex = 5;
-            notesButton.Text = "    Notes";
-            notesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            notesButton.UseVisualStyleBackColor = true;
-            // 
-            // invoicesButton
-            // 
-            invoicesButton.Cursor = Cursors.Hand;
-            invoicesButton.FlatAppearance.BorderSize = 0;
-            invoicesButton.FlatStyle = FlatStyle.Flat;
-            invoicesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            invoicesButton.ForeColor = Color.White;
-            invoicesButton.Location = new Point(0, 568);
-            invoicesButton.Margin = new Padding(0);
-            invoicesButton.Name = "invoicesButton";
-            invoicesButton.Size = new Size(250, 80);
-            invoicesButton.TabIndex = 4;
-            invoicesButton.Text = "   Invoices";
-            invoicesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            invoicesButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // deliveriesButton
             // 
@@ -204,7 +164,7 @@
             deliveriesButton.FlatStyle = FlatStyle.Flat;
             deliveriesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deliveriesButton.ForeColor = Color.White;
-            deliveriesButton.Location = new Point(0, 488);
+            deliveriesButton.Location = new Point(0, 334);
             deliveriesButton.Margin = new Padding(0);
             deliveriesButton.Name = "deliveriesButton";
             deliveriesButton.Size = new Size(250, 80);
@@ -213,22 +173,6 @@
             deliveriesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             deliveriesButton.UseVisualStyleBackColor = true;
             // 
-            // newDeliveryButton
-            // 
-            newDeliveryButton.Cursor = Cursors.Hand;
-            newDeliveryButton.FlatAppearance.BorderSize = 0;
-            newDeliveryButton.FlatStyle = FlatStyle.Flat;
-            newDeliveryButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            newDeliveryButton.ForeColor = Color.White;
-            newDeliveryButton.Location = new Point(0, 408);
-            newDeliveryButton.Margin = new Padding(0);
-            newDeliveryButton.Name = "newDeliveryButton";
-            newDeliveryButton.Size = new Size(250, 80);
-            newDeliveryButton.TabIndex = 2;
-            newDeliveryButton.Text = "  New Delivery";
-            newDeliveryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            newDeliveryButton.UseVisualStyleBackColor = true;
-            // 
             // dashboardButton
             // 
             dashboardButton.Cursor = Cursors.Hand;
@@ -236,7 +180,7 @@
             dashboardButton.FlatStyle = FlatStyle.Flat;
             dashboardButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dashboardButton.ForeColor = Color.White;
-            dashboardButton.Location = new Point(0, 328);
+            dashboardButton.Location = new Point(0, 254);
             dashboardButton.Margin = new Padding(0);
             dashboardButton.Name = "dashboardButton";
             dashboardButton.Size = new Size(250, 80);
@@ -244,42 +188,16 @@
             dashboardButton.Text = "   Dashboard";
             dashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             dashboardButton.UseVisualStyleBackColor = true;
+            dashboardButton.Click += dashboardButton_Click;
             // 
             // logoPanel
             // 
-            logoPanel.Controls.Add(profileButton);
-            logoPanel.Controls.Add(profilePicture);
             logoPanel.Controls.Add(panel1);
             logoPanel.Dock = DockStyle.Top;
             logoPanel.Location = new Point(0, 0);
             logoPanel.Name = "logoPanel";
             logoPanel.Size = new Size(250, 331);
             logoPanel.TabIndex = 1;
-            // 
-            // profileButton
-            // 
-            profileButton.BackColor = Color.White;
-            profileButton.Cursor = Cursors.Hand;
-            profileButton.FlatAppearance.BorderSize = 0;
-            profileButton.FlatStyle = FlatStyle.Flat;
-            profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            profileButton.ForeColor = Color.FromArgb(19, 40, 71);
-            profileButton.Location = new Point(85, 246);
-            profileButton.Name = "profileButton";
-            profileButton.Size = new Size(165, 85);
-            profileButton.TabIndex = 1;
-            profileButton.Text = " Profile";
-            profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            profileButton.UseVisualStyleBackColor = false;
-            // 
-            // profilePicture
-            // 
-            profilePicture.BackColor = Color.White;
-            profilePicture.Location = new Point(0, 244);
-            profilePicture.Name = "profilePicture";
-            profilePicture.Size = new Size(87, 87);
-            profilePicture.TabIndex = 1;
-            profilePicture.TabStop = false;
             // 
             // panel1
             // 
@@ -352,7 +270,6 @@
             Text = "allDeliveriesForRider";
             sidePanel.ResumeLayout(false);
             logoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logoBox).EndInit();
             ResumeLayout(false);
@@ -372,14 +289,9 @@
         private ContextMenuStrip contextMenuStrip2;
         private Panel sidePanel;
         private Button logoutButton;
-        private Button notesButton;
-        private Button invoicesButton;
         private Button deliveriesButton;
-        private Button newDeliveryButton;
         private Button dashboardButton;
         private Panel logoPanel;
-        private Button profileButton;
-        private PictureBox profilePicture;
         private Panel panel1;
         private Panel panel2;
         private PictureBox logoBox;

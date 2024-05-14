@@ -34,7 +34,14 @@ namespace EasyDelivery
 
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            new allDeliveriesForRider(rider_id).ShowDialog();
+        }
 
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
         }
     }
 }

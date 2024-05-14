@@ -213,5 +213,6 @@ namespace EasyDelivery
             allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, store_id);
             form.Show();
         }
+
     }
 }

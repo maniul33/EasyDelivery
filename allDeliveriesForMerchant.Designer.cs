@@ -42,7 +42,6 @@
             dashboardButton = new Button();
             newDeliveryButton = new Button();
             deliveriesButton = new Button();
-            invoicesButton = new Button();
             logoutButton = new Button();
             sidePanel = new Panel();
             contextMenuStrip2 = new ContextMenuStrip(components);
@@ -142,16 +141,6 @@
             logoBox.Size = new Size(250, 250);
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
-
-            //pictureBox1.BackColor = Color.White;
-            //pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            //pictureBox1.Location = new Point(0, 0);
-            //pictureBox1.Name = "pictureBox1";
-            //pictureBox1.Size = new Size(250, 250);
-            //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            //pictureBox1.TabIndex = 1;
-            //pictureBox1.TabStop = false;
-
             // 
             // dashboardButton
             // 
@@ -201,22 +190,6 @@
             deliveriesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             deliveriesButton.UseVisualStyleBackColor = true;
             // 
-            // invoicesButton
-            // 
-            invoicesButton.Cursor = Cursors.Hand;
-            invoicesButton.FlatAppearance.BorderSize = 0;
-            invoicesButton.FlatStyle = FlatStyle.Flat;
-            invoicesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            invoicesButton.ForeColor = Color.White;
-            invoicesButton.Location = new Point(0, 568);
-            invoicesButton.Margin = new Padding(0);
-            invoicesButton.Name = "invoicesButton";
-            invoicesButton.Size = new Size(250, 80);
-            invoicesButton.TabIndex = 4;
-            invoicesButton.Text = "   Invoices";
-            invoicesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            invoicesButton.UseVisualStyleBackColor = true;
-            // 
             // logoutButton
             // 
             logoutButton.Cursor = Cursors.Hand;
@@ -224,7 +197,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
-            logoutButton.Location = new Point(0, 657);
+            logoutButton.Location = new Point(0, 568);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -232,12 +205,12 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // sidePanel
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
             sidePanel.Controls.Add(newDeliveryButton);
             sidePanel.Controls.Add(dashboardButton);
@@ -426,7 +399,6 @@
         private Button dashboardButton;
         private Button newDeliveryButton;
         private Button deliveriesButton;
-        private Button invoicesButton;
         private Button logoutButton;
         private Panel sidePanel;
         private Label briefStatsLabel;

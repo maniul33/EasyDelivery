@@ -30,5 +30,17 @@ namespace EasyDelivery
                 rightPanel.Controls.Add(panel);
             }
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
+        }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new riderDashboard(riderID).Show();
+        }
     }
 }

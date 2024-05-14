@@ -144,7 +144,7 @@ namespace EasyDelivery
                             {
                                 while (reader.Read())
                                 {
-                                    string deliveryId = reader.GetString(0); 
+                                    string deliveryId = reader.GetString(0);
                                     showDeliveryDetails form = new showDeliveryDetails(deliveryId, store_id);
                                     form.Show();
                                 }
@@ -167,6 +167,11 @@ namespace EasyDelivery
         private void profilePicture_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

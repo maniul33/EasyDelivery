@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(merchantDashboard));
             sidePanel = new Panel();
             logoutButton = new Button();
-            invoicesButton = new Button();
             deliveriesButton = new Button();
             newDeliveryButton = new Button();
             dashboardButton = new Button();
@@ -132,7 +131,6 @@
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
             sidePanel.Controls.Add(newDeliveryButton);
             sidePanel.Controls.Add(dashboardButton);
@@ -151,7 +149,7 @@
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
             logoutButton.Image = (Image)resources.GetObject("logoutButton.Image");
-            logoutButton.Location = new Point(0, 641);
+            logoutButton.Location = new Point(0, 579);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -160,23 +158,6 @@
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
             logoutButton.Click += logoutButton_Click;
-            // 
-            // invoicesButton
-            // 
-            invoicesButton.Cursor = Cursors.Hand;
-            invoicesButton.FlatAppearance.BorderSize = 0;
-            invoicesButton.FlatStyle = FlatStyle.Flat;
-            invoicesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            invoicesButton.ForeColor = Color.White;
-            invoicesButton.Image = (Image)resources.GetObject("invoicesButton.Image");
-            invoicesButton.Location = new Point(0, 568);
-            invoicesButton.Margin = new Padding(0);
-            invoicesButton.Name = "invoicesButton";
-            invoicesButton.Size = new Size(250, 80);
-            invoicesButton.TabIndex = 4;
-            invoicesButton.Text = "   Invoices";
-            invoicesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            invoicesButton.UseVisualStyleBackColor = true;
             // 
             // deliveriesButton
             // 
@@ -959,7 +940,6 @@
         private PictureBox pictureBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button dashboardButton;
-        private Button invoicesButton;
         private Button deliveriesButton;
         private Button newDeliveryButton;
         private Button logoutButton;
