@@ -178,6 +178,7 @@
             newDeliveryButton.Text = "  New Delivery";
             newDeliveryButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             newDeliveryButton.UseVisualStyleBackColor = true;
+            newDeliveryButton.Click += newDeliveryButton_Click;
             // 
             // deliveriesButton
             // 

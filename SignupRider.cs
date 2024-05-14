@@ -242,7 +242,6 @@ namespace EasyDelivery
 
                 MessageBox.Show("Congratulations, your account has been successfully created.");
 
-                // Reset placeholders and colors
                 ResetTextBox(riderNameTextBox, "Rider name", Color.Silver);
                 ResetTextBox(passwordTextBox, "Password", Color.Silver);
                 ResetTextBox(bankNameTextBox, "Bank name", Color.Silver);
@@ -250,6 +249,9 @@ namespace EasyDelivery
                 ResetTextBox(accountNoTextBox, "Account number", Color.Silver);
                 ResetTextBox(emailTextBox, "Email address", Color.Silver);
                 ResetTextBox(numberTextBox, "Phone number", Color.Silver);
+
+                new Login().Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

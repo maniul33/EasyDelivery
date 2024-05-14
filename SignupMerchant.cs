@@ -451,6 +451,9 @@ namespace EasyDelivery
                 ResetTextBox(emailTextBox, "Email address", Color.Silver);
                 ResetTextBox(numberTextBox, "Phone number", Color.Silver);
                 ResetTextBox(zipTextBox, "Zip", Color.Silver);
+
+                new Login().Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

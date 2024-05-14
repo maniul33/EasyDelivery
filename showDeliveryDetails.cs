@@ -89,6 +89,7 @@ namespace EasyDelivery
                         collectAmountLabel.Text = reader[7].ToString();
                         statusLabel.Text = reader[8].ToString();
                         deliveryIdLabel.Text = reader[0].ToString();
+                       
 
                         Font boldFont = new Font(this.Font, FontStyle.Bold);
 
@@ -151,6 +152,7 @@ namespace EasyDelivery
                             outForDeliveryGreenTickLabel.Visible = true;
                             cancelledLabel.Visible = true;
                             deliveredLabel.Visible = false;
+                            cancelButton.Visible = false;
                         }
                     }
                     else

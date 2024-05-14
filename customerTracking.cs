@@ -60,27 +60,7 @@ namespace EasyDelivery
                 {
                     conn.Open();
 
-                    string query = @"
-                                    SELECT m.store_name, 
-                                    col.weight, 
-                                    col.productType, 
-                                    col.collectAmount, 
-                                    col.status, 
-                                    cust.cusName, 
-                                    col.d_id, 
-                                    cust.cusPhone, 
-                                    cust.cusDistrict, 
-                                    cust.cusArea, 
-                                    cust.cusStreet, 
-                                    cust.cusZip,
-                                    r.rider_name,
-                                    r.number
-                                    FROM collect col
-                                    INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
-                                    INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
-                                    INNER JOIN delivery d ON col.d_id = d.d_id
-                                    INNER JOIN rider r ON d.rider_id = r.rider_id
-                                    WHERE cust.cusPhone = @PhoneNumber";
+                    string query = "select * from CustomerDeliveryView WHERE CustomerPhone = @PhoneNumber";
 
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -90,26 +70,27 @@ namespace EasyDelivery
 
                     if (reader.Read())
                     {
-                        // Populate textboxes with retrieved data
-                        topStatusLabel.Text = reader["status"].ToString();
-                        topDeliveryLabel.Text = reader["d_id"].ToString();
-                        topStoreNameLabel.Text = reader["store_name"].ToString();
-                        cusNameLabel.Text = reader["cusName"].ToString();
-                        cusPhoneLabel.Text = reader["cusPhone"].ToString();
-                        cusDistrictLabel.Text = reader["cusDistrict"].ToString();
+                        cusNameLabel.Text = reader[1].ToString();
+                        cusPhoneLabel.Text = reader[2].ToString();
+                        cusDistrictLabel.Text = reader[3].ToString();
 
-                        cusAreaLabel.Text = reader["cusArea"].ToString();
-                        cusStreetLabel.Text = reader["cusStreet"].ToString();
-                        cusZipLabel.Text = reader["cusZip"].ToString();
-                        productTypeLabel.Text = reader["productType"].ToString();
+                        string rdrName = reader[12].ToString();
+                        string rdrPhone = reader[13].ToString();
+                        riderNameLabel.Text = rdrName;
+                        riderPhoneLabel.Text = rdrPhone;
+                        
+                        cusAreaLabel.Text = reader[4].ToString();
+                        cusStreetLabel.Text = reader[5].ToString();
+                        cusZipLabel.Text = reader[6].ToString();
+                        productTypeLabel.Text = reader[15].ToString();
 
-                        weightLabel.Text = reader["weight"].ToString();
-                        collectAmountLabel.Text = reader["collectAmount"].ToString();
-                        statusLabel.Text = reader["status"].ToString();
-                        deliveryIdLabel.Text = reader["d_id"].ToString();
-
-                        riderNameLabel.Text = reader["rider_name"].ToString();
-                        riderPhoneLabel.Text = reader["number"].ToString();
+                        weightLabel.Text = reader[14].ToString();
+                        collectAmountLabel.Text = reader[7].ToString();
+                        statusLabel.Text = reader[8].ToString();
+                        deliveryIdLabel.Text = reader[0].ToString();
+                        topStatusLabel.Text = reader[8].ToString();
+                        topDeliveryLabel.Text = reader[0].ToString();
+                        topStoreNameLabel.Text = reader[10].ToString();
 
 
                         Font boldFont = new Font(this.Font, FontStyle.Bold);
@@ -132,8 +113,7 @@ namespace EasyDelivery
                         riderNameLabel.Font = boldFont;
                         riderPhoneLabel.Font = boldFont;
 
-                        string deliveryStatus = reader["status"].ToString();
-
+                        string deliveryStatus = reader[8].ToString();
                         if (deliveryStatus == "Pending")
                         {
                             outForDeliveryDoneIconLabel.Visible = false;
@@ -144,6 +124,8 @@ namespace EasyDelivery
                             outForDeliveryGreenTickLabel.Visible = false;
                             cancelledLabel.Visible = false;
                             deliveredLabel.Visible = true;
+                            riderNameLabel.ForeColor = System.Drawing.Color.Red;
+                            riderPhoneLabel.ForeColor = System.Drawing.Color.Red;
                         }
                         else if (deliveryStatus == "OutForDelivery")
                         {
@@ -155,7 +137,8 @@ namespace EasyDelivery
                             outForDeliveryGreenTickLabel.Visible = false;
                             cancelledLabel.Visible = false;
                             deliveredLabel.Visible = true;
-
+                            riderNameLabel.Text = rdrName;
+                            riderPhoneLabel.Text = rdrPhone;
                         }
                         else if (deliveryStatus == "Delivered")
                         {

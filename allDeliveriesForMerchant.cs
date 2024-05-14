@@ -163,5 +163,11 @@ namespace EasyDelivery
             new Login().Show();
             this.Hide();
         }
+
+        private void newDeliveryButton_Click(object sender, EventArgs e)
+        {
+            new newDelivery(store_id).Show();
+            this.Hide();
+        }
     }
 }

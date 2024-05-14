@@ -132,13 +132,13 @@
             // riderPhoneLabel
             // 
             riderPhoneLabel.AutoSize = true;
-            riderPhoneLabel.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            riderPhoneLabel.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             riderPhoneLabel.ForeColor = Color.FromArgb(19, 39, 71);
             riderPhoneLabel.Location = new Point(339, 82);
             riderPhoneLabel.Name = "riderPhoneLabel";
-            riderPhoneLabel.Size = new Size(129, 22);
+            riderPhoneLabel.Size = new Size(145, 22);
             riderPhoneLabel.TabIndex = 83;
-            riderPhoneLabel.Text = "Phone number";
+            riderPhoneLabel.Text = "xxxxxxxxxxxxxxx";
             // 
             // riderNameLabel
             // 
@@ -147,9 +147,9 @@
             riderNameLabel.ForeColor = Color.FromArgb(19, 39, 71);
             riderNameLabel.Location = new Point(339, 48);
             riderNameLabel.Name = "riderNameLabel";
-            riderNameLabel.Size = new Size(58, 22);
+            riderNameLabel.Size = new Size(145, 22);
             riderNameLabel.TabIndex = 82;
-            riderNameLabel.Text = "Name";
+            riderNameLabel.Text = "xxxxxxxxxxxxxxx";
             // 
             // label13
             // 
