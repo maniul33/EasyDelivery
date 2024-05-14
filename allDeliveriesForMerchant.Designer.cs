@@ -97,11 +97,12 @@
             profileButton.FlatStyle = FlatStyle.Flat;
             profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileButton.ForeColor = Color.FromArgb(19, 40, 71);
+            profileButton.Image = (Image)resources.GetObject("profileButton.Image");
             profileButton.Location = new Point(0, 246);
             profileButton.Name = "profileButton";
             profileButton.Size = new Size(250, 85);
             profileButton.TabIndex = 1;
-            profileButton.Text = " Profile";
+            profileButton.Text = "    Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
             profileButton.Click += profileButton_Click_1;
@@ -150,6 +151,7 @@
             dashboardButton.FlatStyle = FlatStyle.Flat;
             dashboardButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dashboardButton.ForeColor = Color.White;
+            dashboardButton.Image = (Image)resources.GetObject("dashboardButton.Image");
             dashboardButton.Location = new Point(0, 328);
             dashboardButton.Margin = new Padding(0);
             dashboardButton.Name = "dashboardButton";
@@ -167,6 +169,7 @@
             newDeliveryButton.FlatStyle = FlatStyle.Flat;
             newDeliveryButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             newDeliveryButton.ForeColor = Color.White;
+            newDeliveryButton.Image = (Image)resources.GetObject("newDeliveryButton.Image");
             newDeliveryButton.Location = new Point(0, 408);
             newDeliveryButton.Margin = new Padding(0);
             newDeliveryButton.Name = "newDeliveryButton";
@@ -184,6 +187,7 @@
             deliveriesButton.FlatStyle = FlatStyle.Flat;
             deliveriesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deliveriesButton.ForeColor = Color.White;
+            deliveriesButton.Image = (Image)resources.GetObject("deliveriesButton.Image");
             deliveriesButton.Location = new Point(0, 488);
             deliveriesButton.Margin = new Padding(0);
             deliveriesButton.Name = "deliveriesButton";
@@ -200,6 +204,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
+            logoutButton.Image = (Image)resources.GetObject("logoutButton.Image");
             logoutButton.Location = new Point(0, 568);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
