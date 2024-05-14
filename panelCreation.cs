@@ -110,7 +110,7 @@ namespace EasyDelivery
                 {
                     panel.Click += (sender, e) =>
                     {
-                        acceptDelivery destinationForm = new acceptDelivery(dlv.d_id);
+                        acceptDelivery destinationForm = new acceptDelivery(dlv.d_id, dlv.rider_id);
                         destinationForm.Show();
                     };
                 }
