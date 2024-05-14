@@ -17,7 +17,7 @@ namespace EasyDelivery
         public Login()
         {
             InitializeComponent();
-            userPasswordTextBox.PasswordChar = '*';
+            //userPasswordTextBox.PasswordChar = '*';
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -128,9 +128,8 @@ namespace EasyDelivery
                                 {
                                     retrievedID = readerMerchant["store_id"].ToString();
                                     MessageBox.Show(retrievedID);
-                                    // Redirect to Merchant Dashboard
-                                    //new merchantDashboard(retrievedID).Show();
-                                    // this.Hide();
+                                    new merchantDashboard(retrievedID).Show();
+                                    this.Hide();
                                 }
                                 else // If no record found in merchant table, check rider table
                                 {
@@ -149,9 +148,8 @@ namespace EasyDelivery
                                         {
                                             string retrievedID = readerRider["rider_id"].ToString();
                                             MessageBox.Show(retrievedID);
-                                            // Redirect to Rider Dashboard
-                                            // new RiderDashboard().Show();
-                                            // this.Hide();
+                                            new riderDashboard(retrievedID).Show();
+                                            this.Hide();
                                         }
                                         else
                                         {

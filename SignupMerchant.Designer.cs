@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignupMerchant));
             FrontRightPanel = new Panel();
-            imageButton = new Button();
             zipTextBox = new TextBox();
             streetTextBox = new TextBox();
             areaTextBox = new TextBox();
@@ -56,7 +55,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            uploadLogoToolTip = new ToolTip(components);
             PasswordToolTip = new ToolTip(components);
             FrontRightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EasyDeliveryLogo).BeginInit();
@@ -66,7 +64,6 @@
             // FrontRightPanel
             // 
             FrontRightPanel.BackColor = Color.FromArgb(254, 254, 255);
-            FrontRightPanel.Controls.Add(imageButton);
             FrontRightPanel.Controls.Add(zipTextBox);
             FrontRightPanel.Controls.Add(streetTextBox);
             FrontRightPanel.Controls.Add(areaTextBox);
@@ -90,20 +87,6 @@
             FrontRightPanel.Size = new Size(881, 678);
             FrontRightPanel.TabIndex = 0;
             FrontRightPanel.Paint += FrontRightPanel_Paint;
-            // 
-            // imageButton
-            // 
-            imageButton.BackColor = Color.FromArgb(254, 255, 254);
-            imageButton.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            imageButton.ForeColor = Color.Silver;
-            imageButton.Location = new Point(42, 384);
-            imageButton.Name = "imageButton";
-            imageButton.Size = new Size(383, 37);
-            imageButton.TabIndex = 36;
-            imageButton.Text = "Upload Store Logo";
-            uploadLogoToolTip.SetToolTip(imageButton, "Logo cannot be changed later.");
-            imageButton.UseVisualStyleBackColor = false;
-            imageButton.Click += imageButton_Click;
             // 
             // zipTextBox
             // 
@@ -222,7 +205,7 @@
             // 
             passwordTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passwordTextBox.ForeColor = SystemColors.ActiveBorder;
-            passwordTextBox.Location = new Point(42, 330);
+            passwordTextBox.Location = new Point(42, 384);
             passwordTextBox.Multiline = true;
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(383, 37);
@@ -236,7 +219,7 @@
             // 
             numberTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             numberTextBox.ForeColor = SystemColors.ActiveBorder;
-            numberTextBox.Location = new Point(42, 281);
+            numberTextBox.Location = new Point(42, 319);
             numberTextBox.Multiline = true;
             numberTextBox.Name = "numberTextBox";
             numberTextBox.Size = new Size(383, 37);
@@ -249,7 +232,7 @@
             // 
             emailTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             emailTextBox.ForeColor = SystemColors.ActiveBorder;
-            emailTextBox.Location = new Point(42, 227);
+            emailTextBox.Location = new Point(42, 245);
             emailTextBox.Multiline = true;
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(383, 37);
@@ -404,11 +387,6 @@
             label1.Text = "account.";
             label1.Click += label1_Click;
             // 
-            // uploadLogoToolTip
-            // 
-            uploadLogoToolTip.IsBalloon = true;
-            uploadLogoToolTip.ToolTipTitle = "Size must be 90x90.";
-            // 
             // SignupMerchant
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -453,8 +431,6 @@
         private Label label7;
         private TextBox zipTextBox;
         private TextBox streetTextBox;
-        private Button imageButton;
-        private ToolTip uploadLogoToolTip;
         private ToolTip PasswordToolTip;
     }
 }

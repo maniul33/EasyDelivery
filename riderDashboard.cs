@@ -18,9 +18,6 @@ namespace EasyDelivery
         {
             InitializeComponent();
             this.rider_id = rider_id;
-            PictureBox logo = new PictureBox();
-            logoBox.Image = Image.FromFile("C:\\Users\\user\\source\\repos\\EasyDelivery\\Resources\\435178119_795721862618047_8546822541438855553_n.png");
-            logoBox.Controls.Add(logo);
 
             panelCreation p = new panelCreation();
 
