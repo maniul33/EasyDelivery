@@ -35,8 +35,8 @@
             rightPanel = new Panel();
             logoPanel = new Panel();
             profileButton = new Button();
-            profilePicture = new PictureBox();
             panel1 = new Panel();
+            panel3 = new Panel();
             panel2 = new Panel();
             logoBox = new PictureBox();
             dashboardButton = new Button();
@@ -59,7 +59,6 @@
             searchButton = new Button();
             button1 = new Button();
             logoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logoBox).BeginInit();
             sidePanel.SuspendLayout();
@@ -75,15 +74,14 @@
             // 
             rightPanel.AutoScroll = true;
             rightPanel.BackColor = SystemColors.ButtonHighlight;
-            rightPanel.Location = new Point(248, 172);
+            rightPanel.Location = new Point(253, 172);
             rightPanel.Name = "rightPanel";
-            rightPanel.Size = new Size(1114, 608);
+            rightPanel.Size = new Size(1106, 608);
             rightPanel.TabIndex = 14;
             // 
             // logoPanel
             // 
             logoPanel.Controls.Add(profileButton);
-            logoPanel.Controls.Add(profilePicture);
             logoPanel.Controls.Add(panel1);
             logoPanel.Dock = DockStyle.Top;
             logoPanel.Location = new Point(0, 0);
@@ -99,33 +97,33 @@
             profileButton.FlatStyle = FlatStyle.Flat;
             profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileButton.ForeColor = Color.FromArgb(19, 40, 71);
-            profileButton.Location = new Point(85, 246);
+            profileButton.Location = new Point(0, 246);
             profileButton.Name = "profileButton";
-            profileButton.Size = new Size(165, 85);
+            profileButton.Size = new Size(250, 85);
             profileButton.TabIndex = 1;
             profileButton.Text = " Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
-            profileButton.Click += profileButton_Click;
-            // 
-            // profilePicture
-            // 
-            profilePicture.BackColor = Color.White;
-            profilePicture.Location = new Point(0, 244);
-            profilePicture.Name = "profilePicture";
-            profilePicture.Size = new Size(87, 87);
-            profilePicture.TabIndex = 1;
-            profilePicture.TabStop = false;
-            profilePicture.Click += profilePicture_Click;
+            profileButton.Click += profileButton_Click_1;
             // 
             // panel1
             // 
+            panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(logoBox);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 250);
             panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.AutoScroll = true;
+            panel3.BackColor = SystemColors.ButtonHighlight;
+            panel3.Location = new Point(248, 172);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1114, 608);
+            panel3.TabIndex = 28;
             // 
             // panel2
             // 
@@ -209,7 +207,6 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
-            logoutButton.Click += logoutButton_Click;
             // 
             // sidePanel
             // 
@@ -364,6 +361,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1362, 803);
+            Controls.Add(rightPanel);
             Controls.Add(button1);
             Controls.Add(searchButton);
             Controls.Add(label13);
@@ -376,13 +374,11 @@
             Controls.Add(label1);
             Controls.Add(label3);
             Controls.Add(sidePanel);
-            Controls.Add(rightPanel);
             Name = "allDeliveriesForMerchant";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "allDeliveriesForMerchant";
             Load += allDeliveriesForMerchant_Load;
             logoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logoBox).EndInit();
             sidePanel.ResumeLayout(false);
@@ -396,7 +392,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private Panel logoPanel;
         private Button profileButton;
-        private PictureBox profilePicture;
         private Panel panel1;
         private Panel panel2;
         private PictureBox logoBox;
@@ -473,5 +468,6 @@
         private TextBox searchByCustomerPhoneBox;
         private Button searchButton;
         private Button button1;
+        private Panel panel3;
     }
 }

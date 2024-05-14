@@ -37,7 +37,6 @@
             dashboardButton = new Button();
             logoPanel = new Panel();
             profileButton = new Button();
-            profilePicture = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -97,7 +96,6 @@
             label3 = new Label();
             sidePanel.SuspendLayout();
             logoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -211,11 +209,11 @@
             dashboardButton.Text = "   Dashboard";
             dashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             dashboardButton.UseVisualStyleBackColor = true;
+            dashboardButton.Click += dashboardButton_Click;
             // 
             // logoPanel
             // 
             logoPanel.Controls.Add(profileButton);
-            logoPanel.Controls.Add(profilePicture);
             logoPanel.Controls.Add(panel1);
             logoPanel.Dock = DockStyle.Top;
             logoPanel.Location = new Point(0, 0);
@@ -232,24 +230,14 @@
             profileButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             profileButton.ForeColor = Color.FromArgb(19, 40, 71);
             profileButton.Image = (Image)resources.GetObject("profileButton.Image");
-            profileButton.Location = new Point(85, 246);
+            profileButton.Location = new Point(0, 246);
             profileButton.Name = "profileButton";
-            profileButton.Size = new Size(165, 85);
+            profileButton.Size = new Size(250, 85);
             profileButton.TabIndex = 1;
-            profileButton.Text = " Profile";
+            profileButton.Text = "   Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
             profileButton.Click += profileButton_Click;
-            // 
-            // profilePicture
-            // 
-            profilePicture.BackColor = Color.White;
-            profilePicture.Image = (Image)resources.GetObject("profilePicture.Image");
-            profilePicture.Location = new Point(0, 244);
-            profilePicture.Name = "profilePicture";
-            profilePicture.Size = new Size(87, 87);
-            profilePicture.TabIndex = 1;
-            profilePicture.TabStop = false;
             // 
             // panel1
             // 
@@ -888,7 +876,6 @@
             Load += merchantDashboard_Load;
             sidePanel.ResumeLayout(false);
             logoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)profilePicture).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
@@ -936,7 +923,6 @@
         private Panel logoPanel;
         private Panel panel1;
         private Button profileButton;
-        private PictureBox profilePicture;
         private Panel panel2;
         private PictureBox pictureBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
