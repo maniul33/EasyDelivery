@@ -23,20 +23,6 @@ namespace EasyDelivery
         {
 
         }
-        private byte[] imageData;
-        public void imageButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Read the selected image file into a byte array
-                imageData = File.ReadAllBytes(openFileDialog.FileName);
-
-                MessageBox.Show("Image uploaded successfully!");
-            }
-        }
         private bool EmailExists(SqlConnection conn, string email)
         {
             string query = "SELECT COUNT(*) FROM merchant WHERE email = @Email;";
@@ -430,7 +416,7 @@ namespace EasyDelivery
                 idGenerator i = new idGenerator();
                 string id = i.createNewID("STR");
 
-                string query = "INSERT INTO merchant (store_id, store_name, password, bankName, branch_name, accNo, district, area, street, zip, email, number, store_image) VALUES (@StoreId, @StoreName, @Password, @BankName, @BranchName, @AccountNo, @District, @Area, @Street, @Zip, @Email, @Number, @ImageData);";
+                string query = "INSERT INTO merchant (store_id, store_name, password, bankName, branch_name, accNo, district, area, street, zip, email, number) VALUES (@StoreId, @StoreName, @Password, @BankName, @BranchName, @AccountNo, @District, @Area, @Street, @Zip, @Email, @Number);";
                 // 6. Execute Query with parameters
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@StoreId", id);
@@ -445,7 +431,6 @@ namespace EasyDelivery
                 cmd.Parameters.AddWithValue("@Zip", zip);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Number", number);
-                cmd.Parameters.AddWithValue("@ImageData", imageData);
 
 
                 cmd.ExecuteNonQuery();
