@@ -16,6 +16,7 @@ namespace EasyDelivery
         public SignupRider()
         {
             InitializeComponent();
+            passwordTextBox.PasswordChar = '*';
         }
 
 

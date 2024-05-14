@@ -15,14 +15,22 @@ namespace EasyDelivery
     {
         private string storeId;
         string connection = DatabaseSettings.ConnectionString;
+        private bool showSearch = true;
 
         public adminMerchantUpdatePanel(string storeId)
         {
             InitializeComponent();
             this.storeId = storeId;
             searchTextBox.Text = storeId;
-            // Populate textboxes
+
             searchButton_Click(this, EventArgs.Empty);
+        }
+        public adminMerchantUpdatePanel(string storeId, bool showSearch) : this(storeId)
+        {
+            this.showSearch = showSearch;
+            searchTextBox.Visible = showSearch;
+            searchButton.Visible = showSearch;
+            UpdateLabel.Location = new Point(UpdateLabel.Location.X, 105);
         }
 
         private void storeNameTextBox_TextChanged(object sender, EventArgs e)
@@ -260,7 +268,6 @@ namespace EasyDelivery
             string updatedBranchName = branchNameTextBox.Text.Trim();
             string updatedAccountNo = accountNoTextBox.Text.Trim();
 
-            // Update the record in the database
             using (SqlConnection conn = new SqlConnection(connection))
             {
                 try
@@ -400,6 +407,11 @@ namespace EasyDelivery
         }
 
         private void FrontRightPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void UpdateLabel_Click(object sender, EventArgs e)
         {
 
         }

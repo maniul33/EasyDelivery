@@ -32,7 +32,7 @@ namespace EasyDelivery
             Panel panel = sender as Panel;
             if (panel != null)
             {
-                int padding = 130; // Adjust the padding as needed
+                int padding = 130;
                 int y = panel.Height / 2;
                 int startX = padding;
                 int endX = panel.Width - padding;
@@ -85,7 +85,7 @@ namespace EasyDelivery
                     if (reader.Read())
                     {
                         this.store_id = reader["store_id"].ToString();
-                        // Populate textboxes with retrieved data
+                        
                         topStatusLabel.Text = reader["status"].ToString();
                         string status = reader["status"].ToString();
                         topDeliveryLabel.Text = reader["d_id"].ToString();
@@ -110,7 +110,6 @@ namespace EasyDelivery
 
                         Font boldFont = new Font(this.Font, FontStyle.Bold);
 
-                        // Set font to bold for specific labels
                         topStatusLabel.Font = boldFont;
                         topDeliveryLabel.Font = boldFont;
                         topStoreNameLabel.Font = boldFont;
