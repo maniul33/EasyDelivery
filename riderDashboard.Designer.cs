@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(riderDashboard));
             contextMenuStrip3 = new ContextMenuStrip(components);
             label5 = new Label();
             label4 = new Label();
@@ -208,9 +209,11 @@
             // logoBox
             // 
             logoBox.BackColor = Color.White;
+            logoBox.Image = (Image)resources.GetObject("logoBox.Image");
             logoBox.Location = new Point(0, 0);
             logoBox.Name = "logoBox";
             logoBox.Size = new Size(250, 250);
+            logoBox.SizeMode = PictureBoxSizeMode.CenterImage;
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
             // 

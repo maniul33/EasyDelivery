@@ -176,9 +176,9 @@ namespace EasyDelivery
 
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, store_id);
             form.Show();
+            this.Hide();
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
@@ -214,5 +214,9 @@ namespace EasyDelivery
             form.Show();
         }
 
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            new adminMerchantUpdatePanel(store_id, false).Show();
+        }
     }
 }

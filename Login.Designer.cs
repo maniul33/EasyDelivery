@@ -49,6 +49,7 @@
             userCredentialTextBox = new TextBox();
             SignInLabel = new Label();
             imageList1 = new ImageList(components);
+            passToolTip = new ToolTip(components);
             FrontLeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)EasyDeliveryLogo).BeginInit();
             FrontRightPanel.SuspendLayout();
@@ -154,7 +155,6 @@
             FrontRightPanel.Name = "FrontRightPanel";
             FrontRightPanel.Size = new Size(881, 678);
             FrontRightPanel.TabIndex = 0;
-
             FrontRightPanel.Paint += FrontRightPanel_Paint;
             // 
             // SignupLabel
@@ -234,8 +234,7 @@
             userPasswordTextBox.Size = new Size(437, 43);
             userPasswordTextBox.TabIndex = 14;
             userPasswordTextBox.Text = "Password";
-            userPasswordTextBox.UseSystemPasswordChar = true;
-
+            passToolTip.SetToolTip(userPasswordTextBox, "Enter password");
             userPasswordTextBox.TextChanged += textBox2_TextChanged;
             userPasswordTextBox.Enter += userPassword_Enter;
             userPasswordTextBox.Leave += userPassword_Leave;
@@ -310,5 +309,6 @@
         private Label DontHaveAccountLabel;
         private Label clickHereLabel;
         private Label WannaTrackParcelLabel;
+        private ToolTip passToolTip;
     }
 }

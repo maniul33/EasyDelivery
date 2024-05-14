@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminMerchantUpdatePanel));
             FrontRightPanel = new Panel();
+            label9 = new Label();
+            label8 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -53,11 +58,6 @@
             UpdateLabel = new Label();
             updateButton = new Button();
             FrontLeftPanel = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label8 = new Label();
-            label9 = new Label();
             FrontRightPanel.SuspendLayout();
             FrontLeftPanel.SuspendLayout();
             SuspendLayout();
@@ -97,6 +97,61 @@
             FrontRightPanel.Size = new Size(1232, 678);
             FrontRightPanel.TabIndex = 0;
             FrontRightPanel.Paint += FrontRightPanel_Paint;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.FromArgb(19, 39, 71);
+            label9.Location = new Point(458, 431);
+            label9.Name = "label9";
+            label9.Size = new Size(147, 22);
+            label9.TabIndex = 48;
+            label9.Text = "Account Number";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.FromArgb(19, 39, 71);
+            label8.Location = new Point(690, 348);
+            label8.Name = "label8";
+            label8.Size = new Size(122, 22);
+            label8.TabIndex = 47;
+            label8.Text = "Branch Name";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.FromArgb(19, 39, 71);
+            label6.Location = new Point(690, 268);
+            label6.Name = "label6";
+            label6.Size = new Size(35, 22);
+            label6.TabIndex = 46;
+            label6.Text = "Zip";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(19, 39, 71);
+            label5.Location = new Point(458, 268);
+            label5.Name = "label5";
+            label5.Size = new Size(61, 22);
+            label5.TabIndex = 45;
+            label5.Text = "Street";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.FromArgb(19, 39, 71);
+            label4.Location = new Point(690, 186);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 22);
+            label4.TabIndex = 44;
+            label4.Text = "Area";
             // 
             // label3
             // 
@@ -362,6 +417,7 @@
             UpdateLabel.Size = new Size(462, 41);
             UpdateLabel.TabIndex = 19;
             UpdateLabel.Text = "Update Merchant Information";
+            UpdateLabel.Click += UpdateLabel_Click;
             // 
             // updateButton
             // 
@@ -386,61 +442,6 @@
             FrontLeftPanel.Size = new Size(1235, 681);
             FrontLeftPanel.TabIndex = 2;
             FrontLeftPanel.Paint += FrontLeftPanel_Paint;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(19, 39, 71);
-            label4.Location = new Point(690, 186);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 22);
-            label4.TabIndex = 44;
-            label4.Text = "Area";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(19, 39, 71);
-            label5.Location = new Point(458, 268);
-            label5.Name = "label5";
-            label5.Size = new Size(61, 22);
-            label5.TabIndex = 45;
-            label5.Text = "Street";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(19, 39, 71);
-            label6.Location = new Point(690, 268);
-            label6.Name = "label6";
-            label6.Size = new Size(35, 22);
-            label6.TabIndex = 46;
-            label6.Text = "Zip";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(19, 39, 71);
-            label8.Location = new Point(690, 348);
-            label8.Name = "label8";
-            label8.Size = new Size(122, 22);
-            label8.TabIndex = 47;
-            label8.Text = "Branch Name";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Bahnschrift SemiLight", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(19, 39, 71);
-            label9.Location = new Point(458, 431);
-            label9.Name = "label9";
-            label9.Size = new Size(147, 22);
-            label9.TabIndex = 48;
-            label9.Text = "Account Number";
             // 
             // adminMerchantUpdatePanel
             // 

@@ -18,10 +18,6 @@ namespace EasyDelivery
         public allDeliveriesForMerchant(string store_id, string searchingInfo)
         {
             InitializeComponent();
-            PictureBox logo = new PictureBox();
-            logoBox.Image = Image.FromFile("C:\\Users\\user\\source\\repos\\EasyDelivery\\Resources\\435178119_795721862618047_8546822541438855553_n.png");
-            logoBox.Controls.Add(logo);
-
             panelCreation p = new panelCreation();
 
             List<Panel> panels = p.LoadDeliveryDetails(searchingInfo, false);
@@ -30,8 +26,6 @@ namespace EasyDelivery
             {
                 rightPanel.Controls.Add(panel);
             }
-
-            LoadStoreImage(store_id);
         }
 
 
@@ -63,42 +57,6 @@ namespace EasyDelivery
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void LoadStoreImage(string store_id)
-        {
-            string connection = DatabaseSettings.ConnectionString;
-            string query = "SELECT store_image FROM merchant WHERE store_id = @StoreId";
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connection))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@StoreId", store_id);
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        byte[] imageBytes = (byte[])result;
-                        Image image;
-                        using (System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes))
-                        {
-                            image = Image.FromStream(ms);
-                        }
-                        profilePicture.Image = image;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Store image not found.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while loading the store image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -169,9 +127,15 @@ namespace EasyDelivery
 
         }
 
-        private void logoutButton_Click(object sender, EventArgs e)
+        private void profileButton_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            new merchantDashboard(store_id).Show();
+            this.Hide();
         }
     }
 }

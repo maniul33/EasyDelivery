@@ -239,6 +239,7 @@
             profileButton.Text = " Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
+            profileButton.Click += profileButton_Click;
             // 
             // profilePicture
             // 

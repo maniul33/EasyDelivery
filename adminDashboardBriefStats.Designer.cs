@@ -108,18 +108,21 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(label34);
             panel1.Controls.Add(label33);
             panel1.Controls.Add(label28);
             panel1.Controls.Add(totalPlatformFeeLabel);
             panel1.Controls.Add(totalDeliveryLabel);
             panel1.Controls.Add(totalRiderLabel);
+            panel1.Controls.Add(totalChargeLabel);
+            panel1.Controls.Add(label26);
             panel1.Controls.Add(totalMerchantLabel);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(totalMerLabel);
             panel1.Location = new Point(12, 68);
             panel1.Name = "panel1";
-            panel1.Size = new Size(325, 220);
+            panel1.Size = new Size(325, 241);
             panel1.TabIndex = 0;
             // 
             // label33
@@ -128,7 +131,7 @@
             label33.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label33.ForeColor = Color.FromArgb(19, 39, 71);
             label33.ImageAlign = ContentAlignment.MiddleLeft;
-            label33.Location = new Point(210, 161);
+            label33.Location = new Point(209, 147);
             label33.Name = "label33";
             label33.Size = new Size(36, 22);
             label33.TabIndex = 74;
@@ -141,11 +144,11 @@
             label28.ForeColor = Color.FromArgb(19, 39, 71);
             label28.Image = (Image)resources.GetObject("label28.Image");
             label28.ImageAlign = ContentAlignment.MiddleLeft;
-            label28.Location = new Point(15, 156);
+            label28.Location = new Point(14, 142);
             label28.Name = "label28";
-            label28.Size = new Size(164, 28);
+            label28.Size = new Size(186, 28);
             label28.TabIndex = 71;
-            label28.Text = "    Platform fee";
+            label28.Text = "    Admin earning";
             // 
             // totalPlatformFeeLabel
             // 
@@ -153,7 +156,7 @@
             totalPlatformFeeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             totalPlatformFeeLabel.ForeColor = Color.FromArgb(19, 39, 71);
             totalPlatformFeeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            totalPlatformFeeLabel.Location = new Point(247, 156);
+            totalPlatformFeeLabel.Location = new Point(246, 142);
             totalPlatformFeeLabel.Name = "totalPlatformFeeLabel";
             totalPlatformFeeLabel.Size = new Size(17, 28);
             totalPlatformFeeLabel.TabIndex = 72;
@@ -165,7 +168,7 @@
             totalDeliveryLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             totalDeliveryLabel.ForeColor = Color.FromArgb(19, 39, 71);
             totalDeliveryLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            totalDeliveryLabel.Location = new Point(248, 111);
+            totalDeliveryLabel.Location = new Point(248, 99);
             totalDeliveryLabel.Name = "totalDeliveryLabel";
             totalDeliveryLabel.Size = new Size(17, 28);
             totalDeliveryLabel.TabIndex = 33;
@@ -177,7 +180,7 @@
             totalRiderLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             totalRiderLabel.ForeColor = Color.FromArgb(19, 39, 71);
             totalRiderLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            totalRiderLabel.Location = new Point(248, 65);
+            totalRiderLabel.Location = new Point(248, 55);
             totalRiderLabel.Name = "totalRiderLabel";
             totalRiderLabel.Size = new Size(17, 28);
             totalRiderLabel.TabIndex = 32;
@@ -203,7 +206,7 @@
             label2.ForeColor = Color.FromArgb(19, 39, 71);
             label2.Image = (Image)resources.GetObject("label2.Image");
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(15, 111);
+            label2.Location = new Point(15, 99);
             label2.Name = "label2";
             label2.Size = new Size(174, 28);
             label2.TabIndex = 30;
@@ -216,7 +219,7 @@
             label1.ForeColor = Color.FromArgb(19, 39, 71);
             label1.Image = (Image)resources.GetObject("label1.Image");
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(15, 65);
+            label1.Location = new Point(15, 55);
             label1.Name = "label1";
             label1.Size = new Size(142, 28);
             label1.TabIndex = 29;
@@ -241,7 +244,7 @@
             deliveryChargeTKIcon.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deliveryChargeTKIcon.ForeColor = Color.FromArgb(19, 39, 71);
             deliveryChargeTKIcon.ImageAlign = ContentAlignment.MiddleLeft;
-            deliveryChargeTKIcon.Location = new Point(307, 33);
+            deliveryChargeTKIcon.Location = new Point(105, 33);
             deliveryChargeTKIcon.Name = "deliveryChargeTKIcon";
             deliveryChargeTKIcon.Size = new Size(36, 22);
             deliveryChargeTKIcon.TabIndex = 70;
@@ -253,7 +256,7 @@
             deliveryChargeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deliveryChargeLabel.ForeColor = Color.FromArgb(19, 39, 71);
             deliveryChargeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            deliveryChargeLabel.Location = new Point(340, 28);
+            deliveryChargeLabel.Location = new Point(138, 28);
             deliveryChargeLabel.Name = "deliveryChargeLabel";
             deliveryChargeLabel.Size = new Size(17, 28);
             deliveryChargeLabel.TabIndex = 69;
@@ -265,7 +268,7 @@
             totalChargeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             totalChargeLabel.ForeColor = Color.FromArgb(19, 39, 71);
             totalChargeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            totalChargeLabel.Location = new Point(77, 28);
+            totalChargeLabel.Location = new Point(243, 186);
             totalChargeLabel.Name = "totalChargeLabel";
             totalChargeLabel.Size = new Size(17, 28);
             totalChargeLabel.TabIndex = 69;
@@ -278,7 +281,7 @@
             label27.ForeColor = Color.FromArgb(19, 39, 71);
             label27.Image = (Image)resources.GetObject("label27.Image");
             label27.ImageAlign = ContentAlignment.MiddleLeft;
-            label27.Location = new Point(231, 0);
+            label27.Location = new Point(29, 0);
             label27.Name = "label27";
             label27.Size = new Size(197, 28);
             label27.TabIndex = 35;
@@ -291,11 +294,11 @@
             label26.ForeColor = Color.FromArgb(19, 39, 71);
             label26.Image = (Image)resources.GetObject("label26.Image");
             label26.ImageAlign = ContentAlignment.MiddleLeft;
-            label26.Location = new Point(10, 0);
+            label26.Location = new Point(15, 186);
             label26.Name = "label26";
-            label26.Size = new Size(162, 28);
+            label26.Size = new Size(186, 28);
             label26.TabIndex = 34;
-            label26.Text = "    Total charge";
+            label26.Text = "    Cash collected";
             // 
             // BriefStatsLabel
             // 
@@ -313,7 +316,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Bahnschrift SemiBold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(19, 39, 71);
-            label3.Location = new Point(12, 300);
+            label3.Location = new Point(12, 315);
             label3.Name = "label3";
             label3.Size = new Size(275, 36);
             label3.TabIndex = 21;
@@ -325,7 +328,7 @@
             searchButton.Cursor = Cursors.Hand;
             searchButton.Font = new Font("Bahnschrift", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             searchButton.ForeColor = Color.FromArgb(254, 255, 254);
-            searchButton.Location = new Point(222, 343);
+            searchButton.Location = new Point(222, 358);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(115, 48);
             searchButton.TabIndex = 51;
@@ -337,7 +340,7 @@
             // 
             searchTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             searchTextBox.ForeColor = SystemColors.ActiveBorder;
-            searchTextBox.Location = new Point(28, 351);
+            searchTextBox.Location = new Point(28, 366);
             searchTextBox.Multiline = true;
             searchTextBox.Name = "searchTextBox";
             searchTextBox.Size = new Size(174, 37);
@@ -449,9 +452,9 @@
             deliveryDetailsPanel.Controls.Add(label7);
             deliveryDetailsPanel.Controls.Add(label5);
             deliveryDetailsPanel.Controls.Add(label6);
-            deliveryDetailsPanel.Location = new Point(12, 446);
+            deliveryDetailsPanel.Location = new Point(12, 463);
             deliveryDetailsPanel.Name = "deliveryDetailsPanel";
-            deliveryDetailsPanel.Size = new Size(325, 344);
+            deliveryDetailsPanel.Size = new Size(325, 348);
             deliveryDetailsPanel.TabIndex = 61;
             // 
             // label8
@@ -459,7 +462,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Bahnschrift", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(19, 39, 71);
-            label8.Location = new Point(12, 404);
+            label8.Location = new Point(12, 425);
             label8.Name = "label8";
             label8.Size = new Size(213, 34);
             label8.TabIndex = 62;
@@ -708,7 +711,7 @@
             label19.AutoSize = true;
             label19.Font = new Font("Bahnschrift", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label19.ForeColor = Color.FromArgb(19, 39, 71);
-            label19.Location = new Point(371, 496);
+            label19.Location = new Point(371, 509);
             label19.Name = "label19";
             label19.Size = new Size(178, 34);
             label19.TabIndex = 68;
@@ -729,7 +732,7 @@
             panel4.Controls.Add(label21);
             panel4.Controls.Add(label22);
             panel4.Controls.Add(label23);
-            panel4.Location = new Point(371, 534);
+            panel4.Location = new Point(371, 547);
             panel4.Name = "panel4";
             panel4.Size = new Size(687, 256);
             panel4.TabIndex = 67;
@@ -875,14 +878,11 @@
             // panel5
             // 
             panel5.BorderStyle = BorderStyle.Fixed3D;
-            panel5.Controls.Add(label34);
             panel5.Controls.Add(riderChargeTKIcon);
             panel5.Controls.Add(riderChargeLabel);
             panel5.Controls.Add(label32);
             panel5.Controls.Add(deliveryChargeTKIcon);
-            panel5.Controls.Add(label26);
             panel5.Controls.Add(deliveryChargeLabel);
-            panel5.Controls.Add(totalChargeLabel);
             panel5.Controls.Add(label27);
             panel5.Location = new Point(376, 44);
             panel5.Name = "panel5";
@@ -895,7 +895,7 @@
             label34.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label34.ForeColor = Color.FromArgb(19, 39, 71);
             label34.ImageAlign = ContentAlignment.MiddleLeft;
-            label34.Location = new Point(44, 33);
+            label34.Location = new Point(210, 191);
             label34.Name = "label34";
             label34.Size = new Size(36, 22);
             label34.TabIndex = 71;
@@ -907,7 +907,7 @@
             riderChargeTKIcon.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             riderChargeTKIcon.ForeColor = Color.FromArgb(19, 39, 71);
             riderChargeTKIcon.ImageAlign = ContentAlignment.MiddleLeft;
-            riderChargeTKIcon.Location = new Point(512, 33);
+            riderChargeTKIcon.Location = new Point(503, 33);
             riderChargeTKIcon.Name = "riderChargeTKIcon";
             riderChargeTKIcon.Size = new Size(36, 22);
             riderChargeTKIcon.TabIndex = 73;
@@ -919,7 +919,7 @@
             riderChargeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             riderChargeLabel.ForeColor = Color.FromArgb(19, 39, 71);
             riderChargeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            riderChargeLabel.Location = new Point(541, 28);
+            riderChargeLabel.Location = new Point(532, 28);
             riderChargeLabel.Name = "riderChargeLabel";
             riderChargeLabel.Size = new Size(17, 28);
             riderChargeLabel.TabIndex = 72;
@@ -932,7 +932,7 @@
             label32.ForeColor = Color.FromArgb(19, 39, 71);
             label32.Image = (Image)resources.GetObject("label32.Image");
             label32.ImageAlign = ContentAlignment.MiddleLeft;
-            label32.Location = new Point(459, 0);
+            label32.Location = new Point(450, 0);
             label32.Name = "label32";
             label32.Size = new Size(167, 28);
             label32.TabIndex = 71;

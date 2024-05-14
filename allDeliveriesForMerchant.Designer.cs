@@ -106,6 +106,7 @@
             profileButton.Text = " Profile";
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = false;
+            profileButton.Click += profileButton_Click;
             // 
             // profilePicture
             // 
@@ -136,9 +137,11 @@
             // logoBox
             // 
             logoBox.BackColor = Color.White;
+            logoBox.Image = (Image)resources.GetObject("logoBox.Image");
             logoBox.Location = new Point(0, 0);
             logoBox.Name = "logoBox";
             logoBox.Size = new Size(250, 250);
+            logoBox.SizeMode = PictureBoxSizeMode.CenterImage;
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
             // 
@@ -157,6 +160,7 @@
             dashboardButton.Text = "   Dashboard";
             dashboardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             dashboardButton.UseVisualStyleBackColor = true;
+            dashboardButton.Click += dashboardButton_Click;
             // 
             // newDeliveryButton
             // 
