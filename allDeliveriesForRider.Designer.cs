@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(allDeliveriesForRider));
             button1 = new Button();
             contextMenuStrip3 = new ContextMenuStrip(components);
             label5 = new Label();
@@ -147,6 +148,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
+            logoutButton.Image = (Image)resources.GetObject("logoutButton.Image");
             logoutButton.Location = new Point(0, 414);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
@@ -164,6 +166,7 @@
             deliveriesButton.FlatStyle = FlatStyle.Flat;
             deliveriesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             deliveriesButton.ForeColor = Color.White;
+            deliveriesButton.Image = (Image)resources.GetObject("deliveriesButton.Image");
             deliveriesButton.Location = new Point(0, 334);
             deliveriesButton.Margin = new Padding(0);
             deliveriesButton.Name = "deliveriesButton";
@@ -180,6 +183,7 @@
             dashboardButton.FlatStyle = FlatStyle.Flat;
             dashboardButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dashboardButton.ForeColor = Color.White;
+            dashboardButton.Image = (Image)resources.GetObject("dashboardButton.Image");
             dashboardButton.Location = new Point(0, 254);
             dashboardButton.Margin = new Padding(0);
             dashboardButton.Name = "dashboardButton";
@@ -218,9 +222,11 @@
             // logoBox
             // 
             logoBox.BackColor = Color.White;
+            logoBox.Image = (Image)resources.GetObject("logoBox.Image");
             logoBox.Location = new Point(0, 0);
             logoBox.Name = "logoBox";
             logoBox.Size = new Size(250, 250);
+            logoBox.SizeMode = PictureBoxSizeMode.CenterImage;
             logoBox.TabIndex = 1;
             logoBox.TabStop = false;
             // 

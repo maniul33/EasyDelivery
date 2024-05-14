@@ -17,9 +17,6 @@ namespace EasyDelivery
         {
             InitializeComponent();
             this.riderID = riderID;
-            PictureBox logo = new PictureBox();
-            logoBox.Image = Image.FromFile("C:\\Users\\user\\source\\repos\\EasyDelivery\\Resources\\435178119_795721862618047_8546822541438855553_n.png");
-            logoBox.Controls.Add(logo);
 
             panelCreation p = new panelCreation();
 
@@ -33,14 +30,14 @@ namespace EasyDelivery
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new Login().Show();
+            this.Hide();
         }
 
         private void dashboardButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             new riderDashboard(riderID).Show();
+            this.Hide();
         }
     }
 }
