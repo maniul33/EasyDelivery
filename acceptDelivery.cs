@@ -19,6 +19,7 @@ namespace EasyDelivery
         private string deliveryId;
         private string rider_id;
         private string collectedAmount;
+        private string store_id;
         public acceptDelivery(string deliveryId, string rider_id)
         {
             InitializeComponent();
@@ -58,7 +59,8 @@ namespace EasyDelivery
 
                     string query = @"
                        SELECT m.store_name, 
-                       m.number, 
+                       m.number,
+                       m.store_id,
                        col.weight, 
                        col.productType, 
                        col.collectAmount, 
@@ -82,6 +84,8 @@ namespace EasyDelivery
 
                     if (reader.Read())
                     {
+                        this.store_id = reader["store_id"].ToString();
+                        
                         topStatusLabel.Text = reader["status"].ToString();
                         string status = reader["status"].ToString();
                         topDeliveryLabel.Text = reader["d_id"].ToString();
@@ -295,6 +299,39 @@ namespace EasyDelivery
                     command.Parameters.AddWithValue("@d_id", deliveryId);
                     command.ExecuteNonQuery();
                 }
+
+                idGenerator i = new idGenerator();
+                string paymentIdForMerchant = i.createNewID("PYS");
+
+                string pysquery = "INSERT INTO receive_payment (p_id, pay_amount, store_id, d_id) " +
+                   "VALUES (@p_id, @pay_amount, @store_id, @d_id)";
+
+                using (SqlCommand command = new SqlCommand(pysquery, connection))
+                {
+                    command.Parameters.AddWithValue("@p_id", paymentIdForMerchant);
+                    command.Parameters.AddWithValue("@pay_amount", float.Parse(collectedAmount)*0.9);
+                    command.Parameters.AddWithValue("@store_id", store_id);
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+
+                    command.ExecuteNonQuery();
+                }
+
+                idGenerator r = new idGenerator();
+                string paymentIdForRider = r.createNewID("PYR");
+
+                string pyrquery = "INSERT INTO obtain (p_id, pay_amount, rider_id, d_id) " +
+                   "VALUES (@p_id, @pay_amount, @rider_id, @d_id)";
+
+                using (SqlCommand command = new SqlCommand(pyrquery, connection))
+                {
+                    command.Parameters.AddWithValue("@p_id", paymentIdForMerchant);
+                    command.Parameters.AddWithValue("@pay_amount", float.Parse(collectedAmount)*0.07);
+                    command.Parameters.AddWithValue("@rider_id", rider_id);
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+
+                    command.ExecuteNonQuery();
+                }
+
                 MessageBox.Show("Delivered Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
