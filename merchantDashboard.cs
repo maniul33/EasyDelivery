@@ -177,9 +177,7 @@ namespace EasyDelivery
         private void deliveriesButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-            allDeliveriesForMerchant form = new allDeliveriesForMerchant("STR001", "STR001");
-
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, store_id);
             form.Show();
         }
 
@@ -196,9 +194,7 @@ namespace EasyDelivery
         private void newDeliveryButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             newDelivery form = new newDelivery("STR001");
-
             form.Show();
         }
 
@@ -208,6 +204,13 @@ namespace EasyDelivery
 
             Login form = new Login();
 
+            form.Show();
+        }
+
+        private void seeallButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            allDeliveriesForMerchant form = new allDeliveriesForMerchant(store_id, store_id);
             form.Show();
         }
     }

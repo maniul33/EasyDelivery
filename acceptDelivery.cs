@@ -1,24 +1,30 @@
-﻿using System;
+﻿using Bunifu.Licensing.Options;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace EasyDelivery
 {
     public partial class acceptDelivery : Form
     {
-        string deliveryId;
-        public acceptDelivery(string deliveryId)
+        private string deliveryId;
+        private string rider_id;
+        private string collectedAmount;
+        public acceptDelivery(string deliveryId, string rider_id)
         {
             InitializeComponent();
             this.deliveryId = deliveryId;
             populateInformation();
+            this.rider_id = rider_id;
         }
         private void bottomLeftPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -51,23 +57,23 @@ namespace EasyDelivery
                     conn.Open();
 
                     string query = @"
-               SELECT m.store_name, 
-               m.number, 
-               col.weight, 
-               col.productType, 
-               col.collectAmount, 
-               col.status, 
-               cust.cusName, 
-               col.d_id, 
-               cust.cusPhone, 
-               cust.cusDistrict, 
-               cust.cusArea, 
-               cust.cusStreet, 
-               cust.cusZip
-               FROM collect col
-               INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
-               INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
-               WHERE col.d_id = @DeliveryId";
+                       SELECT m.store_name, 
+                       m.number, 
+                       col.weight, 
+                       col.productType, 
+                       col.collectAmount, 
+                       col.status, 
+                       cust.cusName, 
+                       col.d_id, 
+                       cust.cusPhone, 
+                       cust.cusDistrict, 
+                       cust.cusArea, 
+                       cust.cusStreet, 
+                       cust.cusZip
+                       FROM collect col
+                       INNER JOIN merchant m ON m.store_id = (SELECT store_id FROM [create] WHERE d_id = col.d_id)
+                       INNER JOIN customer cust ON col.cusPhone = cust.cusPhone
+                       WHERE col.d_id = @DeliveryId";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@DeliveryId", deliveryId);
@@ -93,7 +99,9 @@ namespace EasyDelivery
                         productTypeLabel.Text = reader["productType"].ToString();
 
                         weightLabel.Text = reader["weight"].ToString();
-                        collectAmountLabel.Text = reader["collectAmount"].ToString();
+                        string collectAmount = reader["collectAmount"].ToString();
+                        collectAmountLabel.Text = collectAmount;
+                        this.collectedAmount = collectAmount;
                         statusLabel.Text = reader["status"].ToString();
                         deliveryIdLabel.Text = reader["d_id"].ToString();
 
@@ -116,22 +124,25 @@ namespace EasyDelivery
                         deliveryIdLabel.Font = boldFont;
                         topStorePhoneLabel.Font = boldFont;
 
-                        if(status == "OutForDelivery")
+                        if (status == "OutForDelivery")
                         {
+                            doneButton.Visible = true;
                             acceptButton.Visible = false;
                             cancelButton.Visible = true;
                         }
-                        else if(status == "Pending")
+                        else if (status == "Pending")
                         {
+                            doneButton.Visible = false;
                             acceptButton.Visible = true;
                             cancelButton.Visible = false;
                         }
-                        else if(status == "Delivered")
+                        else if (status == "Delivered")
                         {
                             acceptButton.Visible = false;
                             cancelButton.Visible = false;
+                            doneButton.Visible = false;
                         }
-                        //The below code is for the timeline panel(bottomLeftPanel).
+
                         if (status == "Pending")
                         {
                             outForDeliveryDoneIconLabel.Visible = false;
@@ -153,7 +164,6 @@ namespace EasyDelivery
                             outForDeliveryGreenTickLabel.Visible = false;
                             cancelledLabel.Visible = false;
                             deliveredLabel.Visible = true;
-
                         }
                         else if (status == "Delivered")
                         {
@@ -196,17 +206,100 @@ namespace EasyDelivery
 
         private void backLabel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            using (SqlConnection connection = new SqlConnection(DatabaseSettings.ConnectionString))
+            {
+                connection.Open();
 
+                string createQuery = "UPDATE [create] set status = 'Cancelled' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(createQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string collectQuery = "UPDATE collect set status = 'Cancelled' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(collectQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string deliveryQuery = "UPDATE delivery set status = 'Cancelled' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(deliveryQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+                MessageBox.Show("Delivery cancelled!", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            using (SqlConnection connection = new SqlConnection(DatabaseSettings.ConnectionString))
+            {
+                connection.Open();
 
+                string createQuery = "UPDATE [create] set status = 'OutForDelivery' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(createQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string collectQuery = "UPDATE collect set status = 'OutForDelivery' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(collectQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string deliveryQuery = "UPDATE delivery set status = 'OutForDelivery' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(deliveryQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+                MessageBox.Show("Delivery Accepted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
+        private void doneButton_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseSettings.ConnectionString))
+            {
+                connection.Open();
+
+                string createQuery = "UPDATE [create] set status = 'Delivered' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(createQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string collectQuery = "UPDATE collect set status = 'Delivered' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(collectQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+
+                string deliveryQuery = "UPDATE delivery set status = 'Delivered' where d_id = @d_id";
+                using (SqlCommand command = new SqlCommand(deliveryQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@d_id", deliveryId);
+                    command.ExecuteNonQuery();
+                }
+                MessageBox.Show("Delivered Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
         }
     }
 }

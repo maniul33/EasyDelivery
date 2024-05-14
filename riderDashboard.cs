@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualBasic.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,23 +13,26 @@ namespace EasyDelivery
 {
     public partial class riderDashboard : Form
     {
-        public riderDashboard()
+        public string rider_id;
+        public riderDashboard(string rider_id)
         {
             InitializeComponent();
+            this.rider_id = rider_id;
+            PictureBox logo = new PictureBox();
+            logoBox.Image = Image.FromFile("C:\\Users\\user\\source\\repos\\EasyDelivery\\Resources\\435178119_795721862618047_8546822541438855553_n.png");
+            logoBox.Controls.Add(logo);
+
+            panelCreation p = new panelCreation();
+
+            List<Panel> panels = p.LoadDeliveryDetails(rider_id, false);
+
+            foreach (Panel panel in panels)
+            {
+                rightPanel.Controls.Add(panel);
+            }
         }
 
-         
-
-
-
-
-        private void riderDelivery_button_Click(object sender, EventArgs e)
-        {
-            new riderDeliveries().Show();
-            this.Hide();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
+        private void deliveriesButton_Click(object sender, EventArgs e)
         {
 
         }

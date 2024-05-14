@@ -72,6 +72,7 @@
             pendingCheckedIconLabel = new Label();
             label4 = new Label();
             TopPanel = new Panel();
+            doneButton = new Button();
             cancelButton = new Button();
             acceptButton = new Button();
             topStorePhoneLabel = new Label();
@@ -629,6 +630,7 @@
             // TopPanel
             // 
             TopPanel.BorderStyle = BorderStyle.Fixed3D;
+            TopPanel.Controls.Add(doneButton);
             TopPanel.Controls.Add(cancelButton);
             TopPanel.Controls.Add(acceptButton);
             TopPanel.Controls.Add(topStorePhoneLabel);
@@ -643,6 +645,22 @@
             TopPanel.Name = "TopPanel";
             TopPanel.Size = new Size(796, 162);
             TopPanel.TabIndex = 43;
+            // 
+            // doneButton
+            // 
+            doneButton.BackColor = Color.Green;
+            doneButton.FlatAppearance.BorderSize = 0;
+            doneButton.FlatStyle = FlatStyle.Flat;
+            doneButton.Font = new Font("Bahnschrift", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            doneButton.ForeColor = Color.White;
+            doneButton.ImageAlign = ContentAlignment.MiddleLeft;
+            doneButton.Location = new Point(637, 22);
+            doneButton.Name = "doneButton";
+            doneButton.Size = new Size(131, 48);
+            doneButton.TabIndex = 66;
+            doneButton.Text = "Done";
+            doneButton.UseVisualStyleBackColor = false;
+            doneButton.Click += doneButton_Click;
             // 
             // cancelButton
             // 
@@ -848,5 +866,6 @@
         private Label deliveredIconLabel;
         private Label cancelledIconLabel;
         private Label cancelledLabel;
+        private Button doneButton;
     }
 }
