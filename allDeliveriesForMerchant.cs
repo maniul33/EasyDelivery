@@ -17,10 +17,25 @@ namespace EasyDelivery
         private string store_id;
         public allDeliveriesForMerchant(string store_id, string searchingInfo)
         {
+            this.store_id = store_id;
             InitializeComponent();
             panelCreation p = new panelCreation();
 
             List<Panel> panels = p.LoadDeliveryDetails(searchingInfo, false);
+
+            foreach (Panel panel in panels)
+            {
+                rightPanel.Controls.Add(panel);
+            }
+        }
+
+        public allDeliveriesForMerchant(string store_id)
+        {
+            this.store_id = store_id;
+            InitializeComponent();
+            panelCreation p = new panelCreation();
+
+            List<Panel> panels = p.LoadDeliveryDetails(store_id, false);
 
             foreach (Panel panel in panels)
             {
@@ -136,6 +151,11 @@ namespace EasyDelivery
         {
             new merchantDashboard(store_id).Show();
             this.Hide();
+        }
+
+        private void profileButton_Click_1(object sender, EventArgs e)
+        {
+            new adminMerchantUpdatePanel(store_id, false).Show();
         }
     }
 }

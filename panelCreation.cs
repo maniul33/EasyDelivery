@@ -102,6 +102,7 @@ namespace EasyDelivery
                 {
                     panel.Click += (sender, e) =>
                     {
+                        MessageBox.Show(dlv.d_id);
                         showDeliveryDetails destinationForm = new showDeliveryDetails(dlv.d_id, dlv.store_id);
                         destinationForm.Show();
                     };

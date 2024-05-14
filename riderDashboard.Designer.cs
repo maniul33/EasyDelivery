@@ -40,7 +40,6 @@
             contextMenuStrip2 = new ContextMenuStrip(components);
             sidePanel = new Panel();
             logoutButton = new Button();
-            invoicesButton = new Button();
             deliveriesButton = new Button();
             dashboardButton = new Button();
             logoPanel = new Panel();
@@ -123,7 +122,6 @@
             // 
             sidePanel.BackColor = Color.FromArgb(19, 40, 71);
             sidePanel.Controls.Add(logoutButton);
-            sidePanel.Controls.Add(invoicesButton);
             sidePanel.Controls.Add(deliveriesButton);
             sidePanel.Controls.Add(dashboardButton);
             sidePanel.Controls.Add(logoPanel);
@@ -140,7 +138,7 @@
             logoutButton.FlatStyle = FlatStyle.Flat;
             logoutButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = Color.White;
-            logoutButton.Location = new Point(0, 495);
+            logoutButton.Location = new Point(0, 414);
             logoutButton.Margin = new Padding(0);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(250, 80);
@@ -148,22 +146,7 @@
             logoutButton.Text = "   Log out";
             logoutButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             logoutButton.UseVisualStyleBackColor = true;
-            // 
-            // invoicesButton
-            // 
-            invoicesButton.Cursor = Cursors.Hand;
-            invoicesButton.FlatAppearance.BorderSize = 0;
-            invoicesButton.FlatStyle = FlatStyle.Flat;
-            invoicesButton.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            invoicesButton.ForeColor = Color.White;
-            invoicesButton.Location = new Point(0, 415);
-            invoicesButton.Margin = new Padding(0);
-            invoicesButton.Name = "invoicesButton";
-            invoicesButton.Size = new Size(250, 80);
-            invoicesButton.TabIndex = 4;
-            invoicesButton.Text = "   Invoices";
-            invoicesButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            invoicesButton.UseVisualStyleBackColor = true;
+            logoutButton.Click += logoutButton_Click;
             // 
             // deliveriesButton
             // 
@@ -296,7 +279,6 @@
         private ContextMenuStrip contextMenuStrip2;
         private Panel sidePanel;
         private Button logoutButton;
-        private Button invoicesButton;
         private Button deliveriesButton;
         private Button dashboardButton;
         private Panel logoPanel;
