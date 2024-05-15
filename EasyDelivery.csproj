@@ -34,6 +34,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource3.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resource4.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource4.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Resource1.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -59,6 +64,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource5.resx</DependentUpon>
     </Compile>
+    <Compile Update="Screenshots\Resource1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -77,6 +87,10 @@
     <EmbeddedResource Update="Resource3.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource3.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resource4.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource4.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +111,10 @@
     <EmbeddedResource Update="Resources\Resource5.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource5.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Screenshots\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

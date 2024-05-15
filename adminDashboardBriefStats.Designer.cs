@@ -30,20 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminDashboardBriefStats));
             panel1 = new Panel();
+            label34 = new Label();
             label33 = new Label();
             label28 = new Label();
             totalPlatformFeeLabel = new Label();
             totalDeliveryLabel = new Label();
             totalRiderLabel = new Label();
+            totalChargeLabel = new Label();
+            label26 = new Label();
             totalMerchantLabel = new Label();
             label2 = new Label();
             label1 = new Label();
             totalMerLabel = new Label();
             deliveryChargeTKIcon = new Label();
             deliveryChargeLabel = new Label();
-            totalChargeLabel = new Label();
             label27 = new Label();
-            label26 = new Label();
             BriefStatsLabel = new Label();
             label3 = new Label();
             searchButton = new Button();
@@ -93,7 +94,6 @@
             label22 = new Label();
             label23 = new Label();
             panel5 = new Panel();
-            label34 = new Label();
             riderChargeTKIcon = new Label();
             riderChargeLabel = new Label();
             label32 = new Label();
@@ -125,6 +125,19 @@
             panel1.Size = new Size(325, 241);
             panel1.TabIndex = 0;
             // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label34.ForeColor = Color.FromArgb(19, 39, 71);
+            label34.ImageAlign = ContentAlignment.MiddleLeft;
+            label34.Location = new Point(210, 191);
+            label34.Name = "label34";
+            label34.Size = new Size(36, 22);
+            label34.TabIndex = 71;
+            label34.Text = "TK.";
+            label34.Visible = false;
+            // 
             // label33
             // 
             label33.AutoSize = true;
@@ -136,6 +149,7 @@
             label33.Size = new Size(36, 22);
             label33.TabIndex = 74;
             label33.Text = "TK.";
+            label33.Visible = false;
             // 
             // label28
             // 
@@ -149,6 +163,7 @@
             label28.Size = new Size(186, 28);
             label28.TabIndex = 71;
             label28.Text = "    Admin earning";
+            label28.Visible = false;
             // 
             // totalPlatformFeeLabel
             // 
@@ -161,6 +176,7 @@
             totalPlatformFeeLabel.Size = new Size(17, 28);
             totalPlatformFeeLabel.TabIndex = 72;
             totalPlatformFeeLabel.Text = ".";
+            totalPlatformFeeLabel.Visible = false;
             // 
             // totalDeliveryLabel
             // 
@@ -185,6 +201,33 @@
             totalRiderLabel.Size = new Size(17, 28);
             totalRiderLabel.TabIndex = 32;
             totalRiderLabel.Text = ".";
+            // 
+            // totalChargeLabel
+            // 
+            totalChargeLabel.AutoSize = true;
+            totalChargeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            totalChargeLabel.ForeColor = Color.FromArgb(19, 39, 71);
+            totalChargeLabel.ImageAlign = ContentAlignment.MiddleLeft;
+            totalChargeLabel.Location = new Point(243, 186);
+            totalChargeLabel.Name = "totalChargeLabel";
+            totalChargeLabel.Size = new Size(17, 28);
+            totalChargeLabel.TabIndex = 69;
+            totalChargeLabel.Text = ".";
+            totalChargeLabel.Visible = false;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label26.ForeColor = Color.FromArgb(19, 39, 71);
+            label26.Image = (Image)resources.GetObject("label26.Image");
+            label26.ImageAlign = ContentAlignment.MiddleLeft;
+            label26.Location = new Point(15, 186);
+            label26.Name = "label26";
+            label26.Size = new Size(186, 28);
+            label26.TabIndex = 34;
+            label26.Text = "    Cash collected";
+            label26.Visible = false;
             // 
             // totalMerchantLabel
             // 
@@ -262,18 +305,6 @@
             deliveryChargeLabel.TabIndex = 69;
             deliveryChargeLabel.Text = ".";
             // 
-            // totalChargeLabel
-            // 
-            totalChargeLabel.AutoSize = true;
-            totalChargeLabel.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            totalChargeLabel.ForeColor = Color.FromArgb(19, 39, 71);
-            totalChargeLabel.ImageAlign = ContentAlignment.MiddleLeft;
-            totalChargeLabel.Location = new Point(243, 186);
-            totalChargeLabel.Name = "totalChargeLabel";
-            totalChargeLabel.Size = new Size(17, 28);
-            totalChargeLabel.TabIndex = 69;
-            totalChargeLabel.Text = ".";
-            // 
             // label27
             // 
             label27.AutoSize = true;
@@ -286,19 +317,6 @@
             label27.Size = new Size(197, 28);
             label27.TabIndex = 35;
             label27.Text = "    Delivery charge";
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Bahnschrift", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label26.ForeColor = Color.FromArgb(19, 39, 71);
-            label26.Image = (Image)resources.GetObject("label26.Image");
-            label26.ImageAlign = ContentAlignment.MiddleLeft;
-            label26.Location = new Point(15, 186);
-            label26.Name = "label26";
-            label26.Size = new Size(186, 28);
-            label26.TabIndex = 34;
-            label26.Text = "    Cash collected";
             // 
             // BriefStatsLabel
             // 
@@ -888,18 +906,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(682, 71);
             panel5.TabIndex = 69;
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label34.ForeColor = Color.FromArgb(19, 39, 71);
-            label34.ImageAlign = ContentAlignment.MiddleLeft;
-            label34.Location = new Point(210, 191);
-            label34.Name = "label34";
-            label34.Size = new Size(36, 22);
-            label34.TabIndex = 71;
-            label34.Text = "TK.";
             // 
             // riderChargeTKIcon
             // 
