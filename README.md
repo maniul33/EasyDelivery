@@ -18,11 +18,12 @@ This application explores the seamless process of online delivery, emphasizing c
 https://www.youtube.com/watch?v=_rlmd79Gw88
 
 ## 🔗 Links
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-green.svg?style=flat-square&logo=github)](https://github.com/Sajjad2108)
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-green.svg?style=flat-square&logo=github)](https://github.com/maniul33)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue.svg?style=flat-square&logo=github)](https://github.com/Sajjad2108)
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-green.svg?style=flat-square&logo=github)](https://github.com/raisajarin)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue.svg?style=flat-square&logo=github)](https://github.com/maniul33)
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue.svg?style=flat-square&logo=github)](https://github.com/raisajarin)
 
 
 ## Screenshots
